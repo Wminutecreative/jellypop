@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+{/*
+  Webflow CMS Collection Page template (bound to a "FAQ" collection).
+  Shell only — no live CMS data in the static export.
+*/}
+<Layout title="Jellypop Studio" canonicalPath="/detail_faq">
+
+  <div class="w-dyn-list" fs-list-element="wrapper" fs-list-instance="faq">
+  <div class="w-dyn-items" role="list">
+  <div class="w-dyn-item" role="listitem">
+  <div class="faq_item w-dropdown" data-delay="0" data-hover="false">
+  <div class="faq_toggle w-dropdown-toggle">
+  <div class="faq-question_wrapper">
+  <div class="faq-question text-color-shade-black w-dyn-bind-empty"></div>
+  <div class="faq-toogler">
+  <div class="faq-minus"></div>
+  <div class="faq-minus vertical"></div>
+  </div>
+  </div>
+  </div>
+  <nav class="faq__content w-dropdown-list">
+  <div class="faq-tab_content">
+  <div class="faq_paragraph text-color-shade-black-70 w-dyn-bind-empty w-richtext"></div>
+  </div>
+  </nav>
+  </div>
+  </div>
+  </div>
+  <div class="hide w-dyn-empty">
+  <div>No items found.</div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+</Layout>

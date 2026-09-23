@@ -1,0 +1,3929 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Branding & Packaging Studio for D2C India | Jellypop"
+  description="We help Indian D2C brands stand out with bold packaging, brand identity, and conversion-ready websites. FMCG, beauty & wellness founders trust Jellypop."
+  canonicalPath=""
+>
+  <Fragment slot="head-extra">
+    <script
+      async
+      src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-modal@1/modal.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-mirrorclick@1/mirrorclick.js"
+    ></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <style>
+      .swiper-pagination-bullets.swiper-pagination-horizontal {
+        width: max-content !important;
+        bottom: unset !important;
+        left: unset !important;
+        transform: unset !important;
+        position: relative !important;
+      }
+    </style>
+  </Fragment>
+
+  <div class="page-wrapper">
+    <div class="global-styles">
+      <div class="style-overrides w-embed">
+        <style>
+          /* Ensure all elements inherit the color from its parent */
+          a,
+          .w-input,
+          .w-select,
+          .w-tab-link,
+          .w-nav-link,
+          .w-nav-brand,
+          .w-dropdown-btn,
+          .w-dropdown-toggle,
+          .w-slider-arrow-left,
+          .w-slider-arrow-right,
+          .w-dropdown-link {
+            color: inherit;
+            text-decoration: inherit;
+            font-size: inherit;
+          }
+          /* Focus state style for keyboard navigation for the focusable elements */
+          *[tabindex]:focus-visible,
+          input[type="file"]:focus-visible {
+            outline: 0.125rem solid #4d65ff;
+            outline-offset: 0.125rem;
+          }
+          /* Get rid of top margin on first element in any rich text element */
+          .w-richtext > :not(div):first-child,
+          .w-richtext > div:first-child > :first-child {
+            margin-top: 0 !important;
+          }
+          /* Get rid of bottom margin on last element in any rich text element */
+          .w-richtext > :last-child,
+          .w-richtext ol li:last-child,
+          .w-richtext ul li:last-child {
+            margin-bottom: 0 !important;
+          }
+          /* Prevent all click and hover interaction with an element */
+          .pointer-events-off {
+            pointer-events: none;
+          }
+          /* Enables all click and hover interaction with an element */
+          .pointer-events-on {
+            pointer-events: auto;
+          }
+          /* Create a class of .div-square which maintains a 1:1 dimension of a div */
+          .div-square::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+          }
+          /* Make sure containers never lose their center alignment */
+          .container-medium,
+          .container-small,
+          .container-large {
+            margin-right: auto !important;
+            margin-left: auto !important;
+          }
+          /* Apply "..." after 3 lines of text */
+          .text-style-3lines {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+          /* Apply "..." after 2 lines of text */
+          .text-style-2lines {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          /* Adds inline flex display */
+          .display-inlineflex {
+            display: inline-flex;
+          }
+          /* These classes are never overwritten */
+          .hide {
+            display: none !important;
+          }
+          /* Remove default Webflow chevron from form select */
+          select {
+            -webkit-appearance: none;
+          }
+          @media screen and (max-width: 991px) {
+            .hide,
+            .hide-tablet {
+              display: none !important;
+            }
+          }
+          @media screen and (max-width: 767px) {
+            .hide-mobile-landscape {
+              display: none !important;
+            }
+          }
+          @media screen and (max-width: 479px) {
+            .hide-mobile {
+              display: none !important;
+            }
+          }
+          .margin-0 {
+            margin: 0rem !important;
+          }
+          .padding-0 {
+            padding: 0rem !important;
+          }
+          .spacing-clean {
+            padding: 0rem !important;
+            margin: 0rem !important;
+          }
+          .margin-top {
+            margin-right: 0rem !important;
+            margin-bottom: 0rem !important;
+            margin-left: 0rem !important;
+          }
+          .padding-top {
+            padding-right: 0rem !important;
+            padding-bottom: 0rem !important;
+            padding-left: 0rem !important;
+          }
+          .margin-right {
+            margin-top: 0rem !important;
+            margin-bottom: 0rem !important;
+            margin-left: 0rem !important;
+          }
+          .padding-right {
+            padding-top: 0rem !important;
+            padding-bottom: 0rem !important;
+            padding-left: 0rem !important;
+          }
+          .margin-bottom {
+            margin-top: 0rem !important;
+            margin-right: 0rem !important;
+            margin-left: 0rem !important;
+          }
+          .padding-bottom {
+            padding-top: 0rem !important;
+            padding-right: 0rem !important;
+            padding-left: 0rem !important;
+          }
+          .margin-left {
+            margin-top: 0rem !important;
+            margin-right: 0rem !important;
+            margin-bottom: 0rem !important;
+          }
+          .padding-left {
+            padding-top: 0rem !important;
+            padding-right: 0rem !important;
+            padding-bottom: 0rem !important;
+          }
+          .margin-horizontal {
+            margin-top: 0rem !important;
+            margin-bottom: 0rem !important;
+          }
+          .padding-horizontal {
+            padding-top: 0rem !important;
+            padding-bottom: 0rem !important;
+          }
+          .margin-vertical {
+            margin-right: 0rem !important;
+            margin-left: 0rem !important;
+          }
+          .padding-vertical {
+            padding-right: 0rem !important;
+            padding-left: 0rem !important;
+          }
+          /* Apply "..." at 100% width */
+          .truncate-width {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          /* Removes native scrollbar */
+          .no-scrollbar {
+            -ms-overflow-style: none;
+            overflow: -moz-scrollbars-none;
+          }
+          .no-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+        </style>
+      </div>
+      <div class="color-schemes w-embed">
+        <style>
+          /* Color Schemes Controls*/
+          .color-scheme-1 {
+            /*All sections should point to Color Scheme 1*/
+          }
+          .color-scheme-2 {
+            --color-scheme-1--text: var(--color-scheme-2--text);
+            --color-scheme-1--background: var(--color-scheme-2--background);
+            --color-scheme-1--foreground: var(--color-scheme-2--foreground);
+            --color-scheme-1--border: var(--color-scheme-2--border);
+            --color-scheme-1--accent: var(--color-scheme-2--accent);
+          }
+          .color-scheme-3 {
+            --color-scheme-1--text: var(--color-scheme-3--text);
+            --color-scheme-1--background: var(--color-scheme-3--background);
+            --color-scheme-1--foreground: var(--color-scheme-3--foreground);
+            --color-scheme-1--border: var(--color-scheme-3--border);
+            --color-scheme-1--accent: var(--color-scheme-3--accent);
+          }
+          .color-scheme-4 {
+            --color-scheme-1--text: var(--color-scheme-4--text);
+            --color-scheme-1--background: var(--color-scheme-4--background);
+            --color-scheme-1--foreground: var(--color-scheme-4--foreground);
+            --color-scheme-1--border: var(--color-scheme-4--border);
+            --color-scheme-1--accent: var(--color-scheme-4--accent);
+          }
+          .color-scheme-5 {
+            --color-scheme-1--text: var(--color-scheme-5--text);
+            --color-scheme-1--background: var(--color-scheme-5--background);
+            --color-scheme-1--foreground: var(--color-scheme-5--foreground);
+            --color-scheme-1--border: var(--color-scheme-5--border);
+            --color-scheme-1--accent: var(--color-scheme-5--accent);
+          }
+          .color-scheme-6 {
+            --color-scheme-1--text: var(--color-scheme-6--text);
+            --color-scheme-1--background: var(--color-scheme-6--background);
+            --color-scheme-1--foreground: var(--color-scheme-6--foreground);
+            --color-scheme-1--border: var(--color-scheme-6--border);
+            --color-scheme-1--accent: var(--color-scheme-6--accent);
+          }
+          .color-scheme-7 {
+            --color-scheme-1--text: var(--color-scheme-7--text);
+            --color-scheme-1--background: var(--color-scheme-7--background);
+            --color-scheme-1--foreground: var(--color-scheme-7--foreground);
+            --color-scheme-1--border: var(--color-scheme-7--border);
+            --color-scheme-1--accent: var(--color-scheme-7--accent);
+          }
+          .color-scheme-8 {
+            --color-scheme-1--text: var(--color-scheme-8--text);
+            --color-scheme-1--background: var(--color-scheme-8--background);
+            --color-scheme-1--foreground: var(--color-scheme-8--foreground);
+            --color-scheme-1--border: var(--color-scheme-8--border);
+            --color-scheme-1--accent: var(--color-scheme-8--accent);
+          }
+          .color-scheme-9 {
+            --color-scheme-1--text: var(--color-scheme-9--text);
+            --color-scheme-1--background: var(--color-scheme-9--background);
+            --color-scheme-1--foreground: var(--color-scheme-9--foreground);
+            --color-scheme-1--border: var(--color-scheme-9--border);
+            --color-scheme-1--accent: var(--color-scheme-9--accent);
+          }
+          .color-scheme-10 {
+            --color-scheme-1--text: var(--color-scheme-10--text);
+            --color-scheme-1--background: var(--color-scheme-10--background);
+            --color-scheme-1--foreground: var(--color-scheme-10--foreground);
+            --color-scheme-1--border: var(--color-scheme-10--border);
+            --color-scheme-1--accent: var(--color-scheme-10--accent);
+          }
+          /* Inherit slider dot colors */
+          .w-slider-dot {
+            background-color: var(--color-scheme-1--text);
+            opacity: 0.2;
+          }
+          .w-slider-dot.w-active {
+            background-color: var(--color-scheme-1--text);
+            opacity: 1;
+          }
+          /* Override .w-slider-nav-invert styles */
+          .w-slider-nav-invert .w-slider-dot {
+            background-color: var(--color-scheme-1--text) !important;
+            opacity: 0.2 !important;
+          }
+          .w-slider-nav-invert .w-slider-dot.w-active {
+            background-color: var(--color-scheme-1--text) !important;
+            opacity: 1 !important;
+          }
+        </style>
+      </div>
+    </div>
+    <div class="main-embed w-embed">
+      <style>
+        html {
+          font-size: 1rem;
+        }
+        @media screen and (max-width: 1440px) {
+          html {
+            font-size: calc(0.6rem + 0.4444444444444444vw);
+          }
+        }
+        @media screen and (max-width: 990px) {
+          html {
+            font-size: calc(0.7578277886497065rem + 0.3913894324853229vw);
+          }
+        }
+        @media screen and (max-width: 479px) {
+          html {
+            font-size: calc(-0.0020920502092050207rem + 3.3472803347280333vw);
+          }
+        }
+      </style>
+      <style>
+        /* Make text look crisper and more legible in all browsers */
+        body {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+        }
+        /* Focus state style for keyboard navigation for the focusable elements */
+        *[tabindex]:focus-visible,
+        input[type="file"]:focus-visible {
+          outline: 0.125rem solid #4d65ff;
+          outline-offset: 0.125rem;
+        }
+        /* Prevent all click and hover interaction with an element */
+        .pointer-events-off {
+          pointer-events: none;
+        }
+        /* Enables all click and hover interaction with an element */
+        .pointer-events-on {
+          pointer-events: auto;
+        }
+        /* Create a class of .div-square which maintains a 1:1 dimension of a div */
+        .div-square::after {
+          content: "";
+          display: block;
+          padding-bottom: 100%;
+        }
+        /* Make sure containers never lose their center alignment */
+        .container-medium,
+        .container-small,
+        .container-large {
+          margin-right: auto !important;
+          margin-left: auto !important;
+        }
+        /* Apply "..." after 3 lines of text */
+        .text-style-3lines {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+        /* Apply "..." after 2 lines of text */
+        .text-style-2lines {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+        /* Adds inline flex display */
+        .display-inlineflex {
+          display: inline-flex;
+        }
+        /* These classes are never overwritten */
+        .hide {
+          display: none !important;
+        }
+        .margin-0 {
+          margin: 0rem !important;
+        }
+        .padding-0 {
+          padding: 0rem !important;
+        }
+        .spacing-clean {
+          padding: 0rem !important;
+          margin: 0rem !important;
+        }
+        .margin-top {
+          margin-right: 0rem !important;
+          margin-bottom: 0rem !important;
+          margin-left: 0rem !important;
+        }
+        .padding-top {
+          padding-right: 0rem !important;
+          padding-bottom: 0rem !important;
+          padding-left: 0rem !important;
+        }
+        .margin-right {
+          margin-top: 0rem !important;
+          margin-bottom: 0rem !important;
+          margin-left: 0rem !important;
+        }
+        .padding-right {
+          padding-top: 0rem !important;
+          padding-bottom: 0rem !important;
+          padding-left: 0rem !important;
+        }
+        .margin-bottom {
+          margin-top: 0rem !important;
+          margin-right: 0rem !important;
+          margin-left: 0rem !important;
+        }
+        .padding-bottom {
+          padding-top: 0rem !important;
+          padding-right: 0rem !important;
+          padding-left: 0rem !important;
+        }
+        .margin-left {
+          margin-top: 0rem !important;
+          margin-right: 0rem !important;
+          margin-bottom: 0rem !important;
+        }
+        .padding-left {
+          padding-top: 0rem !important;
+          padding-right: 0rem !important;
+          padding-bottom: 0rem !important;
+        }
+        .margin-horizontal {
+          margin-top: 0rem !important;
+          margin-bottom: 0rem !important;
+        }
+        .padding-horizontal {
+          padding-top: 0rem !important;
+          padding-bottom: 0rem !important;
+        }
+        .margin-vertical {
+          margin-right: 0rem !important;
+          margin-left: 0rem !important;
+        }
+        .padding-vertical {
+          padding-right: 0rem !important;
+          padding-left: 0rem !important;
+        }
+      </style>
+    </div>
+    <main class="main-wrapper">
+      <div
+        class="navbar w-nav"
+        data-animation="default"
+        data-collapse="none"
+        data-duration="400"
+        data-easing="ease"
+        data-easing2="ease"
+        role="banner"
+      >
+        <div class="padding-global">
+          <div class="nav_container">
+            <a
+              aria-current="page"
+              class="nav_logo w-nav-brand w--current"
+              href="/"
+              ><img
+                alt="jellypop"
+                class="image-cover"
+                loading="lazy"
+                src="/images/jelly-pop-logo.png"
+              /></a
+            >
+            <nav class="nav_menu_wrapper w-nav-menu" role="navigation">
+              <div class="nav_menu">
+                <div class="nav-badge-wrapper hide-mobile-landscape">
+                  <a
+                    class="nav_link w-nav-link"
+                    href="https://bit.ly/4kKzjwy"
+                    target="_blank">Our Work</a
+                  >
+                  <div class="nav_badge">NEW</div>
+                </div>
+                <a
+                  class="nav_link hide-mobile-landscape w-nav-link"
+                  href="/#our-services">Our Services</a
+                >
+                <a
+                  class="nav_link hide-mobile-landscape w-nav-link"
+                  href="/blog">Blog</a
+                >
+              </div>
+              <div class="nav_button-tip_wrapper">
+                <a class="button is-navbar w-button" href="/#cta-section"
+                  >Book A Call</a
+                >
+                <div class="nav_button-tip-absolute">
+                  <div class="text-size-small text-style-italic">
+                    ⚡ Get Instant Response
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="w-nav-button">
+              <div class="w-icon-nav-menu"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="home_hero">
+        <div class="padding-section-large">
+          <img
+            alt=""
+            class="home_hero_blob yellow-blob"
+            loading="lazy"
+            src="/images/yellow-blob.png"
+          />
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_hero_wrapper">
+                <h1 class="heading-style-h1">
+                  We design the brands people want to touch. <span
+                    class="text-weight-normal"
+                    >From your box to your website, we make every pixel feel
+                    iconic.</span>
+                </h1><img
+                  alt=""
+                  class="home_hero_header-blob"
+                  loading="lazy"
+                  src="/images/red-blob.png"
+                />
+                <div class="padding-bottom padding-small"></div>
+                <div class="padding-bottom padding-xsmall"></div>
+                <div class="home_hero_paragraph-wrapper">
+                  <p
+                    class="text-size-medium text-weight-normal text-color-1f1f1f"
+                  >
+                    For D2C brands that want to look as good as they taste,
+                    feel, or wear. We help you launch iconic packaging,
+                    branding, and websites that feel made-to-go-viral; without
+                    the usual agency drag.
+                  </p>
+                </div>
+                <div class="padding-bottom padding-large"></div>
+                <div class="button-group">
+                  <div class="button-tip" fs-modal-element="">
+                    <a class="button w-button" href="#cta-section"
+                      >Book A Meeting</a
+                    >
+                    <div
+                      class="text-size-small text-style-italic text-align-center"
+                    >
+                      ⚡ Get Instant Response
+                    </div>
+                  </div>
+                  <a
+                    class="button is-alternate w-button"
+                    href="https://bit.ly/4kKzjwy"
+                    target="_blank">View Our Work</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="home_logos">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_logos_wrapper">
+                <h2
+                  class="heading-style-h3 text-color-1f1f1f text-align-center"
+                >
+                  Our team has worked with visionary brands
+                </h2>
+                <div class="margin-top margin-large">
+                  <div class="splide auto-scroll-slider" fade="">
+                    <div class="splide__track">
+                      <div class="splide__list">
+                        <div class="splide__slide">
+                          <img
+                            alt="stockpe"
+                            class="logo3_logo height-2rem"
+                            loading="lazy"
+                            src="/images/stockpe.svg"
+                          />
+                        </div>
+                        <div class="splide__slide">
+                          <img
+                            alt="bookee logo"
+                            class="logo3_logo height-2rem"
+                            loading="lazy"
+                            src="/images/bookee-logo_1bookee-logo.webp"
+                          />
+                        </div>
+                        <div class="splide__slide">
+                          <img
+                            alt="sarvam logo"
+                            class="logo3_logo height-1rem"
+                            loading="lazy"
+                            src="/images/sarvam-logo.svg"
+                          />
+                        </div>
+                        <div class="splide__slide">
+                          <img
+                            alt="hakuna matata tech logo"
+                            class="logo3_logo height-2rem"
+                            loading="lazy"
+                            src="/images/hakuna-matata-logo_1hakuna-matata-logo.avif"
+                          />
+                        </div>
+                        <div class="splide__slide">
+                          <img
+                            alt="unlisted-assets"
+                            class="logo3_logo height-1-57rem"
+                            loading="lazy"
+                            src="/images/unlisted-assets.svg"
+                          />
+                        </div>
+                        <div class="splide__slide">
+                          <img
+                            alt="cryptograd"
+                            class="logo3_logo height-2rem"
+                            loading="lazy"
+                            src="/images/cryptograd.svg"
+                          />
+                        </div>
+                        <div class="splide__slide">
+                          <img
+                            alt="confetti
+  "
+                            class="logo3_logo height-2rem"
+                            loading="lazy"
+                            src="/images/confetti-logo_1confetti-logo.webp"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="home_problems">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_problems_wrapper">
+                <div class="home_problems_card">
+                  <div class="home_card_graphic">
+                    <img
+                      alt="Customer evaluating snack packaging on a retail shelf, showcasing the importance of shelf appeal for D2C food and FMCG brands"
+                      class="image-cover"
+                      loading="lazy"
+                      src="/images/customers-browsing_1.avif"
+                    />
+                  </div>
+                  <div class="home_problems_card_text-content">
+                    <h2 class="heading-style-h2">
+                      How many customers are browsing past your product right
+                      now?
+                    </h2>
+                    <div class="padding-bottom padding-medium"></div>
+                    <p class="heading-style-h5 text-color-1f1f1f">
+                      Your product is great. But if it doesn’t look the part,
+                      you’re losing. If you feel this way, then you have come at
+                      the right place!
+                    </p>
+                  </div>
+                </div>
+                <div class="home_problems_card">
+                  <div class="home_problems_card_text-content">
+                    <h2 class="heading-style-h2">
+                      The Problem<span class="text-span"> </span><span
+                        class="text-weight-normal">(and how you solve it)</span>
+                    </h2>
+                    <div class="padding-bottom padding-large"></div>
+                    <p class="heading-style-h5 text-color-1f1f1f">
+                      Most D2C brands start with great products. But somewhere
+                      along the way, their brand gets…
+                    </p>
+                    <div class="padding-bottom padding-medium"></div>
+                    <p class="heading-style-h5 text-color-1f1f1f">
+                      → bland website <br />→ forgettable packaging <br />→ no
+                      story, no edge
+                    </p>
+                  </div>
+                  <div class="home_card_graphic">
+                    <img
+                      alt="Diagram illustrating how total brand alignment requires synergy between storytelling, visual identity, and product quality for effective D2C branding."
+                      class="image-cover"
+                      loading="lazy"
+                      sizes="(max-width: 1000px) 100vw, 1000px"
+                      src="/images/the-problem_1.avif"
+                      srcset="/images/the-problem_1the-problem.avif 500w, /images/the-problem_1.avif 1000w"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="component_cta-banner">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="component_cta-banner_wrapper">
+                <div class="component_cta-banner_text-content">
+                  <div
+                    class="heading-style-h5 text-weight-bold text-color-white is-opacity-90"
+                  >
+                    Attract high-value customers to your brand!
+                  </div>
+                  <div class="padding-bottom padding-xxsmall"></div>
+                  <div class="padding-bottom padding-small"></div>
+                  <h2 class="heading-style-h3 text-color-white">
+                    Unlock Growth for Your D2C Brand
+                  </h2>
+                </div>
+                <div class="button-tip" fs-modal-element="">
+                  <a class="button w-button" href="#cta-section">Book A Call</a>
+                  <div
+                    class="text-size-small text-style-italic text-color-white text-align-center"
+                  >
+                    ⚡ Get Instant Response
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component_cta-banner_circle"></div>
+        </div>
+      </div>
+      <section class="home_approaches">
+        <div class="padding-section-large">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_approaches_wrapper">
+                <div class="home_approaches-header">
+                  <h2 class="heading-style-h2 text-align-center">
+                    Our Unique Approach
+                  </h2><img
+                    alt=""
+                    class="home_approaches-header_image"
+                    loading="lazy"
+                    src="/images/Star.png"
+                  />
+                </div>
+                <div class="home_approaches_steps">
+                  <div class="home_approaches_step step-1">
+                    <div class="home_approaches_step-block">01</div>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <h2 class="heading-style-h4">
+                      Customer-first, not figma-first
+                    </h2>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <p class="text-size-medium text-color-1f1f1f">
+                      Most agencies obsess over pixels. Jellypop obsesses over
+                      product-market-feel.
+                    </p>
+                  </div>
+                  <div class="home_approaches_step step-2">
+                    <div class="home_approaches_step-block">02</div>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <h2 class="heading-style-h4">
+                      Design that moves at launch speed
+                    </h2>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <p class="text-size-medium text-color-1f1f1f">
+                      Freelancers waste weeks trying to “get the vibe”. We get
+                      it in the first week.
+                    </p>
+                  </div><img
+                    alt=""
+                    class="image-3"
+                    loading="lazy"
+                    src="/images/jelly-pop-favicon.png"
+                  /><img
+                    alt=""
+                    class="image-2"
+                    loading="lazy"
+                    src="/images/jelly-pop-favicon.png"
+                  />
+                  <div
+                    class="home_approaches_step"
+                    id="w-node-_4fd52d1e-4797-d167-64e1-f4bf8265381d-d7bdcb9d"
+                  >
+                    <div class="home_approaches_step-block">03</div>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <div class="div-block-3">
+                      <h2 class="heading-style-h4">
+                        Packaging, Branding and Site <span
+                          class="text-weight-normal">(Under One Roof)</span>
+                      </h2>
+                    </div>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <p class="text-size-medium text-color-1f1f1f">
+                      Other studios specialize in either brand OR web OR
+                      packaging. We do all three, because D2C needs all three to
+                      work together.
+                    </p>
+                  </div>
+                  <div
+                    class="home_approaches_step"
+                    id="w-node-a0180606-f90f-8b9b-61a6-4c1a54ccf2db-d7bdcb9d"
+                  >
+                    <div class="home_approaches_step-block">04</div>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <h2 class="heading-style-h4">
+                      Aesthetic taste meets commercial logic
+                    </h2>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <p class="text-size-medium text-color-1f1f1f">
+                      You’ll never hear “we chose this font because it looked
+                      cool”. Everything we design is built to convert attention
+                      into trust into sales.
+                    </p>
+                  </div>
+                  <div
+                    class="home_approaches_step step-5"
+                    id="w-node-ac5d9dad-a767-1f14-99f7-5985cad4b4f8-d7bdcb9d"
+                  >
+                    <div class="home_approaches_step-block">05</div>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <h2 class="heading-style-h4">
+                      Not for everyone and that’s on purpose
+                    </h2>
+                    <div class="padding-bottom padding-xsmall"></div>
+                    <p class="text-size-medium">
+                      We don’t work with first-timers, early-stage hobbyists, or
+                      budget thinkers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><img
+          alt=""
+          class="image-4"
+          loading="lazy"
+          src="/images/yellow-long-blob.avif"
+        />
+      </section>
+      <div class="component_cta-banner">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="component_cta-banner_wrapper">
+                <div class="component_cta-banner_text-content">
+                  <div
+                    class="heading-style-h5 text-weight-bold text-color-white is-opacity-90"
+                  >
+                    Attract high-value customers to your brand!
+                  </div>
+                  <div class="padding-bottom padding-xxsmall"></div>
+                  <div class="padding-bottom padding-small"></div>
+                  <h2 class="heading-style-h3 text-color-white">
+                    Unlock Growth for Your D2C Brand
+                  </h2>
+                </div>
+                <div class="button-tip" fs-modal-element="">
+                  <a class="button w-button" href="#cta-section">Book A Call</a>
+                  <div
+                    class="text-size-small text-style-italic text-color-white text-align-center"
+                  >
+                    ⚡ Get Instant Response
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component_cta-banner_circle"></div>
+        </div>
+      </div>
+      <section class="home_services">
+        <section class="padding-section-large" id="our-services">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_services_wrapper">
+                <h2
+                  class="heading-style-h2 text-align-center text-color-1f1f1f"
+                >
+                  Our Services
+                </h2>
+                <div class="home_solutions_services">
+                  <div class="home_solutions_service">
+                    <h3 class="heading-style-h4 text-color-1f1f1f">
+                      01 / Strategy
+                    </h3>
+                    <div class="home_solutions_service-tags">
+                      <div class="home_solutions_service-tag">Positioning</div>
+                      <div class="home_solutions_service-tag">Messaging</div>
+                      <div class="home_solutions_service-tag">
+                        Brand Strategy
+                      </div>
+                      <div class="home_solutions_service-tag">CRO Strategy</div>
+                      <div class="home_solutions_service-tag">
+                        Website Funnel &amp; Customer Journey Mapping
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home_solutions_service">
+                    <h3 class="heading-style-h4 text-color-1f1f1f">
+                      02 / Design
+                    </h3>
+                    <div class="home_solutions_service-tags">
+                      <div class="home_solutions_service-tag">Logo Design</div>
+                      <div class="home_solutions_service-tag">
+                        Identity Design
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Packaging Design
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Website Design
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Video Production
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Motion Graphics
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Marketing Collaterals
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Animations &amp; Micro-Interactions
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home_solutions_service">
+                    <h3 class="heading-style-h4 text-color-1f1f1f">
+                      03/ Development
+                    </h3>
+                    <div class="home_solutions_service-tags">
+                      <div class="home_solutions_service-tag">
+                        Website Development
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Website Migrations
+                      </div>
+                      <div class="home_solutions_service-tag">
+                        Automations &amp; Integrations
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="section_awards hide">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="text-align-center">
+                <h2>
+                  You Like Awards? <span class="text-weight-light"
+                    >(We Got Many!)</span>
+                </h2>
+              </div>
+              <div class="margin-top margin-xxlarge">
+                <div class="splide auto-scroll-slider" fade="">
+                  <div class="splide__track">
+                    <div class="splide__list">
+                      <div class="splide__slide">
+                        <div class="logo_wrap">
+                          <img
+                            alt="minute creative ranks in top query company"
+                            class="image-cover"
+                            loading="lazy"
+                            sizes="100vw"
+                            src="/images/Frame-1000001881.png"
+                            srcset="/images/Frame-1000001881-p-500.png 500w, /images/Frame-1000001881.png 652w"
+                          />
+                        </div>
+                      </div>
+                      <div class="splide__slide">
+                        <div class="logo_wrap">
+                          <img
+                            alt="minute creative ranks in top wordpress designers"
+                            class="image-cover"
+                            loading="lazy"
+                            sizes="100vw"
+                            src="/images/top-wordpress-designers-company.png"
+                            srcset="/images/Frame-1000001882-p-500.png 500w, /images/top-wordpress-designers-company.png 652w"
+                          />
+                        </div>
+                      </div>
+                      <div class="splide__slide">
+                        <div class="logo_wrap">
+                          <img
+                            alt="minute creative ranks in top web design company"
+                            class="image-cover"
+                            loading="lazy"
+                            sizes="100vw"
+                            src="/images/top-web-design-company.png"
+                            srcset="/images/Frame-1000001880-p-500.png 500w, /images/top-web-design-company.png 652w"
+                          />
+                        </div>
+                      </div>
+                      <div class="splide__slide">
+                        <div class="logo_wrap">
+                          <img
+                            alt="minute creative is the most reviewed company in bengaluru"
+                            class="image-cover"
+                            loading="lazy"
+                            sizes="100vw"
+                            src="/images/most-reviewed-design-company-bengaluru.png"
+                            srcset="/images/Frame-1000001884-p-500.png 500w, /images/most-reviewed-design-company-bengaluru.png 521w"
+                          />
+                        </div>
+                      </div>
+                      <div class="splide__slide">
+                        <div class="logo_wrap">
+                          <img
+                            alt="minute creative is the most reviewed web design company in bengaluru india"
+                            class="image-cover"
+                            loading="lazy"
+                            sizes="100vw"
+                            src="/images/most-reviewed-web-design-company-bengaluru.png"
+                            srcset="/images/Frame-1000001883-p-500.png 500w, /images/most-reviewed-web-design-company-bengaluru.png 521w"
+                          />
+                        </div>
+                      </div>
+                      <div class="splide__slide">
+                        <div class="logo_wrap">
+                          <img
+                            alt="minute creative is jquery global company in 2024"
+                            class="image-cover"
+                            loading="lazy"
+                            sizes="100vw"
+                            src="/images/jquery-global-company-2024.png"
+                            srcset="/images/Frame-1000001885-p-500.png 500w, /images/jquery-global-company-2024.png 612w"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="margin-top margin-xxlarge">
+                <div class="awwards_wrapper">
+                  <img
+                    alt="minute creative is the top web design company in india"
+                    class="image-cover"
+                    loading="lazy"
+                    src="/images/top-web-designers-in-india.avif"
+                  />
+                </div>
+                <div class="awwrad_header">
+                  <h2>Ranked #2 Website Design Agency</h2>
+                  <div class="text-size-large">
+                    <span><em>Fastest Growing Agency</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="home_unlimited-policy"
+        data-w-id="d852c540-f8ce-2b50-0908-16c595483d45"
+      >
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_unlimited-policy_wrapper">
+                <div class="home_unlimited-policy_image-wrapper">
+                  <img
+                    alt="salestiger logo variation"
+                    class="home_unlimited-policy_image"
+                    data-w-id="81277365-63c5-e797-06af-75976667ac05"
+                    loading="lazy"
+                    src="/images/salestiger-v1_1.avif"
+                  /><img
+                    alt="salestiger logo variation"
+                    class="home_unlimited-policy_image"
+                    data-w-id="4fe26b2a-8ad0-c0ae-02b1-ade31a4fe388"
+                    loading="lazy"
+                    src="/images/salestiger-v2_1.avif"
+                  /><img
+                    alt="salestiger logo variation"
+                    class="home_unlimited-policy_image"
+                    data-w-id="9a5a4f98-e1a9-ffc1-5793-d8ec9f265474"
+                    loading="lazy"
+                    src="/images/salestiger-v3_1.avif"
+                  /><img
+                    alt="salestiger logo"
+                    class="home_unlimited-policy_image"
+                    data-w-id="820e3904-e365-90b6-4475-6a2735d98b00"
+                    loading="lazy"
+                    src="/images/salestiger-v4_1.avif"
+                  />
+                </div>
+                <div class="home_unlimited-policy_text-wrapper">
+                  <h2 class="heading-style-h3">Unlimited Revisions Policy</h2>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="padding-bottom padding-xsmall"></div>
+                  <div class="home_unlimited-policy_paragraph-wrapper">
+                    <p class="text-size-medium text-color-1f1f1f">
+                      Other agencies making you feel trapped with a 3-revision
+                      policy?<br /><br />We understand that creating anything
+                      Impactful and ROI generating is hard. And other agencies
+                      limit you to 3-revisions but what if you’re not satisfied?
+                    </p>
+                  </div>
+                  <div class="padding-bottom padding-large"></div>
+                  <div class="padding-bottom padding-xsmall"></div>
+                  <div class="home_unlimited-policy_button-wrapper">
+                    <div class="heading-style-h6">
+                      Book a call and get unlimited <br />revisions for your
+                      project!
+                    </div>
+                    <div class="text-align-center">
+                      <div class="button-tip" fs-modal-element="">
+                        <a class="button w-button" href="#cta-section"
+                          >Book A Call</a
+                        >
+                        <div
+                          class="text-size-small text-style-italic text-align-center"
+                        >
+                          ⚡ Get Instant Response
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="component_cta-banner">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="component_cta-banner_wrapper">
+                <div class="component_cta-banner_text-content">
+                  <div
+                    class="heading-style-h5 text-weight-bold text-color-white is-opacity-90"
+                  >
+                    Attract high-value customers to your brand!
+                  </div>
+                  <div class="padding-bottom padding-xxsmall"></div>
+                  <div class="padding-bottom padding-small"></div>
+                  <h2 class="heading-style-h3 text-color-white">
+                    Unlock Growth for Your D2C Brand
+                  </h2>
+                </div>
+                <div class="button-tip" fs-modal-element="">
+                  <a class="button w-button" href="#cta-section">Book A Call</a>
+                  <div
+                    class="text-size-small text-style-italic text-color-white text-align-center"
+                  >
+                    ⚡ Get Instant Response
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component_cta-banner_circle"></div>
+        </div>
+      </div>
+      <section class="new_testimonials">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="new_testimonial_header">
+              <div class="webflow-saas_testimonial-heading_wrapper">
+                <h2
+                  class="heading-style-h2 text-color-000714 text-align-center"
+                >
+                  Results So Good That <span class="text-color-orange"
+                    >“You’ll Never Go Back”</span>
+                </h2>
+              </div>
+            </div>
+            <div class="new_testimonial-container">
+              <div class="webflow_projects_gallery">
+                <div class="testimonial_slider-wrapper">
+                  <div
+                    class="gallery_slider v2 w-slider"
+                    data-animation="slide"
+                    data-autoplay="false"
+                    data-autoplay-limit="0"
+                    data-delay="4000"
+                    data-disable-swipe="false"
+                    data-duration="500"
+                    data-easing="ease"
+                    data-hide-arrows="false"
+                    data-infinite="true"
+                    data-nav-spacing="3"
+                    id="gallery13_slider"
+                  >
+                    <div class="gallery_mask none w-slider-mask">
+                      <div class="gallery_slide v2 w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height sarvam"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="sarvam logo"
+                                class="new-testimonial_slider-content_logo"
+                                loading="lazy"
+                                src="/images/sarvam-logo.svg"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "They are very skilled and also have an
+                                understanding of design. They helped us launch
+                                website within 15 days.”
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt=""
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/varun-ande-product-designer-sarvam.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold"
+                                  >
+                                    Varun Ande
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Product Designer, Sarvam
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide v2 w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height hakuna-matata-solutions"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="hakuna matata tech logo"
+                                class="new-testimonial_slider-content_logo width-10rem"
+                                loading="lazy"
+                                src="/images/hakuna-matata-logo_1hakuna-matata-logo.avif"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "Minute Creative successfully launched the
+                                website within the agreed-upon timeline. The
+                                team was well organized and quickly responded to
+                                needs, communicating primarily through virtual
+                                meetings."
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="neeb praveen digital marketing manager at hakuna matata solutions"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/neeb-praveen-digital-marketing-manager_1neeb-praveen-digital-marketing-manager.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Neeb Praveen
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Marketing Manager, Hakuna Matata Solutions
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide v2 w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height seven-secrets"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="envato elements logo"
+                                class="new-testimonial_slider-content_logo"
+                                loading="lazy"
+                                src="/images/envato-elements.svg"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "Working with the Minute Creative team has been
+                                one of the best agency experiences I’ve had
+                                globally. I’d highly recommend them"
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="collis ta'eed photo ex-ceo of envato elements"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/collis-taeed.png"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Collis Ta'eed
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Ex-CEO, Envato Elements
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height roadto10x"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="confetti
+  "
+                                class="new-testimonial_slider-content_logo"
+                                loading="lazy"
+                                src="/images/confetti-logo_1confetti-logo.webp"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "Minute Creative delivered a smooth, error-free
+                                website while consistently meeting deadlines.
+                                Their proactive project management and clear
+                                communication through virtual meetings ensured
+                                everything stayed on track."
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="srushti shah senior project manager at confetti design studio"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/srushti-shah-senior-project-manager_1srushti-shah-senior-project-manager.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Srushti Shah
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Senior Project Manager, Confetti Design
+                                    Studio
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div class="block_main card-sarvam-ai set-height">
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="growthculture ventures logo"
+                                class="new-testimonial_slider-content_logo width-10rem"
+                                loading="lazy"
+                                src="/images/growculture-logo_1growculture-logo.avif"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "Minute Creative made the entire process
+                                seamless with their clear and structured
+                                approach. Our project was well-planned, executed
+                                on time, and delivered beyond expectations. For
+                                anyone seeking a modern platform like Webflow,
+                                they're the perfect choice".
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="mansingh gadhvi. founder of. salestiger"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/mansingh-gadhvi-founder-growthculture-ventures_1mansingh-gadhvi-founder-growthculture-ventures.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Mansingh Gadhvi
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Founder, GrowthCulture Ventures
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height salestiger"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="salestiger logo"
+                                class="new-testimonial_slider-content_logo width-10rem"
+                                loading="lazy"
+                                src="/images/salestiger.svg"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "Minute Creative had a detailed project plan and
+                                assigned goals for the project. The team
+                                delivered the project on time and was responsive
+                                to the client's needs."
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="mansingh gadhvi. founder of. salestiger"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/mansingh-gadhvi-founder-growthculture-ventures_1mansingh-gadhvi-founder-growthculture-ventures.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Mansingh Gadhvi
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Founder, SalesTiger
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height anchayilkumar"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="anchayilkumar logo"
+                                class="new-testimonial_slider-content_logo width-15rem"
+                                loading="lazy"
+                                src="/images/anchayilkumar-logo_1anchayilkumar-logo.avif"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                "Minute Creative fully understood the
+                                requirements to deliver a top-notch site that
+                                aligned with our expectations. By following a
+                                hands-on approach, the team offered a personal
+                                touch when addressing our needs."
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt=""
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/Ashutosh-Kumar-Founder-of-AnchayilKumar.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Ashutosh Kumar
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Founder, AnchayilKumar
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height sidebar-advisory"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt=""
+                                class="new-testimonial_slider-content_logo width-10rem"
+                                loading="lazy"
+                                src="/images/sidebar-advisory.svg"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                “They have set a new standard for us on how to
+                                work with creative professionals.”<br />
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="Namit Oberoy founder of Indian Legal Tech"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/namit-oberoy-founder-of-indian-legal-tech.avif"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Namit Oberoy
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Founder, Indian Legal Tech<br />
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="gallery_slide w-slide">
+                        <div class="new-testimonial_slider v2">
+                          <div
+                            class="block_main card-sarvam-ai set-height simpler-contracts"
+                          >
+                          </div>
+                          <div class="new_testimonial_slider-right">
+                            <div class="new-testimonial_slider-content_top">
+                              <img
+                                alt="indian legal tech logo"
+                                class="new-testimonial_slider-content_logo indian-legal-tech"
+                                loading="lazy"
+                                src="/images/Indian-Legal-Tech.svg"
+                              />
+                              <div class="new-testimonial_slider-content_stars">
+                                <img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                /><img
+                                  alt=""
+                                  class="new-testimonial_slider-content_star"
+                                  loading="lazy"
+                                  src="/images/star-icon.svg"
+                                />
+                              </div>
+                            </div>
+                            <div class="webflow-saans_testimonial-right-top">
+                              <p
+                                class="heading-style-h5 text-weight-medium text-color-shade-black-80"
+                              >
+                                “They have set a new standard for us on how to
+                                work with creative professionals.”<br />
+                              </p>
+                              <div
+                                class="webflow-saans_testimonial-right-top-flex"
+                              >
+                                <img
+                                  alt="artjona agolli project manager at indian legal tech"
+                                  class="webflow-saans_testimonial-right-image"
+                                  loading="lazy"
+                                  src="/images/artjona-agolli_1artjona-agolli.webp"
+                                />
+                                <div
+                                  class="webflow-saans_testimonial-right-top-content"
+                                >
+                                  <p
+                                    class="text-size-regular text-weight-semibold text-color-000714"
+                                  >
+                                    Artjona Agolli<br />
+                                  </p>
+                                  <p
+                                    class="text-size-regular text-color-000714"
+                                  >
+                                    Project Manager, Indian Legal Tech<br />
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="gallery21_arrow is-left hide w-slider-arrow-left"
+                      fs-mirrorclick-element="target-100"
+                    >
+                      <div class="gallery21_arrow-icon w-embed">
+                        <svg
+                          fill="none"
+                          height="100%"
+                          viewbox="0 0 16 16"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3.31066 8.75001L9.03033 14.4697L7.96967 15.5303L0.439339 8.00001L7.96967 0.469676L9.03033 1.53034L3.31066 7.25001L15.5 7.25L15.5 8.75L3.31066 8.75001Z"
+                            fill="currentColor"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="gallery21_arrow hide w-slider-arrow-right"
+                      fs-mirrorclick-element="target-101"
+                    >
+                      <div class="gallery21_arrow-icon w-embed">
+                        <svg
+                          fill="none"
+                          height="100%"
+                          viewbox="0 0 16 16"
+                          width="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.6893 7.25L6.96967 1.53033L8.03033 0.469666L15.5607 8L8.03033 15.5303L6.96967 14.4697L12.6893 8.75H0.5V7.25H12.6893Z"
+                            fill="currentColor"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div
+                      class="gallery21_slide-nav hide w-slider-nav w-slider-nav-invert w-round"
+                    >
+                    </div>
+                  </div>
+                  <div class="slider_wapper">
+                    <div
+                      class="gallery21_arrow-2 is-left v2"
+                      fs-mirrorclick-element="trigger-100"
+                    >
+                      <img
+                        alt=""
+                        class="image-cover"
+                        loading="lazy"
+                        src="/images/arrow.svg"
+                      />
+                    </div>
+                    <div
+                      class="gallery21_arrow-2 is-left v2 right"
+                      fs-mirrorclick-element="trigger-101"
+                    >
+                      <img
+                        alt=""
+                        class="image-cover"
+                        loading="lazy"
+                        src="/images/arrow.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <section
+                class="section_logo3"
+                data-w-id="378917b2-da60-2098-dc14-4584470236a1"
+              >
+                <div class="padding-global">
+                  <div class="container-large-11"></div>
+                </div>
+                <div class="overflow-hidden">
+                  <div class="blur_bg"></div>
+                  <div class="logo3_component">
+                    <div class="logo3_list">
+                      <img
+                        alt="stockpe"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/stockpe.svg"
+                      /><img
+                        alt="bookee logo"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/bookee-logo_1bookee-logo.webp"
+                      /><img
+                        alt="sarvam logo"
+                        class="logo3_logo height-1rem"
+                        loading="lazy"
+                        src="/images/sarvam-logo.svg"
+                      /><img
+                        alt="hakuna matata tech logo"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/hakuna-matata-logo_1hakuna-matata-logo.avif"
+                      /><img
+                        alt="unlisted-assets"
+                        class="logo3_logo height-1-57rem"
+                        loading="lazy"
+                        src="/images/unlisted-assets.svg"
+                      /><img
+                        alt="cryptograd"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/cryptograd.svg"
+                      /><img
+                        alt="confetti
+  "
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/confetti-logo_1confetti-logo.webp"
+                      />
+                    </div>
+                    <div class="logo3_list">
+                      <img
+                        alt="stockpe"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/stockpe.svg"
+                      /><img
+                        alt="bookee logo"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/bookee-logo_1bookee-logo.webp"
+                      /><img
+                        alt="sarvam logo"
+                        class="logo3_logo height-1rem"
+                        loading="lazy"
+                        src="/images/sarvam-logo.svg"
+                      /><img
+                        alt="hakuna matata tech logo"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/hakuna-matata-logo_1hakuna-matata-logo.avif"
+                      /><img
+                        alt="unlisted-assets"
+                        class="logo3_logo height-1-57rem"
+                        loading="lazy"
+                        src="/images/unlisted-assets.svg"
+                      /><img
+                        alt="cryptograd"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/cryptograd.svg"
+                      /><img
+                        alt="confetti
+  "
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/confetti-logo_1confetti-logo.webp"
+                      />
+                    </div>
+                    <div class="logo3_list">
+                      <img
+                        alt="stockpe"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/stockpe.svg"
+                      /><img
+                        alt="bookee logo"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/bookee-logo_1bookee-logo.webp"
+                      /><img
+                        alt="sarvam logo"
+                        class="logo3_logo height-1rem"
+                        loading="lazy"
+                        src="/images/sarvam-logo.svg"
+                      /><img
+                        alt="hakuna matata tech logo"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/hakuna-matata-logo_1hakuna-matata-logo.avif"
+                      /><img
+                        alt="unlisted-assets"
+                        class="logo3_logo height-1-57rem"
+                        loading="lazy"
+                        src="/images/unlisted-assets.svg"
+                      /><img
+                        alt="cryptograd"
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/cryptograd.svg"
+                      /><img
+                        alt="confetti
+  "
+                        class="logo3_logo height-2rem"
+                        loading="lazy"
+                        src="/images/confetti-logo_1confetti-logo.webp"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home_about">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_about_wrapper">
+                <div class="home_about_left-content">
+                  <h2 class="heading-style-h2 text-color-1f1f1f">
+                    Who We’re For
+                  </h2>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="heading-style-h5 text-style-italic">
+                    You’re a serious D2C founder who:
+                  </div>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="div-block-2">
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/red-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Moves fast, makes bold decisions, and doesn’t overthink
+                        the obvious.
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/yellow-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Has capital or has raised and wants to spend smart to
+                        grow smart.
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/green-blob.png"
+                      />
+                      <div class="text-size-medium">
+                        Wants branding, packaging, and a website that match the
+                        quality of the product
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/red-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Values good design as a growth lever, not a last-minute
+                        add-on.
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/yellow-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Is done wasting time with freelancers or founders who
+                        are still figuring it out.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="padding-bottom padding-xsmall"></div>
+                  <div class="text-size-medium text-color-1f1f1f">
+                    If you're bootstrapping, unsure of your vision, or looking
+                    to “start small”. we're not your studio.
+                  </div>
+                  <div class="padding-bottom padding-small"></div>
+                  <div class="text-size-medium text-color-1f1f1f">
+                    We work with founders building brands with ambition.
+                  </div>
+                </div>
+                <div class="home_about_right-content who-we-are">
+                  <img
+                    alt="Illustration showing the ideal D2C founder traits Jellypop works with: speed of execution, raised funding, design-led growth mindset, and brand clarity."
+                    class="image-contain"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/images/who-we-are-for.png"
+                    srcset="/images/Frame-1948755798-p-500.png 500w, /images/Frame-1948755798-p-800.png 800w, /images/who-we-are-for.png 839w"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home_about">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_about_wrapper">
+                <div class="home_about_left-content">
+                  <h2 class="heading-style-h2 text-color-1f1f1f">
+                    After <span class="text-color-primary">Jellypop</span>
+                  </h2>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="heading-style-h5 text-style-italic">
+                    Now imagine this:
+                  </div>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="div-block-2">
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/red-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Your brand feels like the product. It looks like the
+                        part as other 1M+ D2C brands!
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/yellow-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Your box gets saved. Your product gets repeat buys, is
+                        shared and promoted by influencers and customers
+                        willingly.
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/green-blob.png"
+                      />
+                      <div class="text-size-medium">
+                        You look like the brand people assume is VC-backed but
+                        it’s just good design.
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/red-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Values good design as a growth lever, not a last-minute
+                        add-on.
+                      </div>
+                    </div>
+                    <div class="home_about-left-content_pointer">
+                      <img
+                        alt=""
+                        class="home_about-left-content_pointer_icon"
+                        loading="lazy"
+                        src="/images/yellow-blob_1.png"
+                      />
+                      <div class="text-size-medium">
+                        Is done wasting time with freelancers or founders who
+                        are still figuring it out.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="padding-bottom padding-xsmall"></div>
+                  <div class="text-size-medium text-color-1f1f1f">
+                    If you're bootstrapping, unsure of your vision, or looking
+                    to “start small”. we're not your studio.
+                  </div>
+                  <div class="padding-bottom padding-small"></div>
+                  <div class="text-size-medium text-color-1f1f1f">
+                    We work with founders building brands with ambition.
+                  </div>
+                </div>
+                <div class="home_about_right-content">
+                  <img
+                    alt="Visual showing Jellypop at the center replacing multiple vendors like website, PR, packaging, and influencer agencies with a single integrated solution."
+                    class="image-contain"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/images/after-jellypop_1.avif"
+                    srcset="/images/after-jellypop_1after-jellypop.avif 500w, /images/after-jellypop_1.avif 1108w"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="component_cta-banner">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="component_cta-banner_wrapper">
+                <div class="component_cta-banner_text-content">
+                  <div
+                    class="heading-style-h5 text-weight-bold text-color-white is-opacity-90"
+                  >
+                    Attract high-value customers to your brand!
+                  </div>
+                  <div class="padding-bottom padding-xxsmall"></div>
+                  <div class="padding-bottom padding-small"></div>
+                  <h2 class="heading-style-h3 text-color-white">
+                    Unlock Growth for Your D2C Brand
+                  </h2>
+                </div>
+                <div class="button-tip" fs-modal-element="">
+                  <a class="button w-button" href="#cta-section">Book A Call</a>
+                  <div
+                    class="text-size-small text-style-italic text-color-white text-align-center"
+                  >
+                    ⚡ Get Instant Response
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component_cta-banner_circle"></div>
+        </div>
+      </div>
+      <section class="home_before-after">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="home_before-after_wrapper">
+              <div class="home_before-after_header">
+                <h2
+                  class="heading-style-h2 text-align-center text-color-1f1f1f"
+                >
+                  So What’s Stopping You?
+                </h2>
+                <div class="padding-bottom padding-medium"></div>
+                <p class="heading-style-h5 text-align-center text-style-italic">
+                  Not budget. Not time.
+                </p>
+                <div class="padding-bottom padding-small"></div>
+                <p class="heading-style-h5 text-align-center">
+                  It’s clarity, taste, and a partner who can see what you’re
+                  trying to build and actually make it real. That’s us.
+                </p>
+              </div>
+              <div
+                class="home_before-after_image-wrapper"
+                udesly-before-after="50"
+              >
+                <img
+                  alt="Side-by-side transformation graphic showing the shift from D2C brand struggles like bland packaging, guesswork, and low conversions, to outcomes like shelf-stopping products, strategic brand touchpoints, and websites that convert."
+                  class="image-cover"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/images/whats-stopping-you.avif"
+                  srcset="/images/whats-stopping-you-p-500.png 500w, /images/whats-stopping-you-p-800.png 800w, /images/whats-stopping-you-p-1080.png 1080w, /images/whats-stopping-you.avif 2031w"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section class="home_before-after">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="home_together_wrapper">
+              <div class="home_before-after_header">
+                <h2
+                  class="heading-style-h2 text-align-center text-color-1f1f1f"
+                >
+Let’s Work Together
+                </h2>
+              </div>
+              <div
+                class="home_before-after_image-wrapper"
+                udesly-before-after="50"
+              >
+               <iframe src="https://zcal.co/i/snN2M0p7?embed=1&embedType=iframe" loading="lazy" style="border:none; min-width: 320px; min-height: 544px; height: 966px; width: 1096px" id="zcal-invite" scrolling="no"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="home_cta" id="cta-section">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_cta_wrapper">
+                <div class="home_cta_left-content">
+                  <h2 class="heading-style-h2 text-color-1f1f1f">
+                    Let’s Work Together
+                  </h2>
+                  <div class="padding-bottom padding-large"></div>
+                  <div class="home_cta_left-content_profile">
+                    <img
+                      alt=""
+                      class="image-cover"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/images/harsh-makwana-founder-jellypop-design.png"
+                      srcset="/images/Frame-3-p-500.png 500w, /images/harsh-makwana-founder-jellypop-design.png 744w"
+                    />
+                  </div>
+                  <div class="padding-bottom padding-medium"></div>
+                  <div class="heading-style-h5 text-color-1f1f1f">
+                    <span class="text-weight-semibold">Harsh Makwana</span><br
+                    />Founder @ Jellypop.design
+                  </div>
+                </div>
+                <div class="home_cta_right-content w-form">
+                  <form
+                    class="form"
+                    data-name="CTA Form"
+                    data-wf-element-id="61e3fbf4-f14c-67a3-fb6d-a53cb716e02a"
+                    data-wf-page-id="67fcb446aacc24d0d7bdcb9d"
+                    id="wf-form-CTA-Form"
+                    method="get"
+                    name="wf-form-CTA-Form"
+                  >
+                    <div class="form_input_wrapper">
+                      <input
+                        class="form_input w-input"
+                        data-name="Full Name"
+                        id="full-name"
+                        maxlength="256"
+                        name="Full-Name"
+                        placeholder="Full Name"
+                        required=""
+                        type="text"
+                      /><input
+                        class="form_input w-input"
+                        data-name="Email"
+                        id="email"
+                        maxlength="256"
+                        name="Email"
+                        placeholder="Email"
+                        required=""
+                        type="email"
+                      />
+                      <div class="form_column">
+                        <input
+                          class="form_input w-input"
+                          data-name="Company Name"
+                          id="company-name"
+                          maxlength="256"
+                          name="Company-Name"
+                          placeholder="Company Name"
+                          required=""
+                          type="text"
+                        /><input
+                          class="form_input w-input"
+                          data-name="Phone"
+                          id="phone"
+                          maxlength="256"
+                          name="Phone"
+                          placeholder="Phone Number"
+                          required=""
+                          type="tel"
+                        />
+                      </div><textarea
+                        class="form_input is-text-area w-input"
+                        data-name="Project Details"
+                        id="project-details"
+                        maxlength="5000"
+                        name="Project-Details"
+                        placeholder="Tell us about the project"
+                        required=""></textarea>
+                      <div class="text-color-white">
+                        <div class="margin-bottom margin-xsmall">
+                          <label for=""
+                            >Where did you first hear about us?*</label>
+                        </div>
+                        <div class="wrapper-checkbox">
+                          <label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Google-2"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Google"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Google-2">Google</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Clutch-2"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Clutch"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Clutch-2">Clutch</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Email-2"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Email"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Email-2">Email</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Linkedin-2"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Linkedin"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Linkedin-2">Linkedin</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Referral"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Referral"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Referral">Referral</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Behance-2"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Behance"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Behance-2">Behance</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="AI-Searches"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="AI Searches"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="AI-Searches">AI Searches</span
+                            >
+                          </label><label class="form_checkbox w-radio">
+                            <div
+                              class="w-form-formradioinput w-form-formradioinput--inputType-custom form_checkbox-icon white w-radio-input"
+                            >
+                            </div><input
+                              data-name="Where did you first hear about us?*"
+                              id="Others-if-any"
+                              name="Where-did-you-first-hear-about-us"
+                              required=""
+                              style="opacity:0;position:absolute;z-index:-1"
+                              type="radio"
+                              value="Others (if any)"
+                            /><span
+                              class="form_checkbox-label w-form-label"
+                              for="Others-if-any">Others (if any)</span
+                            >
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="button-tip">
+                      <input
+                        class="button w-button"
+                        data-wait="Please wait..."
+                        type="submit"
+                        value="Submit"
+                      />
+                      <div
+                        class="text-size-small text-weight-medium text-color-white text-align-center"
+                      >
+                        ⚡ Get Instant Response
+                      </div>
+                    </div>
+                  </form>
+                  <div class="success-message w-form-done">
+                    <div class="heading-style-h5 text-weight-semibold">
+                      We Have Received Your Details
+                    </div>
+                    <div class="padding-bottom padding-small"></div>
+                    <div class="text-size-medium">
+                      We will contact you soon..
+                    </div>
+                  </div>
+                  <div class="w-form-fail">
+                    <div>
+                      Oops! Something went wrong while submitting the form.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <div class="section_concern">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="section_concern_wrapper">
+                <h2 class="heading-style-h2">Our Parent Company</h2>
+                <div class="padding-bottom padding-large"></div>
+                <div class="padding-bottom padding-xxsmall"></div>
+                <div class="section_concern_logo w-embed">
+                  <svg
+                    fill="none"
+                    height="auto"
+                    viewbox="0 0 269 55"
+                    width="auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.52373 41.9893V16.0309H6.92224L15.5029 33.2643L24.0836 16.0309H28.4821V41.9893H23.9034V26.4863L16.3682 41.9893H14.6377L7.10251 26.4863V41.9893H2.52373ZM32.8212 19.8165V15.4901H37.7245V19.8165H32.8212ZM32.8212 41.9893V22.5205H37.7245V41.9893H32.8212ZM55.3148 41.9893V32.7957C55.3148 32.351 55.2908 31.7862 55.2427 31.1011C55.1947 30.4041 55.0444 29.7071 54.7921 29.0101C54.5397 28.313 54.1251 27.7302 53.5482 27.2615C52.9834 26.7928 52.1782 26.5584 51.1326 26.5584C50.712 26.5584 50.2614 26.6245 49.7806 26.7567C49.2999 26.8889 48.8493 27.1473 48.4286 27.5319C48.008 27.9044 47.6595 28.4572 47.3831 29.1903C47.1187 29.9234 46.9865 30.8968 46.9865 32.1106L44.1744 30.7767C44.1744 29.2384 44.4868 27.7963 45.1117 26.4503C45.7367 25.1043 46.6741 24.0167 47.9239 23.1874C49.1858 22.3582 50.7721 21.9436 52.6829 21.9436C54.2092 21.9436 55.453 22.202 56.4145 22.7187C57.3759 23.2355 58.121 23.8905 58.6498 24.6837C59.1906 25.4768 59.5751 26.3061 59.8035 27.1713C60.0318 28.0246 60.17 28.8058 60.2181 29.5148C60.2662 30.2239 60.2902 30.7406 60.2902 31.0651V41.9893H55.3148ZM42.0112 41.9893V22.5205H46.3736V28.974H46.9865V41.9893H42.0112ZM71.133 42.5661C69.6067 42.5661 68.3629 42.3077 67.4014 41.791C66.44 41.2742 65.6889 40.6192 65.1481 39.8261C64.6193 39.0329 64.2408 38.2097 64.0124 37.3564C63.7841 36.4911 63.6459 35.704 63.5978 34.9949C63.5497 34.2859 63.5257 33.7691 63.5257 33.4446V22.5205H68.5011V31.7141C68.5011 32.1587 68.5251 32.7296 68.5732 33.4266C68.6212 34.1116 68.7715 34.8026 69.0238 35.4997C69.2762 36.1967 69.6848 36.7796 70.2496 37.2482C70.8265 37.7169 71.6377 37.9513 72.6832 37.9513C73.1039 37.9513 73.5545 37.8852 74.0352 37.753C74.516 37.6208 74.9666 37.3684 75.3872 36.9959C75.8079 36.6113 76.1504 36.0525 76.4148 35.3194C76.6912 34.5743 76.8294 33.6008 76.8294 32.3991L79.6415 33.733C79.6415 35.2713 79.3291 36.7135 78.7042 38.0594C78.0792 39.4054 77.1358 40.493 75.874 41.3223C74.6241 42.1515 73.0438 42.5661 71.133 42.5661ZM77.4423 41.9893V35.5357H76.8294V22.5205H81.7687V41.9893H77.4423ZM97.4065 41.9893C96.0605 42.2416 94.7386 42.3498 93.4407 42.3137C92.1548 42.2897 91.0011 42.0674 89.9796 41.6468C88.9701 41.2141 88.2009 40.5231 87.6721 39.5737C87.1914 38.6844 86.9391 37.783 86.915 36.8697C86.891 35.9443 86.879 34.8988 86.879 33.733V17.1125H91.7822V33.4446C91.7822 34.2017 91.7882 34.8868 91.8002 35.4997C91.8243 36.1005 91.9505 36.5813 92.1788 36.9418C92.6114 37.6268 93.3025 37.9994 94.2519 38.0594C95.2013 38.1195 96.2528 38.0715 97.4065 37.9152V41.9893ZM83.5621 26.3061V22.5205H97.4065V26.3061H83.5621ZM108.657 42.5301C106.662 42.5301 104.901 42.1034 103.375 41.2502C101.861 40.3849 100.671 39.2011 99.8055 37.6989C98.9522 36.1847 98.5256 34.4541 98.5256 32.5072C98.5256 30.3801 98.9462 28.5293 99.7875 26.955C100.629 25.3807 101.788 24.1609 103.267 23.2956C104.745 22.4183 106.445 21.9797 108.368 21.9797C110.411 21.9797 112.148 22.4604 113.578 23.4218C115.008 24.3832 116.066 25.7352 116.751 27.4778C117.436 29.2204 117.676 31.2694 117.472 33.6249H112.622V31.8222C112.622 29.8393 112.304 28.4152 111.667 27.5499C111.042 26.6726 110.015 26.2339 108.584 26.2339C106.914 26.2339 105.682 26.7447 104.889 27.7662C104.108 28.7757 103.717 30.2719 103.717 32.2549C103.717 34.0695 104.108 35.4756 104.889 36.4731C105.682 37.4586 106.842 37.9513 108.368 37.9513C109.33 37.9513 110.153 37.741 110.838 37.3204C111.523 36.8997 112.046 36.2928 112.406 35.4997L117.309 36.9057C116.576 38.6844 115.417 40.0664 113.83 41.0519C112.256 42.0373 110.531 42.5301 108.657 42.5301ZM102.203 33.6249V29.9835H115.11V33.6249H102.203Z"
+                      fill="#001847"></path>
+                    <path
+                      d="M137.737 42.5301C135.141 42.5301 132.9 41.9652 131.013 40.8356C129.138 39.7059 127.69 38.1255 126.669 36.0945C125.659 34.0635 125.154 31.702 125.154 29.0101C125.154 26.3181 125.659 23.9566 126.669 21.9256C127.69 19.8946 129.138 18.3142 131.013 17.1846C132.9 16.0549 135.141 15.4901 137.737 15.4901C140.717 15.4901 143.217 16.2291 145.236 17.7073C147.267 19.1855 148.697 21.1865 149.526 23.7102L144.587 25.0802C144.106 23.5059 143.295 22.2861 142.154 21.4208C141.012 20.5435 139.54 20.1049 137.737 20.1049C136.091 20.1049 134.715 20.4714 133.609 21.2045C132.515 21.9376 131.692 22.9711 131.139 24.3051C130.586 25.6391 130.31 27.2074 130.31 29.0101C130.31 30.8127 130.586 32.381 131.139 33.715C131.692 35.049 132.515 36.0825 133.609 36.8156C134.715 37.5487 136.091 37.9152 137.737 37.9152C139.54 37.9152 141.012 37.4766 142.154 36.5993C143.295 35.722 144.106 34.5022 144.587 32.9399L149.526 34.3099C148.697 36.8336 147.267 38.8346 145.236 40.3128C143.217 41.791 140.717 42.5301 137.737 42.5301ZM152.414 41.9893V22.5205H156.74V27.2795L156.272 26.6666C156.524 25.9936 156.861 25.3807 157.281 24.8279C157.702 24.2751 158.219 23.8184 158.832 23.4578C159.3 23.1694 159.811 22.9471 160.364 22.7909C160.917 22.6226 161.487 22.5205 162.076 22.4844C162.665 22.4363 163.254 22.4483 163.843 22.5205V27.0992C163.302 26.931 162.671 26.8769 161.95 26.937C161.241 26.9851 160.598 27.1473 160.021 27.4237C159.444 27.6881 158.958 28.0426 158.561 28.4873C158.165 28.9199 157.864 29.4367 157.66 30.0376C157.456 30.6264 157.353 31.2934 157.353 32.0385V41.9893H152.414ZM174.888 42.5301C172.893 42.5301 171.132 42.1034 169.606 41.2502C168.092 40.3849 166.902 39.2011 166.037 37.6989C165.183 36.1847 164.757 34.4541 164.757 32.5072C164.757 30.3801 165.177 28.5293 166.019 26.955C166.86 25.3807 168.02 24.1609 169.498 23.2956C170.976 22.4183 172.676 21.9797 174.599 21.9797C176.642 21.9797 178.379 22.4604 179.809 23.4218C181.239 24.3832 182.297 25.7352 182.982 27.4778C183.667 29.2204 183.907 31.2694 183.703 33.6249H178.854V31.8222C178.854 29.8393 178.535 28.4152 177.898 27.5499C177.273 26.6726 176.246 26.2339 174.816 26.2339C173.145 26.2339 171.913 26.7447 171.12 27.7662C170.339 28.7757 169.948 30.2719 169.948 32.2549C169.948 34.0695 170.339 35.4756 171.12 36.4731C171.913 37.4586 173.073 37.9513 174.599 37.9513C175.561 37.9513 176.384 37.741 177.069 37.3204C177.754 36.8997 178.277 36.2928 178.637 35.4997L183.54 36.9057C182.807 38.6844 181.648 40.0664 180.061 41.0519C178.487 42.0373 176.762 42.5301 174.888 42.5301ZM168.434 33.6249V29.9835H181.341V33.6249H168.434ZM191.747 42.5301C190.353 42.5301 189.17 42.2657 188.196 41.7369C187.235 41.1961 186.502 40.481 185.997 39.5917C185.504 38.6904 185.258 37.6989 185.258 36.6173C185.258 35.716 185.396 34.8928 185.672 34.1477C185.949 33.4026 186.394 32.7476 187.006 32.1827C187.631 31.6059 188.467 31.1252 189.512 30.7406C190.233 30.4762 191.092 30.2419 192.09 30.0376C193.087 29.8333 194.217 29.641 195.479 29.4607C196.741 29.2684 198.129 29.0581 199.643 28.8298L197.876 29.8032C197.876 28.6495 197.6 27.8023 197.047 27.2615C196.494 26.7207 195.569 26.4503 194.271 26.4503C193.55 26.4503 192.799 26.6245 192.018 26.973C191.237 27.3216 190.69 27.9405 190.377 28.8298L185.943 27.4237C186.436 25.8133 187.361 24.5034 188.719 23.4939C190.077 22.4844 191.928 21.9797 194.271 21.9797C195.99 21.9797 197.516 22.244 198.85 22.7728C200.184 23.3016 201.193 24.215 201.878 25.5129C202.263 26.2339 202.491 26.955 202.563 27.6761C202.636 28.3971 202.672 29.2023 202.672 30.0917V41.9893H198.381V37.9873L198.994 38.8166C198.045 40.1265 197.017 41.0759 195.912 41.6648C194.818 42.2416 193.43 42.5301 191.747 42.5301ZM192.793 38.6724C193.694 38.6724 194.451 38.5161 195.064 38.2037C195.689 37.8792 196.182 37.5126 196.543 37.104C196.915 36.6954 197.167 36.3529 197.3 36.0765C197.552 35.5477 197.696 34.9348 197.732 34.2378C197.78 33.5287 197.804 32.9399 197.804 32.4712L199.247 32.8317C197.792 33.0721 196.615 33.2764 195.713 33.4446C194.812 33.6008 194.085 33.7451 193.532 33.8773C192.979 34.0095 192.493 34.1537 192.072 34.3099C191.591 34.5022 191.201 34.7125 190.9 34.9408C190.612 35.1571 190.395 35.3975 190.251 35.6619C190.119 35.9263 190.053 36.2207 190.053 36.5452C190.053 36.9899 190.161 37.3744 190.377 37.6989C190.606 38.0114 190.924 38.2517 191.333 38.42C191.741 38.5882 192.228 38.6724 192.793 38.6724ZM217.958 41.9893C216.612 42.2416 215.291 42.3498 213.993 42.3137C212.707 42.2897 211.553 42.0674 210.531 41.6468C209.522 41.2141 208.753 40.5231 208.224 39.5737C207.743 38.6844 207.491 37.783 207.467 36.8697C207.443 35.9443 207.431 34.8988 207.431 33.733V17.1125H212.334V33.4446C212.334 34.2017 212.34 34.8868 212.352 35.4997C212.376 36.1005 212.502 36.5813 212.731 36.9418C213.163 37.6268 213.854 37.9994 214.804 38.0594C215.753 38.1195 216.805 38.0715 217.958 37.9152V41.9893ZM204.114 26.3061V22.5205H217.958V26.3061H204.114ZM221.576 19.8165V15.4901H226.479V19.8165H221.576ZM221.576 41.9893V22.5205H226.479V41.9893H221.576ZM236.066 41.9893L228.999 22.5205H233.903L238.517 36.0044L243.132 22.5205H248.035L240.969 41.9893H236.066ZM258.557 42.5301C256.562 42.5301 254.801 42.1034 253.275 41.2502C251.761 40.3849 250.571 39.2011 249.706 37.6989C248.852 36.1847 248.426 34.4541 248.426 32.5072C248.426 30.3801 248.846 28.5293 249.688 26.955C250.529 25.3807 251.689 24.1609 253.167 23.2956C254.645 22.4183 256.346 21.9797 258.268 21.9797C260.311 21.9797 262.048 22.4604 263.478 23.4218C264.908 24.3832 265.966 25.7352 266.651 27.4778C267.336 29.2204 267.576 31.2694 267.372 33.6249H262.523V31.8222C262.523 29.8393 262.204 28.4152 261.567 27.5499C260.942 26.6726 259.915 26.2339 258.485 26.2339C256.814 26.2339 255.582 26.7447 254.789 27.7662C254.008 28.7757 253.617 30.2719 253.617 32.2549C253.617 34.0695 254.008 35.4756 254.789 36.4731C255.582 37.4586 256.742 37.9513 258.268 37.9513C259.23 37.9513 260.053 37.741 260.738 37.3204C261.423 36.8997 261.946 36.2928 262.306 35.4997L267.21 36.9057C266.477 38.6844 265.317 40.0664 263.73 41.0519C262.156 42.0373 260.432 42.5301 258.557 42.5301ZM252.103 33.6249V29.9835H265.01V33.6249H252.103Z"
+                      fill="#1463FF"></path>
+                    <path
+                      d="M126.188 50.5615H268.899"
+                      stroke="#1463FF"
+                      stroke-width="4.50667"></path>
+                  </svg>
+                </div>
+                <div class="padding-bottom padding-medium"></div>
+                <div class="heading-style-h5 text-color-1f1f1f">
+                  Minute Creative is a #1 ranked agency (Clutch, 2025) that only
+                  works with SaaS and AI companies to help scale from $50K to
+                  $500K MRR by fixing the 3 leakiest parts of their GTM funnel:
+                  Messaging, Website, and Demand Layer.
+                </div>
+                <div class="padding-bottom padding-medium"></div>
+                <a
+                  class="text-color-link"
+                  href="https://www.minutecreative.com/"
+                  target="_blank">Visit Website →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="awards_hero">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="w-embed">
+                <style>
+                  .awards_hero_badges-wrapper {
+                    white-space: nowrap;
+                    will-change: transform;
+                    animation: marquee-horizontal-alt 25s linear infinite;
+                    /* manipulate the speed of the marquee by changing "40s" line above*/
+                  }
+                  @keyframes marquee-horizontal-alt {
+                    from {
+                      transform: translateX(-50%);
+                    }
+                    to {
+                      transform: translateX(0%);
+                    }
+                  }
+                </style>
+              </div>
+              <h1
+                class="heading-style-h2 text-weight-semibold text-align-center"
+              >
+                You Like Awards? <span class="text-weight-normal"
+                  >(We Got Many!)</span>
+              </h1>
+              <div class="padding-bottom padding-huge"></div>
+              <div class="awards_hero_badges-group">
+                <div class="awards_hero_badge-gradient"></div>
+                <div class="awards_hero_badges-wrapper">
+                  <div class="awards_hero_badges">
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative received clutch champion fall award in 2024"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-champion-fall-2024_1clutch-champion-fall-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Exceptional Service Provider, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Fall 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top Web Design Company—Clutch Verified Leader 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-company-web-design-company-2024_1clutch-top-company-web-design-company-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Web Design Company, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative is recognized as top webflow development company"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-webflow-development-company-2024_1clutch-top-webflow-development-company-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Webflow Development, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top Design Agency in Bengaluru—The Manifest Verified 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/manifest-most-reviewed-design-company-bengaluru_1manifest-most-reviewed-design-company-bengaluru.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Most Reviewed Design Company, Bengaluru, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Manifest, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Most Reviewed Web Design Agency—The Manifest 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/manifest-most-reviewed-web-design-company_1manifest-most-reviewed-web-design-company.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Most Reviewed Web Design Company, Bengaluru, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Manifest, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative received global fall award in 2024"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-global-fall-2024_1clutch-global-fall-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top B2B Company, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Fall 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top SaaS Marketing Agency 2024—Clutch Verified Champion"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-champion-spring-2024_1clutch-champion-spring-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Exceptional Service Provider, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Spring 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Award-Winning SaaS GTM Experts—Clutch Global Leader 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-global-spring-2024_1clutch-global-spring-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top B2B Company, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Spring 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative ranks in top digital design company in india"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-digital-design-company-india-2025_1clutch-top-digital-design-company-india-2025.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Digital Design Company, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2025)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="awards_hero_badges">
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative received clutch champion fall award in 2024"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-champion-fall-2024_1clutch-champion-fall-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Exceptional Service Provider, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Fall 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top Web Design Company—Clutch Verified Leader 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-company-web-design-company-2024_1clutch-top-company-web-design-company-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Web Design Company, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative is recognized as top webflow development company"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-webflow-development-company-2024_1clutch-top-webflow-development-company-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Webflow Development, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top Design Agency in Bengaluru—The Manifest Verified 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/manifest-most-reviewed-design-company-bengaluru_1manifest-most-reviewed-design-company-bengaluru.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Most Reviewed Design Company, Bengaluru, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Manifest, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Most Reviewed Web Design Agency—The Manifest 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/manifest-most-reviewed-web-design-company_1manifest-most-reviewed-web-design-company.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Most Reviewed Web Design Company, Bengaluru, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Manifest, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative received global fall award in 2024"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-global-fall-2024_1clutch-global-fall-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top B2B Company, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Fall 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top SaaS Marketing Agency 2024—Clutch Verified Champion"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-champion-spring-2024_1clutch-champion-spring-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Exceptional Service Provider, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Spring 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card" id="global">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Award-Winning SaaS GTM Experts—Clutch Global Leader 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-global-spring-2024_1clutch-global-spring-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top B2B Company, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Spring 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative ranks in top digital design company in india"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-digital-design-company-india-2025_1clutch-top-digital-design-company-india-2025.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Digital Design Company, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2025)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="awards_hero_badges">
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative received clutch champion fall award in 2024"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-champion-fall-2024_1clutch-champion-fall-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Exceptional Service Provider, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Fall 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top Web Design Company—Clutch Verified Leader 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-company-web-design-company-2024_1clutch-top-company-web-design-company-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Web Design Company, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="awards_content_recognition-card"
+                      id="premium-spotlight"
+                    >
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative is recognized as top webflow development company"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-webflow-development-company-2024_1clutch-top-webflow-development-company-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Webflow Development, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top Design Agency in Bengaluru—The Manifest Verified 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/manifest-most-reviewed-design-company-bengaluru_1manifest-most-reviewed-design-company-bengaluru.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Most Reviewed Design Company, Bengaluru, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Manifest, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Most Reviewed Web Design Agency—The Manifest 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/manifest-most-reviewed-web-design-company_1manifest-most-reviewed-web-design-company.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Most Reviewed Web Design Company, Bengaluru, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Manifest, 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative received global fall award in 2024"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-global-fall-2024_1clutch-global-fall-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top B2B Company, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Fall 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Top SaaS Marketing Agency 2024—Clutch Verified Champion"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-champion-spring-2024_1clutch-champion-spring-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Exceptional Service Provider, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Spring 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="Award-Winning SaaS GTM Experts—Clutch Global Leader 2024."
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-global-spring-2024_1clutch-global-spring-2024.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top B2B Company, Global
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, Spring 2024)
+                        </div>
+                      </div>
+                    </div>
+                    <div class="awards_content_recognition-card">
+                      <div class="awards_content_recognition_image-wrapper">
+                        <img
+                          alt="minute creative ranks in top digital design company in india"
+                          class="awards_content_recognition_image"
+                          loading="lazy"
+                          src="/images/clutch-top-digital-design-company-india-2025_1clutch-top-digital-design-company-india-2025.avif"
+                        />
+                      </div>
+                      <div class="awards_content_recognition-card_text-wrapper">
+                        <div
+                          class="text-size-regular-3 text-weight-semibold text-color-shade-black"
+                        >
+                          Top Digital Design Company, India
+                        </div>
+                        <div
+                          class="text-size-small text-weight-medium text-color-shade-black-50"
+                        >
+                          (Clutch, 2025)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="awards_hero_badge-gradient right-side"></div>
+              </div>
+              <div class="awards_wrapper">
+                <div class="awards_hero_wrapper _1">
+                  <div class="slider-main_component">
+                    <div class="swiper is-slider-main overflow-hidden">
+                      <div class="swiper-wrapper is-slider-main full">
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-3">
+                            <img
+                              alt="minute creative ranks top #1 in top design agencies in india"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 2400px) 100vw, 2400px"
+                              src="/images/top-design-agencies-in-india.png"
+                              srcset="/images/awards-image-1-p-500.png 500w, /images/awards-image-1-p-800.png 800w, /images/awards-image-1-p-1080.png 1080w, /images/awards-image-1-p-1600.png 1600w, /images/awards-image-1-p-2000.png 2000w, /images/top-design-agencies-in-india.png 2400w"
+                            />
+                            <div class="padding-bottom padding-large"></div>
+                            <div class="awards_hero_heading-wrapper slide-3">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked #1 Design Agency<br />In India (2025)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              Within 3 Years of Foundation
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-3">
+                            <img
+                              alt="minute creative ranks top #2 in top web designers in india"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 2400px) 100vw, 2400px"
+                              src="/images/top-web-designers-in-india.png"
+                              srcset="/images/awards-image-2-p-500.png 500w, /images/awards-image-2-p-800.png 800w, /images/awards-image-2-p-1080.png 1080w, /images/awards-image-2-p-1600.png 1600w, /images/awards-image-2-p-2000.png 2000w, /images/top-web-designers-in-india.png 2400w"
+                            />
+                            <div class="padding-bottom padding-xlarge"></div>
+                            <div class="awards_hero_heading-wrapper slide-3">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked #2 Website Design Agency<br />In India
+                                (2025)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              Fastest Growing Agency
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-3">
+                            <img
+                              alt="minute creative ranks in top digital design agencies in india"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 2400px) 100vw, 2400px"
+                              src="/images/top-digital-design-agencies-in-india.png"
+                              srcset="/images/awards-image-5-p-500.png 500w, /images/awards-image-5-p-800.png 800w, /images/awards-image-5-p-1080.png 1080w, /images/awards-image-5-p-1600.png 1600w, /images/awards-image-5-p-2000.png 2000w, /images/top-digital-design-agencies-in-india.png 2400w"
+                            />
+                            <div class="padding-bottom padding-xlarge"></div>
+                            <div class="awards_hero_heading-wrapper slide-3">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked #3 Website Design Agency<br />In India
+                                (2024)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              Fastest Growing Agency
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-3">
+                            <img
+                              alt="minute creative ranks in top web designers in bengaluru india"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 2400px) 100vw, 2400px"
+                              src="/images/top-web-designers-in-bengaluru.png"
+                              srcset="/images/awards-image-3-p-500.png 500w, /images/awards-image-3-p-800.png 800w, /images/awards-image-3-p-1080.png 1080w, /images/awards-image-3-p-1600.png 1600w, /images/awards-image-3-p-2000.png 2000w, /images/top-web-designers-in-bengaluru.png 2400w"
+                            />
+                            <div class="padding-bottom padding-xlarge"></div>
+                            <div class="awards_hero_heading-wrapper slide-3">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked #1 Website Design Agency <br />In
+                                Bengaluru, India (2024-2025)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              2 years in a row
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-3">
+                            <img
+                              alt="minute creative ranks in top digital design agencies in india"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 2400px) 100vw, 2400px"
+                              src="/images/top-digital-design-agencies-in-india.png"
+                              srcset="/images/awards-image-5-p-500.png 500w, /images/awards-image-5-p-800.png 800w, /images/awards-image-5-p-1080.png 1080w, /images/awards-image-5-p-1600.png 1600w, /images/awards-image-5-p-2000.png 2000w, /images/top-digital-design-agencies-in-india.png 2400w"
+                            />
+                            <div class="padding-bottom padding-xlarge"></div>
+                            <div class="awards_hero_heading-wrapper slide-3">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked Among Top #10 Digital Design Agencies In
+                                India (2024)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              #1 Fastest Growing Agencies in India
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-4">
+                            <img
+                              alt="minute creative ranks in top digital design agencies in bengaluru"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 2400px) 100vw, 2400px"
+                              src="/images/top-digital-design-agencies-in-bengaluru.png"
+                              srcset="/images/awards-image-6-p-500.png 500w, /images/awards-image-6-p-800.png 800w, /images/awards-image-6-p-1080.png 1080w, /images/awards-image-6-p-1600.png 1600w, /images/awards-image-6-p-2000.png 2000w, /images/top-digital-design-agencies-in-bengaluru.png 2400w"
+                            />
+                            <div class="padding-bottom padding-xlarge"></div>
+                            <div class="awards_hero_heading-wrapper slide-3">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked #2 Digital Design Agency In Bengaluru,
+                                India (2024)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              The Underdog Defying The Odds <br />(Breaking
+                              barriers. Redefining the game. Taking on a 16-year
+                              giant — and winning.)
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide is-slider-main full">
+                          <div class="awards_hero_slide slide-1">
+                            <img
+                              alt="minute creative ranks in top branding agencies in india"
+                              class="image-cover"
+                              loading="eager"
+                              sizes="(max-width: 1329px) 100vw, 1329px"
+                              src="/images/top-branding-agencies-in-india.png"
+                              srcset="/images/awards-slider-img-7-p-500.png 500w, /images/awards-slider-img-7-p-800.png 800w, /images/awards-slider-img-7-p-1080.png 1080w, /images/top-branding-agencies-in-india.png 1329w"
+                            />
+                            <div class="padding-bottom padding-xlarge"></div>
+                            <div class="awards_hero_heading-wrapper">
+                              <h2 class="heading-style-h3 text-color-1f1f1f">
+                                Ranked #7 Branding Agency<br />In India (2025)
+                              </h2>
+                            </div>
+                            <div class="padding-bottom padding-medium"></div>
+                            <div
+                              class="heading-style-h5 text-weight-semibold text-style-italic text-color-secondary"
+                            >
+                              Within 3 Years of foundation
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper_button-wrapper">
+                      <div class="slider-main_button swiper-prev custom">
+                        <div class="image-cover-4 center inverse w-embed">
+                          <svg
+                            fill="currentcolor"
+                            height="100%"
+                            viewbox="0 0 256 256"
+                            width="100%"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div
+                        class="slider-main_button swiper-next padding-custom1"
+                      >
+                        <div class="image-cover-4 center w-embed">
+                          <svg
+                            fill="currentcolor"
+                            height="100%"
+                            viewbox="0 0 256 256"
+                            width="100%"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="component_cta-banner">
+        <div class="padding-section-small">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="component_cta-banner_wrapper">
+                <div class="component_cta-banner_text-content">
+                  <div
+                    class="heading-style-h5 text-weight-bold text-color-white is-opacity-90"
+                  >
+                    Attract high-value customers to your brand!
+                  </div>
+                  <div class="padding-bottom padding-xxsmall"></div>
+                  <div class="padding-bottom padding-small"></div>
+                  <h2 class="heading-style-h3 text-color-white">
+                    Unlock Growth for Your D2C Brand
+                  </h2>
+                </div>
+                <div class="button-tip" fs-modal-element="">
+                  <a class="button w-button" href="#cta-section">Book A Call</a>
+                  <div
+                    class="text-size-small text-style-italic text-color-white text-align-center"
+                  >
+                    ⚡ Get Instant Response
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component_cta-banner_circle"></div>
+        </div>
+      </div>
+      <div class="home_alternate-cta">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="home_alternate-cta_wrapper">
+                <div class="home_alternate-cta_text-content">
+                  <h2 class="heading-style-h2 text-color-1f1f1f">
+                    Not Ready To Start Yet?
+                  </h2>
+                  <div class="padding-bottom padding-medium"></div>
+                  <p class="heading-style-h4 text-color-1f1f1f">
+                    “5 design mistakes that are costing your D2C brand sales.”
+                  </p>
+                  <div class="padding-bottom padding-large"></div>
+                  <div class="button-tip" fs-modal-element="open">
+                    <a class="button w-button" href="#">Download Free Guide</a>
+                    <div
+                      class="text-size-small text-style-italic text-align-center"
+                    >
+                      ⚡ Get Instantly
+                    </div>
+                  </div>
+                </div>
+                <div class="home_card_graphic"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="component_footer">
+        <div class="padding-section-medium">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="component_footer_wrapper">
+                <div class="componen_footer_links text-color-white">
+                  <a
+                    class="text-size-medium text-weight-medium"
+                    href="/#our-services">Our Services</a
+                  >
+                  <a
+                    class="text-size-medium text-weight-medium"
+                    href="/#cta-section">Contact</a
+                  >
+                  <a class="text-size-medium text-weight-medium" href="/blog"
+                    >Blog</a
+                  >
+                </div>
+                <a
+                  aria-current="page"
+                  class="component_footer_image w-inline-block w--current"
+                  href="/"
+                  ><img
+                    alt=""
+                    class="image-cover"
+                    loading="lazy"
+                    sizes="100vw"
+                    src="/images/jelly-popup-white-logo.png"
+                    srcset="/images/Group-1948754789-p-500.png 500w, /images/Group-1948754789-p-800.png 800w, /images/jelly-popup-white-logo.png 958w"
+                  /></a
+                >
+                <div class="component_footer_copyright-wrapper">
+                  <div
+                    class="text-size-medium text-weight-medium text-color-white"
+                  >
+                    All Rights Reserved © 2026
+                  </div>
+                  <div class="component_footer_copyright_links">
+                    <a class="text-size-medium text-weight-medium" href="#"
+                      >Privacy Policy</a
+                    >
+                    <a class="text-size-medium text-weight-medium" href="#"
+                      >Terms &amp; Conditions</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <div class="popup_block" fs-modal-display="flex" fs-modal-element="modal">
+      <div class="popup_form_wrapper background-color-white">
+        <h2 class="heading-style-h3 text-color-1f1f1f text-align-center">
+          Please enter your details
+        </h2>
+        <div class="padding-bottom padding-large"></div>
+        <div class="saas_form-block w-form">
+          <form
+            class="saas_form-form"
+            data-name="Packaging Audit"
+            data-wf-element-id="06cfecb8-a8c4-f6fa-d96d-44b5f48d0809"
+            data-wf-page-id="67fcb446aacc24d0d7bdcb9d"
+            id="wf-form-Packaging-Audit"
+            method="get"
+            name="wf-form-Packaging-Audit"
+          >
+            <div class="saas_form_label-groups">
+              <div class="saas_form-label-multi-group">
+                <div class="saas_form-label-group">
+                  <input
+                    class="popup_form-input w-input"
+                    data-name="First Name"
+                    id="popup_first-name"
+                    maxlength="256"
+                    name="First-Name"
+                    placeholder="First Name"
+                    required=""
+                    type="text"
+                  />
+                </div>
+                <div class="saas_form-label-group">
+                  <input
+                    class="popup_form-input w-input"
+                    data-name="Last Name"
+                    id="popup_last-name"
+                    maxlength="256"
+                    name="Last-Name"
+                    placeholder="Last Name"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="saas_form-label-multi-group">
+                <input
+                  class="popup_form-input w-input"
+                  data-name="Company Name"
+                  id="popup_company-name"
+                  maxlength="256"
+                  name="Company-Name"
+                  placeholder="Company Name"
+                  required=""
+                  type="text"
+                /><input
+                  class="popup_form-input w-input"
+                  data-name="Email"
+                  id="subscription_email"
+                  maxlength="256"
+                  name="Email"
+                  placeholder="Email"
+                  required=""
+                  type="email"
+                />
+              </div>
+              <div class="saas_form-label-multi-group">
+                <input
+                  class="popup_form-input w-input"
+                  data-name="Phone"
+                  id="popup_phone"
+                  maxlength="256"
+                  name="Phone"
+                  placeholder="Phone Number"
+                  required=""
+                  type="tel"
+                />
+              </div>
+              <div class="saas_form-label-group"></div>
+              <div class="saas_form-label-group hide">
+                <input
+                  class="popup_form-input w-input"
+                  data-name="UTM Source"
+                  id="UTM-Source"
+                  maxlength="256"
+                  name="UTM-Source"
+                  placeholder="UTM Source"
+                  type="text"
+                  utm-source=""
+                /><input
+                  class="popup_form-input w-input"
+                  data-name="UTM Medium"
+                  id="UTM-Medium"
+                  maxlength="256"
+                  name="UTM-Medium"
+                  placeholder="UTM Medium"
+                  type="text"
+                  utm-medium=""
+                /><input
+                  class="popup_form-input w-input"
+                  data-name="UTM Campaign"
+                  id="UTM-Campaign"
+                  maxlength="256"
+                  name="UTM-Campaign"
+                  placeholder="UTM Campaign"
+                  type="text"
+                  utm-campaign=""
+                /><input
+                  class="popup_form-input w-input"
+                  data-name="UTM ID"
+                  id="UTM-ID"
+                  maxlength="256"
+                  name="UTM-ID"
+                  placeholder="UTM ID"
+                  type="text"
+                  utm-id=""
+                />
+              </div>
+            </div><input
+              class="button is-full w-button"
+              data-wait="Please wait..."
+              type="submit"
+              value="Submit"
+            />
+          </form>
+          <div class="w-form-done">
+            <div class="heading-style-h5">
+              Thank you! Your submission has been received!
+            </div>
+          </div>
+          <div class="w-form-fail">
+            <div>Oops! Something went wrong while submitting the form.</div>
+          </div>
+        </div>
+        <div class="popup_close w-embed" fs-modal-element="close">
+          <svg
+            fill="none"
+            height="auto"
+            viewbox="0 0 24 24"
+            width="auto"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.5459 17.954C19.7572 18.1653 19.876 18.452 19.876 18.7509C19.876 19.0497 19.7572 19.3364 19.5459 19.5477C19.3346 19.7591 19.0479 19.8778 18.749 19.8778C18.4501 19.8778 18.1635 19.7591 17.9521 19.5477L12 13.5937L6.0459 19.5459C5.83455 19.7572 5.54791 19.8759 5.24902 19.8759C4.95014 19.8759 4.66349 19.7572 4.45215 19.5459C4.2408 19.3345 4.12207 19.0479 4.12207 18.749C4.12207 18.4501 4.2408 18.1635 4.45215 17.9521L10.4062 11.9999L4.45402 6.04586C4.24268 5.83451 4.12395 5.54787 4.12395 5.24898C4.12395 4.9501 4.24268 4.66345 4.45402 4.45211C4.66537 4.24076 4.95201 4.12203 5.2509 4.12203C5.54978 4.12203 5.83643 4.24076 6.04777 4.45211L12 10.4062L17.954 4.45117C18.1654 4.23983 18.452 4.12109 18.7509 4.12109C19.0498 4.12109 19.3364 4.23983 19.5478 4.45117C19.7591 4.66251 19.8778 4.94916 19.8778 5.24804C19.8778 5.54693 19.7591 5.83358 19.5478 6.04492L13.5937 11.9999L19.5459 17.954Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+      </div>
+      <div
+        class="saas_form_background"
+        data-w-id="632df7af-c7a4-804b-01c4-c175d7e8fc23"
+        fs-modal-element="close"
+      >
+      </div>
+    </div>
+  </div>
+
+  <Fragment slot="scripts-extra">
+    <script is:inline>
+      function getLineCount(element) {
+        const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+        const height = element.scrollHeight;
+        return Math.round(height / lineHeight);
+      }
+      document.querySelectorAll(".clamp-wrapper").forEach((wrapper) => {
+        const textBlock = wrapper.querySelector("[text-clamp]");
+        const toggleBtn = wrapper.querySelector("[toggle-text]");
+        const lines = getLineCount(textBlock);
+        if (lines <= 3) {
+          toggleBtn.style.display = "none";
+          return;
+        }
+        toggleBtn.addEventListener("click", () => {
+          const isExpanded = textBlock.classList.toggle("expanded");
+          textBlock.style.webkitLineClamp = isExpanded ? "unset" : "3";
+          toggleBtn.textContent = isExpanded ? "Show Less..." : "Show More...";
+        });
+      });
+    </script>
+    <script is:inline>
+      $(".slider-main_component").each(function (index) {
+        let loopMode = false;
+        if ($(this).attr("loop-mode") === "true") {
+          loopMode = true;
+        }
+        let sliderDuration = 300;
+        if ($(this).attr("slider-duration") !== undefined) {
+          sliderDuration = +$(this).attr("slider-duration");
+        }
+        const swiper = new Swiper($(this).find(".swiper")[0], {
+          speed: sliderDuration,
+          loop: loopMode,
+          autoHeight: false,
+          centeredSlides: loopMode,
+          followFinger: true,
+          freeMode: false,
+          slideToClickedSlide: false,
+          slidesPerView: 1,
+          spaceBetween: "4%",
+          rewind: false,
+          autoplay: { delay: 50000, disableOnInteraction: false },
+          mousewheel: { forceToAxis: true },
+          keyboard: { enabled: true, onlyInViewport: true },
+          breakpoints: {
+            480: { slidesPerView: 1, spaceBetween: "4%" },
+            768: { slidesPerView: 1, spaceBetween: "4%" },
+            992: { slidesPerView: 1, spaceBetween: "2%" },
+          },
+          pagination: {
+            el: $(this).find(".swiper-bullet-wrapper")[0],
+            bulletActiveClass: "is-active",
+            bulletClass: "swiper-bullet",
+            bulletElement: "button",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: $(this).find(".swiper-next")[0],
+            prevEl: $(this).find(".swiper-prev")[0],
+            disabledClass: "is-disabled",
+          },
+          scrollbar: {
+            el: $(this).find(".swiper-drag-wrapper")[0],
+            draggable: true,
+            dragClass: "swiper-drag",
+            snapOnRelease: true,
+          },
+          slideActiveClass: "is-active",
+          slideDuplicateActiveClass: "is-active",
+        });
+        $(this)
+          .on("mouseenter", () => {
+            swiper.autoplay.stop();
+          })
+          .on("mouseleave", () => {
+            swiper.autoplay.start();
+          });
+      });
+    </script>
+  </Fragment>
+</Layout>

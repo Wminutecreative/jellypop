@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+{/*
+  NOTE: This was Webflow's built-in "password protected page" template.
+  The form posts to "/.wf_auth", a Webflow-hosting-only endpoint, so it
+  won't function as-is once this site is hosted outside Webflow. If you
+  still need password protection, you'll need to replace this with your
+  own auth (e.g. middleware, a serverless function, or a hosting-level
+  password gate).
+*/}
+<Layout title="Protected page" canonicalPath="/401">
+
+  <div class="utility_component">
+  <div class="utility_form-block w-password-page w-form">
+  <form action="/.wf_auth" class="utility_form w-password-page" data-name="Email Form" data-wf-element-id="60d3fa3a5a19c1169cd58c4100000000000c" data-wf-page-id="67fcb446aacc24d0d7bdcba3" id="email-form" method="post" name="email-form"><img alt="" class="utility_image" src="https://d3e54v103j8qbb.cloudfront.net/static/utility-lock.ae54711958.svg" width="106"/>
+  <h3>Protected Page</h3>
+  <div class="padding-xxsmall"></div><input autofocus="true" class="form_input w-password-page w-input" data-name="field" id="pass" maxlength="256" name="pass" placeholder="Enter your password" type="password"/>
+  <div class="padding-xxsmall"></div><input class="button w-password-page w-button" data-wait="Please wait..." type="submit" value="Submit"/>
+  <div class="form_message-error-wrapper w-password-page w-form-fail">
+  <div class="form_message-error">
+  <div>Incorrect password. Please try again.</div>
+  </div>
+  </div>
+  <div class="w-password-page w-embed w-script" style="display:none"><input name="path" type="hidden" value="&lt;%WF_FORM_VALUE_PATH%&gt;"/><input name="page" type="hidden" value="&lt;%WF_FORM_VALUE_PAGE%&gt;"/></div>
+  <div class="w-password-page w-embed w-script" style="display:none">
+
+  </div>
+  </form>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <Fragment slot="scripts-extra">
+    <script is:inline>
+      (function _handlePasswordPageOnload() {
+        if (/[?&]e=1(&|$)/.test(document.location.search)) {
+          var errorEl = document.querySelector('.w-password-page.w-form-fail');
+          if (errorEl) errorEl.style.display = 'block';
+        }
+      })();
+    </script>
+  </Fragment>
+</Layout>
