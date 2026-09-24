@@ -2221,6 +2221,12 @@ figcaption {
     opacity: .9;
 }
 
+.home_cta-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .component_cta-banner_circle {
     z-index: 0;
     filter: blur(42.5rem);
