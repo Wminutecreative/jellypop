@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
   canonicalPath?: string;
   bodyClass?: string;
-  wfPageId: string; // Webflow's per-page interaction ID — required for IX2 animations to fire
+  wfPageId?: string; // Webflow's per-page interaction ID (only needed for IX2 animations)
 }
 
 const { title, description, canonicalPath = "", bodyClass, wfPageId } = Astro.props;

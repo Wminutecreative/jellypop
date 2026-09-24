@@ -1,0 +1,106 @@
+[
+  {
+    "id": "6a2ef443dca747a0b63b0a73",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-06-14T18:43:43.688Z",
+    "lastUpdated": "2026-06-14T18:34:43.102Z",
+    "createdOn": "2026-06-14T18:34:43.102Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "meta-title": null,
+      "meta-description": null,
+      "paragraph": null,
+      "open-graph-image": null,
+      "tag-color-bg": null,
+      "tag-color-text": null,
+      "sort-order": null,
+      "name": "Consumer Insights",
+      "slug": "consumer-insights"
+    }
+  },
+  {
+    "id": "6a2ef3dbe285fce50d76cc20",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-06-14T18:43:43.688Z",
+    "lastUpdated": "2026-06-14T18:34:14.877Z",
+    "createdOn": "2026-06-14T18:32:59.829Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "meta-title": null,
+      "meta-description": null,
+      "paragraph": null,
+      "open-graph-image": null,
+      "tag-color-bg": null,
+      "tag-color-text": null,
+      "sort-order": null,
+      "name": "Brand Strategy",
+      "slug": "brand-building"
+    }
+  },
+  {
+    "id": "6a1db2355ff171ff4a519d56",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-06-01T16:37:39.856Z",
+    "lastUpdated": "2026-06-01T16:24:21.154Z",
+    "createdOn": "2026-06-01T16:24:21.154Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "meta-title": null,
+      "meta-description": null,
+      "paragraph": null,
+      "open-graph-image": null,
+      "tag-color-bg": null,
+      "tag-color-text": null,
+      "sort-order": null,
+      "name": "Packaging Strategy",
+      "slug": "packaging-strategy"
+    }
+  },
+  {
+    "id": "6a1db12caf7e160682da1436",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-06-01T16:37:39.856Z",
+    "lastUpdated": "2026-06-01T16:27:05.456Z",
+    "createdOn": "2026-06-01T16:19:56.567Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "meta-title": null,
+      "meta-description": null,
+      "paragraph": null,
+      "open-graph-image": null,
+      "tag-color-bg": null,
+      "tag-color-text": null,
+      "sort-order": null,
+      "name": "Agency Guides",
+      "slug": "agency"
+    }
+  },
+  {
+    "id": "6979d981b41392c00e373a4c",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-01-28T10:29:02.908Z",
+    "lastUpdated": "2026-01-28T09:41:57.827Z",
+    "createdOn": "2026-01-28T09:40:17.145Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "meta-title": "Web Design | Blog - Jellypop Design",
+      "meta-description": "Visit our Web Design blog to learn about the next-gen website design fundamentals, trends, processes & tips, and tricks",
+      "paragraph": "Visit our Web Design blog to learn about the next-gen website design fundamentals, trends, processes & tips, and tricks.",
+      "open-graph-image": {
+        "fileId": "6979d9c9a83ec9ad2b4a8a39",
+        "url": "https://cdn.prod.website-files.com/6979b7cf66c70e895c4eb583/6979d9c9a83ec9ad2b4a8a39_Web%20Design_%20Open%20Graph%20Image.avif",
+        "alt": null
+      },
+      "tag-color-bg": "rgba(128, 128, 128, 0.15)",
+      "tag-color-text": "#000714",
+      "sort-order": 1,
+      "name": "Web Design",
+      "slug": "web-design"
+    }
+  }
+]

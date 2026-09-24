@@ -1084,6 +1084,12 @@ figcaption {
     border-color: var(--_primitives---colors--white) !important;
     color: #1f1f1f80 !important;
     background-color: #fafafa !important;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.button.is-alternate:hover {
+    background-color: #e9e9e9 !important;
+    color: #1f1f1f !important;
 }
 
 .button.is-navbar {
@@ -2083,6 +2089,11 @@ figcaption {
     padding: .5rem;
     font-size: 1.125rem;
     font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.nav_link:hover {
+    color: #e0524e !important;
 }
 
 .nav_link.hide-mobile-landscape.w--current {

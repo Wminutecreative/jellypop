@@ -1,0 +1,784 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  getBlogPosts,
+  getCategories,
+  getAuthors,
+  getFaqs,
+  resolveRefs,
+} from "../../lib/content.js";
+
+// One page is generated for every published post: /blog/<slug>
+export function getStaticPaths() {
+  return getBlogPosts().map((post) => ({
+    params: { slug: post.fieldData.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const f = post.fieldData;
+
+const category = resolveRefs(f["blog-categories"], getCategories())[0];
+const author = resolveRefs(f["blog-authors"], getAuthors())[0];
+const faqs = resolveRefs(f.faq, getFaqs());
+
+const title = f["meta-title-seo"] || f.name;
+const description = f["meta-description-seo"] || f["blog-summary-2"];
+const image = f["blog-thumbnail"]?.url;
+const url = `https://www.jellypop.design/blog/${f.slug}`;
+---
+<Layout title={title} description={description} canonicalPath={`/blog/${f.slug}`}>
+  <Fragment slot="head-extra">
+    <script async type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-toc@1/toc.js"></script>
+    <style is:global>
+      .faq-minus.vertical { transition: transform 0.3s ease; }
+      .faq_item.active .faq-minus.vertical { transform: rotate(90deg); }
+    </style>
+    <style is:global>
+      .table-wrapper{
+        width:100%;
+        overflow-x:auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .table-wrapper table{ min-width: 600px; }
+    </style>
+  </Fragment>
+
+
+  <div class="page-wrapper">
+  <div class="main-wrapper overflow-visible">
+  <div class="navbar w-nav" data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner">
+  <div class="padding-global">
+  <div class="nav_container">
+  <a class="nav_logo w-nav-brand" href="/"><img alt="jellypop" class="image-cover" loading="lazy" src="/images/jelly-pop-logo.png"/></a>
+  <nav class="nav_menu_wrapper w-nav-menu" role="navigation">
+  <div class="nav_menu">
+  <div class="nav-badge-wrapper hide-mobile-landscape">
+  <a class="nav_link w-nav-link" href="https://bit.ly/4kKzjwy" target="_blank">Our Work</a>
+  <div class="nav_badge">NEW</div>
+  </div>
+  <a class="nav_link hide-mobile-landscape w-nav-link" href="/#our-services">Our Services</a>
+  <a class="nav_link hide-mobile-landscape w-nav-link" href="/blog">Blog</a>
+  </div>
+  <div class="nav_button-tip_wrapper">
+  <a class="button is-navbar w-button" href="/#cta-section">Book A Call</a>
+  <div class="nav_button-tip-absolute">
+  <div class="text-size-small text-style-italic">⚡ Get Instant Response</div>
+  </div>
+  </div>
+  </nav>
+  <div class="w-nav-button">
+  <div class="w-icon-nav-menu"></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="blog-post-hero-section">
+  <div class="padding-global">
+  <div class="container-large">
+  <div class="blog-post-header_component">
+  <div class="w-layout-grid blog-post-header_content">
+  <div class="blog-post-header_content-left">
+  <div class="margin-bottom margin-large">
+  <div class="breadcrumb_component">
+  <a class="breadcrumb-link w-inline-block" href="/blog">
+  <div class="blog_breadcrumb_text text-color-shade-black-70 text-weight-medium">Blog</div>
+  </a>
+  <div class="icon-embed-xxsmall w-embed"><svg fill="none" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+  </svg></div>
+  <a class="breadcrumb-link w-inline-block" href={`/blog/${f.slug}`}>
+  <div class="blog_breadcrumb_text text-color-shade-black-70 text-weight-medium">{f.name}</div>
+  </a>
+  </div>
+  </div>
+  <div class="margin-bottom margin-medium">
+  <h1 class="heading-style-h1 text-size-xxlarge">{f.name}</h1>
+  </div>
+  <div class="margin-bottom margin-medium">
+  <p class="text-size-medium-2">{f["blog-summary-2"]}</p>
+  </div>
+  <div class="margin-bottom margin-small">
+  <div class="blogs-category_component">
+  <div class="blogs-category_wrapper">
+  <div class="blog-description_tag">
+  <div class="blog-description_text">{category?.fieldData.name}</div>
+  </div>
+  </div>
+  <div class="text-size-medium">{f["read-time"]}</div>
+  </div>
+  </div>
+  </div>
+  <div class="header1_image-wrapper"><img alt={f["alt-text-blog-cover"] || f.name} class="header1_image" loading="eager" src={image}/></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="blog-post-detail-section">
+  <div class="padding-global">
+  <div class="container-large">
+  <div class="blog-post-detail-section_component">
+  <div class="content32_content-left">
+  <div class="content32_contributers">
+  <div class="content32_author-list">
+  <div class="margin-bottom margin-small">
+  <div class="content32_author-wrapper">
+  <div class="star-image-wrapper"><img alt={author?.fieldData.name ?? ""} class="content32_author-image" loading="lazy" src={author?.fieldData["profile-picture"]?.url}/></div>
+  <div class="content32_author-details">
+  <div class="text-weight-semibold">{author?.fieldData.name}</div>
+  <div class="author-position_wrapper">
+  <div class="text-size-small">{author?.fieldData.position}</div>
+  <div class="text-size-small">, Jellypop</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="content_table">
+  <div class="margin-bottom margin-xsmall">
+  <div class="content_share-text-div">
+  <div class="fst-toc_text-header text-style-allcaps text-color-shade-black-50">Table of Contents</div>
+  </div>
+  </div>
+  <div class="margin-bottom margin-xsmall">
+  <div class="fs-toc_link-content">
+  <div class="fs-toc_link-wrapper is-h2">
+  <a class="fs-toc_link w-inline-block" href="#">
+  <div class="fs-toc_text" fs-toc-element="link" fs-toc-offsettop="8rem">H2 Tag</div>
+  </a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="content_cta-left">
+  <div class="margin-bottom margin-xsmall">
+  <div class="profile_header">
+  <div class="text-size-xlarge text-weight-semibold">Ready to Take the Next Step?</div>
+  <div class="text-size-regular-3 text-color-white-70">Let’s explore how we can help you build better experiences and achieve your goals.</div>
+  </div>
+  </div>
+  <a class="button_primary_fixed-size blog_cta_button button-padding_bottom w-inline-block" data-w-id="a8eb37c4-80d1-9055-2c13-b5aaab6a2aee" fs-modal-element="" href="#" rel="nofollow">
+  <div class="button-text text-color-white button-text_semibold">Book a Call</div>
+  </a>
+  <div class="text-size-small text-style-italic">⚡ Get Instant Response</div>
+  </div>
+  </div>
+  <div class="content32_content" id="w-node-a8eb37c4-80d1-9055-2c13-b5aaab6a2af1-22767732">
+  <div class="summary-wrapper_border">
+  <div class="summary-wrapper">
+  <div class="margin-bottom margin-small">
+  <div class="div-block-46">
+  <div class="star-image-wrapper"><img alt="Three small star-shaped sparkles in gradient blue and purple colors on a transparent background." class="icon-1x1-small-2" loading="lazy" src="/images/Group-1948755496_1Group-1948755496.png"/></div>
+  <div class="text-size-large-2 text-weight-medium text-color-shade-black">Executive Summary</div>
+  </div>
+  </div>
+  <div class="blog-rich-text w-richtext" set:html={f["executive-summary"]}></div>
+  </div>
+  </div>
+  <div class="summary-button-wrapper">
+  <div class="summary-button-content">
+  <p class="text-size-large-2 text-color-shade-black text-weight-medium">Read Summarized Version with</p>
+  <div class="margin-top margin-small">
+  <div class="button-group-4 summary_logo-wrapper">
+  <a class="summary_icon_link-block w-inline-block" href={f["chatgpt-link-2"]} target="_blank" rel="noopener"><img alt="ChatGPT logo with black text and an abstract geometric symbol on white background." class="summary_wapper-icon" loading="lazy" src="/images/ChatGPT-white-bg-logo.png"/>
+  <div class="summary_overlay"></div>
+  </a>
+  <a class="summary_icon_link-block w-inline-block" href={f["perplexity-link-2"]} target="_blank" rel="noopener"><img alt="Perplexity logo with a geometric star-like icon and black text on a white background." class="summary_wapper-icon" loading="lazy" src="/images/perplexity-white-bg-logo.png" width="Auto"/>
+  <div class="summary_overlay"></div>
+  </a>
+  <a class="summary_icon_link-block w-inline-block" href={f["claude-link-2"]} target="_blank" rel="noopener"><img alt="Claude logo with a rust-colored starburst symbol next to black text on a white background." class="summary_wapper-icon" loading="lazy" src="/images/Claude-white-bg-logo.png"/>
+  <div class="summary_overlay"></div>
+  </a>
+  <a class="summary_icon_link-block w-inline-block" href={f["gemini-link-2"]} target="_blank" rel="noopener"><img alt="Gemini logo with a star dotting the letter i on a white background." class="summary_wapper-icon" loading="lazy" src="/images/Gemini-white-bg-logo.png"/>
+  <div class="summary_overlay"></div>
+  </a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="content_table mobile-version">
+  <div class="margin-bottom margin-xsmall">
+  <div class="content_share-text-div">
+  <div class="fst-toc_text-header text-style-allcaps text-color-shade-black-50">Table of Contents</div>
+  </div>
+  </div>
+  <div class="margin-bottom margin-xsmall">
+  <div class="fs-toc_link-content">
+  <div class="fs-toc_link-wrapper is-h2">
+  <a class="fs-toc_link w-inline-block" href="#">
+  <div class="fs-toc_text text-color-shade-black-50 black-opacity-100" fs-toc-element="link" fs-toc-offsettop="8rem">H2 Tag</div>
+  </a>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="blog_post-rich-text-wrapper">
+  <div class="blog-rich-text w-richtext" fs-toc-element="contents" fs-toc-hideurlhash="true" id="content" rel="no-follow" set:html={f["rich-text-field"]}></div>
+  {faqs.length > 0 && (
+  <div class="faq-wrapper">
+  <h2>FAQ</h2>
+  <div class="w-dyn-list" fs-list-element="wrapper" fs-list-instance="faq">
+  <div class="w-dyn-items" role="list">
+  {faqs.map((faq) => (
+  <div class="w-dyn-item" role="listitem">
+  <div class="faq_item w-dropdown" data-delay="0" data-hover="false">
+  <div class="faq_toggle w-dropdown-toggle">
+  <div class="faq-question_wrapper">
+  <div class="faq-question text-color-shade-black">{faq.fieldData.name}</div>
+  <div class="faq-toogler">
+  <div class="faq-minus"></div>
+  <div class="faq-minus vertical"></div>
+  </div>
+  </div>
+  </div>
+  <nav class="faq__content w-dropdown-list">
+  <div class="faq-tab_content">
+  <div class="faq_paragraph text-color-shade-black-70 w-richtext" set:html={faq.fieldData["answer-2"]}></div>
+  </div>
+  </nav>
+  </div>
+  </div>
+  ))}
+  </div>
+  </div>
+  </div>
+  )}
+  <div class="content_share-wrapper">
+  <div class="content_share-text-div">
+  <div class="text-size-small text-weight-medium text-color-shade-black-50">SHARE THIS BLOG </div>
+  </div>
+  <div class="w-layout-grid content32_share">
+  <a class="content32_social-link icon-align-center w-inline-block" fs-socialshare-element="x" href="#">
+  <div class="icon-embed-xsmall w-embed"><svg fill="none" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9.237 7.004L14.077 1.499H12.93L8.727 6.28L5.371 1.5H1.5L6.575 8.728L1.5 14.499H2.647L7.084 9.452L10.629 14.499H14.5L9.237 7.004ZM7.666 8.791L7.152 8.071L3.06 2.344H4.822L8.124 6.966L8.638 7.686L12.93 13.693H11.169L7.666 8.791Z" fill="black"></path>
+  </svg></div>
+  </a>
+  <a class="content32_social-link icon-align-center w-inline-block" fs-socialshare-element="linkedin" href="#">
+  <div class="icon-embed-xsmall w-embed"><svg fill="none" height="28" viewbox="0 0 28 28" width="28" xmlns="http://www.w3.org/2000/svg">
+  <path clip-rule="evenodd" d="M8.53304 10.2419C9.48326 10.2419 10.2536 9.47155 10.2536 8.52132C10.2536 7.57109 9.48326 6.80078 8.53304 6.80078C7.58281 6.80078 6.8125 7.57109 6.8125 8.52132C6.8125 9.47155 7.58281 10.2419 8.53304 10.2419ZM11.8293 11.5134H14.6808V12.8197C14.6808 12.8197 15.4546 11.2721 17.5599 11.2721C19.438 11.2721 20.9938 12.1973 20.9938 15.0173V20.964H18.0389V15.7379C18.0389 14.0743 17.1507 13.8914 16.474 13.8914C15.0694 13.8914 14.829 15.1029 14.829 15.9549V20.964H11.8293V11.5134ZM10.0329 11.5134H7.0332V20.964H10.0329V11.5134Z" fill="#000714" fill-rule="evenodd"></path>
+  </svg></div>
+  </a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <footer class="component_footer">
+  <div class="padding-section-medium">
+  <div class="padding-global">
+  <div class="container-large">
+  <div class="component_footer_wrapper">
+  <div class="componen_footer_links text-color-white">
+  <a class="text-size-medium text-weight-medium" href="/#our-services">Our Services</a>
+  <a class="text-size-medium text-weight-medium" href="/#cta-section">Contact</a>
+  <a class="text-size-medium text-weight-medium" href="/blog">Blog</a>
+  </div>
+  <a class="component_footer_image w-inline-block" href="/"><img alt="" class="image-cover" loading="lazy" sizes="100vw" src="/images/jelly-popup-white-logo.png" srcset="/images/Group-1948754789-p-500.png 500w, /images/Group-1948754789-p-800.png 800w, /images/jelly-popup-white-logo.png 958w"/></a>
+  <div class="component_footer_copyright-wrapper">
+  <div class="text-size-medium text-weight-medium text-color-white">All Rights Reserved © 2026</div>
+  <div class="component_footer_copyright_links">
+  <a class="text-size-medium text-weight-medium" href="#">Privacy Policy</a>
+  <a class="text-size-medium text-weight-medium" href="#">Terms &amp; Conditions</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </footer>
+  </div>
+  <div>
+  <div class="global-styles">
+  <div class="style-overrides w-embed">
+  <style is:global>
+  /* Ensure all elements inherit the color from its parent */
+  a,
+  .w-input,
+  .w-select,
+  .w-tab-link,
+  .w-nav-link,
+  .w-nav-brand,
+  .w-dropdown-btn,
+  .w-dropdown-toggle,
+  .w-slider-arrow-left,
+  .w-slider-arrow-right,
+  .w-dropdown-link {
+    color: inherit;
+    text-decoration: inherit;
+    font-size: inherit;
+  }
+  /* Focus state style for keyboard navigation for the focusable elements */
+  *[tabindex]:focus-visible,
+    input[type="file"]:focus-visible {
+     outline: 0.125rem solid #4d65ff;
+     outline-offset: 0.125rem;
+  }
+  /* Get rid of top margin on first element in any rich text element */
+  .w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+    margin-top: 0 !important;
+  }
+  /* Get rid of bottom margin on last element in any rich text element */
+  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+  	margin-bottom: 0 !important;
+  }
+  /* Prevent all click and hover interaction with an element */
+  .pointer-events-off {
+  	pointer-events: none;
+  }
+  /* Enables all click and hover interaction with an element */
+  .pointer-events-on {
+    pointer-events: auto;
+  }
+  /* Create a class of .div-square which maintains a 1:1 dimension of a div */
+  .div-square::after {
+  	content: "";
+  	display: block;
+  	padding-bottom: 100%;
+  }
+  /* Make sure containers never lose their center alignment */
+  .container-medium,.container-small, .container-large {
+  	margin-right: auto !important;
+    margin-left: auto !important;
+  }
+  /* Apply "..." after 3 lines of text */
+  .text-style-3lines {
+  	display: -webkit-box;
+  	overflow: hidden;
+  	-webkit-line-clamp: 3;
+  	-webkit-box-orient: vertical;
+  }
+  /* Apply "..." after 2 lines of text */
+  .text-style-2lines {
+  	display: -webkit-box;
+  	overflow: hidden;
+  	-webkit-line-clamp: 2;
+  	-webkit-box-orient: vertical;
+  }
+  /* Adds inline flex display */
+  .display-inlineflex {
+    display: inline-flex;
+  }
+  /* These classes are never overwritten */
+  .hide {
+    display: none !important;
+  }
+  /* Remove default Webflow chevron from form select */
+  select{
+    -webkit-appearance:none;
+  }
+  @media screen and (max-width: 991px) {
+      .hide, .hide-tablet {
+          display: none !important;
+      }
+  }
+    @media screen and (max-width: 767px) {
+      .hide-mobile-landscape{
+        display: none !important;
+      }
+  }
+    @media screen and (max-width: 479px) {
+      .hide-mobile{
+        display: none !important;
+      }
+  }
+  .margin-0 {
+    margin: 0rem !important;
+  }
+  .padding-0 {
+    padding: 0rem !important;
+  }
+  .spacing-clean {
+  padding: 0rem !important;
+  margin: 0rem !important;
+  }
+  .margin-top {
+    margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-top {
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-right {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-right {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-bottom {
+    margin-top: 0rem !important;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-bottom {
+    padding-top: 0rem !important;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-left {
+    margin-top: 0rem !important;
+    margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .padding-left {
+    padding-top: 0rem !important;
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+  .margin-horizontal {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .padding-horizontal {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+  .margin-vertical {
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-vertical {
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  /* Apply "..." at 100% width */
+  .truncate-width { 
+  		width: 100%; 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+  }
+  /* Removes native scrollbar */
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none; 
+  }
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  </style>
+  </div>
+  <div class="color-schemes w-embed">
+  <style is:global>
+  /* Color Schemes Controls*/
+    .color-scheme-1 {
+  /*All sections should point to Color Scheme 1*/
+    }
+    .color-scheme-2 {
+      --color-scheme-1--text: var(--color-scheme-2--text);
+      --color-scheme-1--background: var(--color-scheme-2--background);
+      --color-scheme-1--foreground: var(--color-scheme-2--foreground);
+      --color-scheme-1--border: var(--color-scheme-2--border);
+      --color-scheme-1--accent: var(--color-scheme-2--accent);
+    }
+    .color-scheme-3 {
+      --color-scheme-1--text: var(--color-scheme-3--text);
+      --color-scheme-1--background: var(--color-scheme-3--background);
+      --color-scheme-1--foreground: var(--color-scheme-3--foreground);
+      --color-scheme-1--border: var(--color-scheme-3--border);
+      --color-scheme-1--accent: var(--color-scheme-3--accent);
+    }
+    .color-scheme-4 {
+      --color-scheme-1--text: var(--color-scheme-4--text);
+      --color-scheme-1--background: var(--color-scheme-4--background);
+      --color-scheme-1--foreground: var(--color-scheme-4--foreground);
+      --color-scheme-1--border: var(--color-scheme-4--border);
+      --color-scheme-1--accent: var(--color-scheme-4--accent);
+    }
+    .color-scheme-5 {
+      --color-scheme-1--text: var(--color-scheme-5--text);
+      --color-scheme-1--background: var(--color-scheme-5--background);
+      --color-scheme-1--foreground: var(--color-scheme-5--foreground);
+      --color-scheme-1--border: var(--color-scheme-5--border);
+      --color-scheme-1--accent: var(--color-scheme-5--accent);
+    }
+    .color-scheme-6 {
+      --color-scheme-1--text: var(--color-scheme-6--text);
+      --color-scheme-1--background: var(--color-scheme-6--background);
+      --color-scheme-1--foreground: var(--color-scheme-6--foreground);
+      --color-scheme-1--border: var(--color-scheme-6--border);
+      --color-scheme-1--accent: var(--color-scheme-6--accent);
+    }
+    .color-scheme-7 {
+      --color-scheme-1--text: var(--color-scheme-7--text);
+      --color-scheme-1--background: var(--color-scheme-7--background);
+      --color-scheme-1--foreground: var(--color-scheme-7--foreground);
+      --color-scheme-1--border: var(--color-scheme-7--border);
+      --color-scheme-1--accent: var(--color-scheme-7--accent);
+    }
+    .color-scheme-8 {
+      --color-scheme-1--text: var(--color-scheme-8--text);
+      --color-scheme-1--background: var(--color-scheme-8--background);
+      --color-scheme-1--foreground: var(--color-scheme-8--foreground);
+      --color-scheme-1--border: var(--color-scheme-8--border);
+      --color-scheme-1--accent: var(--color-scheme-8--accent);
+    }
+    .color-scheme-9 {
+      --color-scheme-1--text: var(--color-scheme-9--text);
+      --color-scheme-1--background: var(--color-scheme-9--background);
+      --color-scheme-1--foreground: var(--color-scheme-9--foreground);
+      --color-scheme-1--border: var(--color-scheme-9--border);
+      --color-scheme-1--accent: var(--color-scheme-9--accent);
+    }
+    .color-scheme-10 {
+      --color-scheme-1--text: var(--color-scheme-10--text);
+      --color-scheme-1--background: var(--color-scheme-10--background);
+      --color-scheme-1--foreground: var(--color-scheme-10--foreground);
+      --color-scheme-1--border: var(--color-scheme-10--border);
+      --color-scheme-1--accent: var(--color-scheme-10--accent);
+    }
+  /* Inherit slider dot colors */
+  .w-slider-dot {
+    background-color: var(--color-scheme-1--text);
+    opacity: 0.20;
+  }
+  .w-slider-dot.w-active {
+    background-color: var(--color-scheme-1--text);
+    opacity: 1;
+  }
+  /* Override .w-slider-nav-invert styles */
+  .w-slider-nav-invert .w-slider-dot {
+    background-color: var(--color-scheme-1--text) !important;
+    opacity: 0.20 !important;
+  }
+  .w-slider-nav-invert .w-slider-dot.w-active {
+    background-color: var(--color-scheme-1--text) !important;
+    opacity: 1 !important;
+  }
+  </style>
+  </div>
+  </div>
+  <div class="popup_block" fs-modal-display="flex" fs-modal-element="modal" style="display:none">
+  <div class="popup_form_wrapper background-color-white">
+  <h2 class="heading-style-h3 text-color-1f1f1f text-align-center">Please enter your details</h2>
+  <div class="padding-bottom padding-large"></div>
+  <div class="saas_form-block w-form">
+  <form class="saas_form-form" data-name="Packaging Audit" data-wf-element-id="b52b1385-bd6e-266d-c6ad-06526367d522" data-wf-page-id="6979b7d08f24cc9f22767732" id="wf-form-Packaging-Audit" method="get" name="wf-form-Packaging-Audit">
+  <div class="saas_form_label-groups">
+  <div class="saas_form-label-multi-group">
+  <div class="saas_form-label-group"><input class="popup_form-input w-input" data-name="First Name" id="popup_first-name" maxlength="256" name="First-Name" placeholder="First Name" required="" type="text"/></div>
+  <div class="saas_form-label-group"><input class="popup_form-input w-input" data-name="Last Name" id="popup_last-name" maxlength="256" name="Last-Name" placeholder="Last Name" type="text"/></div>
+  </div>
+  <div class="saas_form-label-multi-group"><input class="popup_form-input w-input" data-name="Company Name" id="popup_company-name" maxlength="256" name="Company-Name" placeholder="Company Name" required="" type="text"/><input class="popup_form-input w-input" data-name="Email" id="subscription_email" maxlength="256" name="Email" placeholder="Email" required="" type="email"/></div>
+  <div class="saas_form-label-multi-group"><input class="popup_form-input w-input" data-name="Phone" id="popup_phone" maxlength="256" name="Phone" placeholder="Phone Number" required="" type="tel"/></div>
+  <div class="saas_form-label-group"></div>
+  <div class="saas_form-label-group hide"><input class="popup_form-input w-input" data-name="UTM Source" id="UTM-Source" maxlength="256" name="UTM-Source" placeholder="UTM Source" type="text" utm-source=""/><input class="popup_form-input w-input" data-name="UTM Medium" id="UTM-Medium" maxlength="256" name="UTM-Medium" placeholder="UTM Medium" type="text" utm-medium=""/><input class="popup_form-input w-input" data-name="UTM Campaign" id="UTM-Campaign" maxlength="256" name="UTM-Campaign" placeholder="UTM Campaign" type="text" utm-campaign=""/><input class="popup_form-input w-input" data-name="UTM ID" id="UTM-ID" maxlength="256" name="UTM-ID" placeholder="UTM ID" type="text" utm-id=""/></div>
+  </div><input class="button is-full w-button" data-wait="Please wait..." type="submit" value="Submit"/>
+  </form>
+  <div class="w-form-done">
+  <div class="heading-style-h5">Thank you! Your submission has been received!</div>
+  </div>
+  <div class="w-form-fail">
+  <div>Oops! Something went wrong while submitting the form.</div>
+  </div>
+  </div>
+  <div class="popup_close w-embed" data-w-id="b52b1385-bd6e-266d-c6ad-06526367d53b" fs-modal-element="close"><svg fill="none" height="auto" viewbox="0 0 24 24" width="auto" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19.5459 17.954C19.7572 18.1653 19.876 18.452 19.876 18.7509C19.876 19.0497 19.7572 19.3364 19.5459 19.5477C19.3346 19.7591 19.0479 19.8778 18.749 19.8778C18.4501 19.8778 18.1635 19.7591 17.9521 19.5477L12 13.5937L6.0459 19.5459C5.83455 19.7572 5.54791 19.8759 5.24902 19.8759C4.95014 19.8759 4.66349 19.7572 4.45215 19.5459C4.2408 19.3345 4.12207 19.0479 4.12207 18.749C4.12207 18.4501 4.2408 18.1635 4.45215 17.9521L10.4062 11.9999L4.45402 6.04586C4.24268 5.83451 4.12395 5.54787 4.12395 5.24898C4.12395 4.9501 4.24268 4.66345 4.45402 4.45211C4.66537 4.24076 4.95201 4.12203 5.2509 4.12203C5.54978 4.12203 5.83643 4.24076 6.04777 4.45211L12 10.4062L17.954 4.45117C18.1654 4.23983 18.452 4.12109 18.7509 4.12109C19.0498 4.12109 19.3364 4.23983 19.5478 4.45117C19.7591 4.66251 19.8778 4.94916 19.8778 5.24804C19.8778 5.54693 19.7591 5.83358 19.5478 6.04492L13.5937 11.9999L19.5459 17.954Z" fill="currentColor"></path>
+  </svg></div>
+  </div>
+  <div class="saas_form_background" data-w-id="b52b1385-bd6e-266d-c6ad-06526367d53c" fs-modal-element="close"></div>
+  </div>
+  <div class="main-embed w-embed">
+  <style is:global>
+    html { font-size: 1rem; }
+    @media screen and (max-width:1440px) { html { font-size: calc(0.6rem + 0.4444444444444444vw); } }
+    @media screen and (max-width:990px) { html { font-size: calc(0.7578277886497065rem + 0.3913894324853229vw); } }
+    @media screen and (max-width:479px) { html { font-size: calc(-0.0020920502092050207rem + 3.3472803347280333vw); } }
+  </style>
+  <style is:global>
+  /* Make text look crisper and more legible in all browsers */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Focus state style for keyboard navigation for the focusable elements */
+  *[tabindex]:focus-visible,
+    input[type="file"]:focus-visible {
+     outline: 0.125rem solid #4d65ff;
+     outline-offset: 0.125rem;
+  }
+  /* Prevent all click and hover interaction with an element */
+  .pointer-events-off {
+  	pointer-events: none;
+  }
+  /* Enables all click and hover interaction with an element */
+  .pointer-events-on {
+    pointer-events: auto;
+  }
+  /* Create a class of .div-square which maintains a 1:1 dimension of a div */
+  .div-square::after {
+  	content: "";
+  	display: block;
+  	padding-bottom: 100%;
+  }
+  /* Make sure containers never lose their center alignment */
+  .container-medium,.container-small, .container-large {
+  	margin-right: auto !important;
+    margin-left: auto !important;
+  }
+  /* Apply "..." after 3 lines of text */
+  .text-style-3lines {
+  	display: -webkit-box;
+  	overflow: hidden;
+  	-webkit-line-clamp: 3;
+  	-webkit-box-orient: vertical;
+  }
+  /* Apply "..." after 2 lines of text */
+  .text-style-2lines {
+  	display: -webkit-box;
+  	overflow: hidden;
+  	-webkit-line-clamp: 2;
+  	-webkit-box-orient: vertical;
+  }
+  /* Adds inline flex display */
+  .display-inlineflex {
+    display: inline-flex;
+  }
+  /* These classes are never overwritten */
+  .hide {
+    display: none !important;
+  }
+  .margin-0 {
+    margin: 0rem !important;
+  }
+  .padding-0 {
+    padding: 0rem !important;
+  }
+  .spacing-clean {
+  padding: 0rem !important;
+  margin: 0rem !important;
+  }
+  .margin-top {
+    margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-top {
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-right {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-right {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-bottom {
+    margin-top: 0rem !important;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-bottom {
+    padding-top: 0rem !important;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-left {
+    margin-top: 0rem !important;
+    margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .padding-left {
+    padding-top: 0rem !important;
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+  .margin-horizontal {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .padding-horizontal {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+  .margin-vertical {
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-vertical {
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  </style>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <Fragment slot="scripts-extra">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": f.name,
+      "description": description,
+      "image": image,
+      "datePublished": f["published-date"] || post.createdOn,
+      "dateModified": post.lastUpdated,
+      "mainEntityOfPage": url,
+      "author": author ? { "@type": "Person", "name": author.fieldData.name } : undefined,
+      "publisher": { "@type": "Organization", "name": "Jellypop Studio" },
+    })} />
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqItems = document.querySelectorAll(".faq_item");
+        faqItems.forEach((item) => {
+          const toggle = item.querySelector(".faq_toggle");
+          if (!toggle) return;
+          const content = item.querySelector(".faq__content");
+          const verticalLine = item.querySelector(".faq-minus.vertical");
+          toggle.addEventListener("click", function () {
+            const isOpen = toggle.getAttribute("aria-expanded") === "true";
+            // Close all FAQs first
+            faqItems.forEach((otherItem) => {
+              const otherToggle = otherItem.querySelector(".faq_toggle");
+              const otherContent = otherItem.querySelector(".faq__content");
+              const otherVertical = otherItem.querySelector(".faq-minus.vertical");
+              otherToggle.setAttribute("aria-expanded", "false");
+              otherContent.style.height = "0px";
+              if (otherVertical) {
+                otherVertical.style.transform = "rotate(90deg)";
+              }
+            });
+            // Open clicked FAQ if it was closed
+            if (!isOpen) {
+              toggle.setAttribute("aria-expanded", "true");
+              content.style.height = content.scrollHeight + "px";
+              if (verticalLine) {
+                verticalLine.style.transform = "rotate(0deg)";
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </Fragment>
+</Layout>

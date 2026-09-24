@@ -1,5 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getBlogPosts, getCategories, resolveRefs } from "../lib/content.js";
+
+const posts = getBlogPosts().map((post) => ({
+  ...post,
+  categories: resolveRefs(post.fieldData["blog-categories"], getCategories()),
+}));
 ---
 <Layout title="Blog" canonicalPath="/blog">
   <Fragment slot="head-extra">
@@ -11,7 +17,7 @@ import Layout from "../layouts/Layout.astro";
   <div>
   <div class="global-styles">
   <div class="style-overrides w-embed">
-  <style>
+  <style is:global>
   /* Ensure all elements inherit the color from its parent */
   a,
   .w-input,
@@ -186,7 +192,7 @@ import Layout from "../layouts/Layout.astro";
   </style>
   </div>
   <div class="color-schemes w-embed">
-  <style>
+  <style is:global>
   /* Color Schemes Controls*/
     .color-scheme-1 {
   /*All sections should point to Color Scheme 1*/
@@ -306,13 +312,13 @@ import Layout from "../layouts/Layout.astro";
   <div class="saas_form_background" data-w-id="36ff61c2-52ea-f31e-7458-096d8fa45aab" fs-modal-element="close"></div>
   </div>
   <div class="main-embed w-embed">
-  <style>
+  <style is:global>
     html { font-size: 1rem; }
     @media screen and (max-width:1440px) { html { font-size: calc(0.6rem + 0.4444444444444444vw); } }
     @media screen and (max-width:990px) { html { font-size: calc(0.7578277886497065rem + 0.3913894324853229vw); } }
     @media screen and (max-width:479px) { html { font-size: calc(-0.0020920502092050207rem + 3.3472803347280333vw); } }
   </style>
-  <style>
+  <style is:global>
   /* Make text look crisper and more legible in all browsers */
   body {
     -webkit-font-smoothing: antialiased;
@@ -473,62 +479,23 @@ import Layout from "../layouts/Layout.astro";
   <div class="padding-bottom padding-small"></div>
   <p class="text-size-medium text-weight-normal text-color-1f1f1f">Our team of expert designers and strategists poured their insights into a series of articles focusing on design, culture, marketing, and technology which is extremely useful for D2C and retail brands like yours!</p>
   </div>
-  <div class="blog-categories-collection-list_wrapper w-dyn-list" fs-list-element="list" fs-list-load="pagination">
-  <div class="blog-featured-collection_list w-dyn-items" fs-list-element="list" fs-list-load="pagination" role="list">
-  <div class="blog-categories-collection_item w-dyn-item" data-w-id="70564152-06d0-3594-0362-064646021ddd" role="listitem">
-  <a class="blog-categories-item_wrapper w-inline-block" href="#">
-  <div class="blog-post-image_wrapper"><img alt="" class="blogs_image w-dyn-bind-empty" loading="lazy" src="" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/></div>
+  <div class="blog-categories-collection-list_wrapper w-dyn-list">
+  <div class="blog-featured-collection_list w-dyn-items" role="list">
+  {posts.map((post) => (
+  <div class="blog-categories-collection_item w-dyn-item" role="listitem">
+  <a class="blog-categories-item_wrapper w-inline-block" href={`/blog/${post.fieldData.slug}`}>
+  <div class="blog-post-image_wrapper"><img alt={post.fieldData["alt-text-blog-cover"] || post.fieldData.name} class="blogs_image" loading="lazy" src={post.fieldData["blog-thumbnail"]?.url} style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/></div>
   <div class="blogs-description_wrapper">
-  <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent w-dyn-bind-empty"></h2>
+  <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent">{post.fieldData.name}</h2>
   <div class="blog-category_wrapper">
-  <div class="blogs-category_wrapper w-dyn-bind-empty"></div>
-  <div class="blogs-category_wrapper w-dyn-bind-empty"></div>
+  {post.categories.map((cat) => (
+  <div class="blogs-category_wrapper">{cat.fieldData.name}</div>
+  ))}
   </div>
   </div>
   </a>
   </div>
-  </div>
-  <div class="w-dyn-empty">
-  <div>No items found.</div>
-  </div>
-  <div aria-label="List" class="w-pagination-wrapper pagination" role="navigation">
-  <a aria-label="Previous Page" class="w-pagination-previous blog_paginate_arrow is-list-pagination-disabled" href="#">
-  <div class="arrow">
-  <div class="icon w-embed"><svg fill="none" height="100%" viewbox="0 0 18 18" width="100%" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#clip0_567_515)">
-  <path d="M11.25 14.625L5.625 9L11.25 3.375" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.125"></path>
-  </g>
-  <defs>
-  <clippath id="clip0_567_515">
-  <rect fill="currentcolor" height="18" width="18"></rect>
-  </clippath>
-  </defs>
-  </svg>
-  </div>
-  </div>
-  <div class="w-inline-block">Previous</div>
-  </a>
-  <div class="list_page-buttons">
-  <a aria-current="page" class="blog_paginate_link w-inline-block w--current" fs-list-element="page-button" href="/blog">
-  <div>1</div>
-  </a>
-  </div>
-  <a aria-label="Next Page" class="w-pagination-next blog_paginate_arrow" href="#">
-  <div class="w-inline-block">Next</div>
-  <div class="arrow">
-  <div class="icon w-embed"><svg fill="none" height="100%" viewbox="0 0 18 18" width="100%" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#clip0_569_254)" opacity="0.8">
-  <path d="M6.75 3.375L12.375 9L6.75 14.625" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.125"></path>
-  </g>
-  <defs>
-  <clippath id="clip0_569_254">
-  <rect fill="currentcolor" height="18" width="18"></rect>
-  </clippath>
-  </defs>
-  </svg>
-  </div>
-  </div>
-  </a>
+  ))}
   </div>
   </div>
   </div>

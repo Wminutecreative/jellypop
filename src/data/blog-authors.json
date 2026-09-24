@@ -1,0 +1,59 @@
+[
+  {
+    "id": "6a1eeee5300c7b37d2b70051",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-06-08T18:37:08.912Z",
+    "lastUpdated": "2026-06-08T18:22:20.601Z",
+    "createdOn": "2026-06-02T14:55:33.001Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "position": "COO & Co-Founder",
+      "profile-picture": {
+        "fileId": "6a270853d3c8c868b030e63e",
+        "url": "https://cdn.prod.website-files.com/6979b7cf66c70e895c4eb583/6a270853d3c8c868b030e63e_Maitrik%20Makwana%2002%20(1).png",
+        "alt": null
+      },
+      "name": "Maitrik Makwana",
+      "slug": "maitrik-makwana"
+    }
+  },
+  {
+    "id": "6a17323a08d7de90ee65da54",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-06-02T16:12:20.913Z",
+    "lastUpdated": "2026-06-02T16:12:03.856Z",
+    "createdOn": "2026-05-27T18:04:42.325Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "position": "Content Strategist",
+      "profile-picture": {
+        "fileId": "6a1f00cfe23da1c88aa05028",
+        "url": "https://cdn.prod.website-files.com/6979b7cf66c70e895c4eb583/6a1f00cfe23da1c88aa05028_image%20new12.png",
+        "alt": null
+      },
+      "name": "Mamali Mohanty",
+      "slug": "mamali-mohanty"
+    }
+  },
+  {
+    "id": "6979d8d205aea13fdbe5cda4",
+    "cmsLocaleId": "6979b7cf66c70e895c4eb582",
+    "lastPublished": "2026-01-28T10:29:02.908Z",
+    "lastUpdated": "2026-01-28T09:37:22.418Z",
+    "createdOn": "2026-01-28T09:37:22.418Z",
+    "isArchived": false,
+    "isDraft": false,
+    "fieldData": {
+      "position": "Founder & CEO",
+      "profile-picture": {
+        "fileId": "6979d8c4e48d4e320ed00b86",
+        "url": "https://cdn.prod.website-files.com/6979b7cf66c70e895c4eb583/6979d8c4e48d4e320ed00b86_Harsh%20(3).png",
+        "alt": null
+      },
+      "name": "Harsh Makwana",
+      "slug": "harsh-makwana"
+    }
+  }
+]
