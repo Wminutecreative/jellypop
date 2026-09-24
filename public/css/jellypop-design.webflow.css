@@ -1032,6 +1032,11 @@ figcaption {
     font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #e0524e;
 }
 
 .button.is-link {
@@ -2526,6 +2531,10 @@ figcaption {
     flex: 1;
 }
 
+.home_before-after {
+    background-color: #fafafa;
+}
+
 .home_before-after_wrapper {
     grid-column-gap: 4rem;
     grid-row-gap: 4rem;
@@ -2570,7 +2579,7 @@ figcaption {
     z-index: 1;
 }
 
-.web-design_hero-section_handle-bar {
+. .web-design_hero-section_handle-bar {
     z-index: 10;
     background-color: #fff;
     border-radius: .25rem;
@@ -3042,6 +3051,17 @@ figcaption {
 
 .text-color-orange {
     color: var(--_primitives---colors--orange);
+}
+
+.splide {
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    pointer-events: none;
 }
 
 .splide__list {

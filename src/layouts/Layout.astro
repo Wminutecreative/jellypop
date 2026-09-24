@@ -2,16 +2,17 @@
 export interface Props {
   title: string;
   description?: string;
-  canonicalPath?: string; // e.g. "/blog" — appended to site root for canonical + og:url
+  canonicalPath?: string;
   bodyClass?: string;
+  wfPageId: string; // Webflow's per-page interaction ID — required for IX2 animations to fire
 }
 
-const { title, description, canonicalPath = "", bodyClass } = Astro.props;
+const { title, description, canonicalPath = "", bodyClass, wfPageId } = Astro.props;
 const siteUrl = "https://www.jellypop.design";
 const canonical = `${siteUrl}${canonicalPath}`;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-wf-page={wfPageId} data-wf-site="67fcb445aacc24d0d7bdcb28">
 <head>
   <meta charset="utf-8" />
   <title>{title}</title>
