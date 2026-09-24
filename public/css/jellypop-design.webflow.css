@@ -1081,9 +1081,9 @@ figcaption {
 }
 
 .button.is-alternate {
-    border-color: var(--_primitives---colors--white);
-    color: #1f1f1f80;
-    background-color: #fafafa;
+    border-color: var(--_primitives---colors--white) !important;
+    color: #1f1f1f80 !important;
+    background-color: #fafafa !important;
 }
 
 .button.is-navbar {
