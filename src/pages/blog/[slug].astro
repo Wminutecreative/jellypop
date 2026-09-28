@@ -20,6 +20,11 @@ export function getStaticPaths() {
   }));
 }
 
+const posts = getBlogPosts().map((post) => ({
+  ...post,
+  categories: resolveRefs(post.fieldData["blog-categories"], getCategories()),
+}));
+
 const { post } = Astro.props;
 const f = post.fieldData;
 
@@ -463,12 +468,75 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
           </div>
         </div>
       </div>
+      <div class="blog_similar-posts">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="blog-similar-posts_wrapper">
+              <div class="blog_related_post-heading-wrapper">
+                <h2 class="heading-style-h2 text-size-3rem">Related Blogs</h2><a
+                  href="/blog"
+                  class="button_primary_fixed-size blog_cta_button w-inline-block"
+                  ><div
+                    class="button-text text-color-white button-text_semibold"
+                  >
+                    View All
+                  </div></a>
+              </div><div class="padding-bottom padding-xlarge"></div>
+              <div
+                class="blog-featured-collection_list w-dyn-items"
+                role="list"
+              >
+{
+  posts
+    .filter((post) => post.fieldData.slug !== f.slug)
+    .slice(0, 3)
+    .map((post) => (
+                    <div
+                      class="blog-categories-collection_item w-dyn-item"
+                      role="listitem"
+                    >
+                      <a
+                        class="blog-categories-item_wrapper w-inline-block"
+                        href={`/blog/${post.fieldData.slug}`}
+                      >
+                        <div class="blog-post-image_wrapper">
+                          <img
+                            alt={
+                              post.fieldData["alt-text-blog-cover"] ||
+                              post.fieldData.name
+                            }
+                            class="blogs_image"
+                            loading="lazy"
+                            src={post.fieldData["blog-thumbnail"]?.url}
+                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                          />
+                        </div>
+                        <div class="blogs-description_wrapper">
+                          <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent">
+                            {post.fieldData.name}
+                          </h2>
+                          <div class="blog-category_wrapper">
+                            {post.categories.map((cat) => (
+                              <div class="blogs-category_wrapper">
+                                {cat.fieldData.name}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <Footer current="blog" />
     </div>
     <div>
       <GlobalEmbeds />
       <PopupForm pageId={post.fieldData.slug} />
-      
     </div>
   </div>
 
