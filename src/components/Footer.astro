@@ -1,0 +1,58 @@
+---
+export interface Props {
+  current?: "home" | "blog";
+}
+const { current = "home" } = Astro.props;
+---
+
+<footer class="component_footer">
+  <div class="padding-section-medium">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="component_footer_wrapper">
+          <div class="componen_footer_links text-color-white">
+            <a class="text-size-medium text-weight-medium" href="/#our-services">Our Services</a>
+            <a class="text-size-medium text-weight-medium" href="/#cta-section">Contact</a>
+            {current === "blog" ? (
+              <a aria-current="page" class="text-size-medium text-weight-medium w--current" href="/blog">Blog</a>
+            ) : (
+              <a class="text-size-medium text-weight-medium" href="/blog">Blog</a>
+            )}
+          </div>
+          {current === "home" ? (
+            <a aria-current="page" class="component_footer_image w-inline-block w--current" href="/">
+              <img
+                alt=""
+                class="image-cover"
+                loading="lazy"
+                sizes="100vw"
+                src="/images/jelly-popup-white-logo.png"
+                srcset="/images/Group-1948754789-p-500.png 500w, /images/Group-1948754789-p-800.png 800w, /images/jelly-popup-white-logo.png 958w"
+              />
+            </a>
+          ) : (
+            <a class="component_footer_image w-inline-block" href="/">
+              <img
+                alt=""
+                class="image-cover"
+                loading="lazy"
+                sizes="100vw"
+                src="/images/jelly-popup-white-logo.png"
+                srcset="/images/Group-1948754789-p-500.png 500w, /images/Group-1948754789-p-800.png 800w, /images/jelly-popup-white-logo.png 958w"
+              />
+            </a>
+          )}
+          <div class="component_footer_copyright-wrapper">
+            <div class="text-size-medium text-weight-medium text-color-white">
+              All Rights Reserved © 2026
+            </div>
+            <div class="component_footer_copyright_links">
+              <a class="text-size-medium text-weight-medium" href="#">Privacy Policy</a>
+              <a class="text-size-medium text-weight-medium" href="#">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
