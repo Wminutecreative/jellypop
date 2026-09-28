@@ -3321,7 +3321,7 @@ figcaption {
     max-width: 75rem;
     margin-left: auto;
     margin-right: auto;
-    padding: 4rem;
+    padding: 4rem 0rem;
     position: relative;
     overflow: auto;
 }
