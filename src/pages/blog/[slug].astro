@@ -420,10 +420,17 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                       </div>
                     </div>
                     <div class="w-layout-grid content32_share">
-                      <a
+                      <!-- <a
                         class="content32_social-link icon-align-center w-inline-block"
                         fs-socialshare-element="x"
                         href="#"
+                      > -->
+
+                      <a
+                        class="content32_social-link icon-align-center w-inline-block"
+                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(f.name)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <div class="icon-embed-xsmall w-embed">
                           <svg
@@ -441,8 +448,9 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                       </a>
                       <a
                         class="content32_social-link icon-align-center w-inline-block"
-                        fs-socialshare-element="linkedin"
-                        href="#"
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <div class="icon-embed-xsmall w-embed">
                           <svg
@@ -480,52 +488,53 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                     class="button-text text-color-white button-text_semibold"
                   >
                     View All
-                  </div></a>
+                  </div></a
+                >
               </div><div class="padding-bottom padding-xlarge"></div>
               <div
                 class="blog-featured-collection_list w-dyn-items"
                 role="list"
               >
-{
-  posts
-    .filter((post) => post.fieldData.slug !== f.slug)
-    .slice(0, 3)
-    .map((post) => (
-                    <div
-                      class="blog-categories-collection_item w-dyn-item"
-                      role="listitem"
-                    >
-                      <a
-                        class="blog-categories-item_wrapper w-inline-block"
-                        href={`/blog/${post.fieldData.slug}`}
+                {
+                  posts
+                    .filter((post) => post.fieldData.slug !== f.slug)
+                    .slice(0, 3)
+                    .map((post) => (
+                      <div
+                        class="blog-categories-collection_item w-dyn-item"
+                        role="listitem"
                       >
-                        <div class="blog-post-image_wrapper">
-                          <img
-                            alt={
-                              post.fieldData["alt-text-blog-cover"] ||
-                              post.fieldData.name
-                            }
-                            class="blogs_image"
-                            loading="lazy"
-                            src={post.fieldData["blog-thumbnail"]?.url}
-                            style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                          />
-                        </div>
-                        <div class="blogs-description_wrapper">
-                          <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent">
-                            {post.fieldData.name}
-                          </h2>
-                          <div class="blog-category_wrapper">
-                            {post.categories.map((cat) => (
-                              <div class="blogs-category_wrapper">
-                                {cat.fieldData.name}
-                              </div>
-                            ))}
+                        <a
+                          class="blog-categories-item_wrapper w-inline-block"
+                          href={`/blog/${post.fieldData.slug}`}
+                        >
+                          <div class="blog-post-image_wrapper">
+                            <img
+                              alt={
+                                post.fieldData["alt-text-blog-cover"] ||
+                                post.fieldData.name
+                              }
+                              class="blogs_image"
+                              loading="lazy"
+                              src={post.fieldData["blog-thumbnail"]?.url}
+                              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                            />
                           </div>
-                        </div>
-                      </a>
-                    </div>
-                  ))
+                          <div class="blogs-description_wrapper">
+                            <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent">
+                              {post.fieldData.name}
+                            </h2>
+                            <div class="blog-category_wrapper">
+                              {post.categories.map((cat) => (
+                                <div class="blogs-category_wrapper">
+                                  {cat.fieldData.name}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    ))
                 }
               </div>
             </div>
