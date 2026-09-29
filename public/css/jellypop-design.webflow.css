@@ -3742,6 +3742,7 @@ figcaption {
     flex-direction: row;
     width: 100%;
     display: flex;
+    transition: all .3s ease-in-out;
 }
 
 .blogs_image {
@@ -3750,6 +3751,8 @@ figcaption {
     object-position: 50% 50%;
     width: 100%;
     max-width: none;
+        transition: all .3s ease-in-out;
+
 }
 
 .blog-featured_wrapper {
