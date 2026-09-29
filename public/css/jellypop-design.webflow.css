@@ -206,7 +206,7 @@
     color: #333;
     background-color: #fafafa;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: .25rem;
     margin-left: 10px;
     margin-right: 10px;
     padding: 9px 20px;
@@ -3321,7 +3321,7 @@ figcaption {
     max-width: 75rem;
     margin-left: auto;
     margin-right: auto;
-    padding: 4rem 0rem;
+    /* padding: 4rem 0rem; */
     position: relative;
     overflow: auto;
 }
@@ -3769,6 +3769,11 @@ figcaption {
     align-items: stretch;
     width: 100%;
     display: flex;
+    transition: transform .3s ease-in-out;
+}
+
+.blog-categories-collection_item:hover .blogs_image {
+    transform: scale(1.1) !important;
 }
 
 .padding-global-2 {
@@ -4503,7 +4508,7 @@ figcaption {
     flex-flow: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-left: 0;
     margin-right: 0;
     padding: 1rem;

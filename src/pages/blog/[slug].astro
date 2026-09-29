@@ -71,6 +71,74 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
         min-width: 600px;
       }
     </style>
+    <style is:global>
+      [data-lightbox] {
+        cursor: zoom-in;
+      }
+      .image-lightbox {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        overflow: hidden;
+      }
+      .image-lightbox::backdrop {
+        background: rgba(0, 0, 0, 0.9);
+      }
+      .image-lightbox[open] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: image-lightbox-in 0.2s ease;
+      }
+      .image-lightbox_img {
+        max-width: calc(100vw - 2rem);
+        max-height: calc(100vh - 2rem);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        cursor: zoom-out;
+      }
+      .image-lightbox_close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        cursor: pointer;
+      }
+      .image-lightbox_close:hover,
+      .image-lightbox_close:focus-visible {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      body.lightbox-open {
+        overflow: hidden;
+      }
+      @keyframes image-lightbox-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .image-lightbox[open] {
+          animation: none;
+        }
+      }
+    </style>
   </Fragment>
 
   <div class="page-wrapper">
@@ -140,6 +208,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                   <img
                     alt={f["alt-text-blog-cover"] || f.name}
                     class="header1_image"
+                    data-lightbox
                     loading="eager"
                     src={image}
                   />
@@ -547,6 +616,26 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
       <GlobalEmbeds />
       <PopupForm pageId={post.fieldData.slug} />
     </div>
+    <dialog class="image-lightbox" aria-label="Image preview">
+      <button
+        class="image-lightbox_close"
+        type="button"
+        aria-label="Close image preview"
+      >
+        <svg
+          fill="none"
+          height="20"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="2"
+          ></path>
+        </svg>
+      </button>
+      <img class="image-lightbox_img" alt="" />
+    </dialog>
   </div>
 
   <Fragment slot="scripts-extra">
@@ -568,6 +657,55 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
       })}
     />
     <script is:inline>
+      // Full-screen image preview for the hero image and article body images
+      document.addEventListener("DOMContentLoaded", function () {
+        const lightbox = document.querySelector(".image-lightbox");
+        if (!lightbox || typeof lightbox.showModal !== "function") return;
+        const lightboxImg = lightbox.querySelector(".image-lightbox_img");
+        const closeBtn = lightbox.querySelector(".image-lightbox_close");
+        let lastTrigger = null;
+
+        // Body images inside links keep their link behaviour
+        document
+          .querySelectorAll(".blog_post-rich-text-wrapper .blog-rich-text img")
+          .forEach((img) => {
+            if (!img.closest("a")) img.setAttribute("data-lightbox", "");
+          });
+
+        const triggers = document.querySelectorAll("img[data-lightbox]");
+        triggers.forEach((img) => {
+          img.setAttribute("tabindex", "0");
+          img.setAttribute("role", "button");
+          const open = () => {
+            lastTrigger = img;
+            lightboxImg.src = img.currentSrc || img.src;
+            lightboxImg.alt = img.alt;
+            document.body.classList.add("lightbox-open");
+            lightbox.showModal();
+          };
+          img.addEventListener("click", open);
+          img.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              open();
+            }
+          });
+        });
+
+        closeBtn.addEventListener("click", () => lightbox.close());
+        // Clicking the backdrop or the image itself closes the preview
+        lightbox.addEventListener("click", (e) => {
+          if (e.target !== closeBtn && !closeBtn.contains(e.target)) {
+            lightbox.close();
+          }
+        });
+        lightbox.addEventListener("close", () => {
+          document.body.classList.remove("lightbox-open");
+          lightboxImg.removeAttribute("src");
+          if (lastTrigger) lastTrigger.focus();
+        });
+      });
+
       document.addEventListener("DOMContentLoaded", function () {
         const faqItems = document.querySelectorAll(".faq_item");
         faqItems.forEach((item) => {
