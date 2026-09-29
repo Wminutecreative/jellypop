@@ -3751,8 +3751,7 @@ figcaption {
     object-position: 50% 50%;
     width: 100%;
     max-width: none;
-        transition: all .3s ease-in-out;
-
+    transition: all .3s ease-in-out;
 }
 
 .blog-featured_wrapper {
