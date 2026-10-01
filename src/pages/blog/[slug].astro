@@ -49,10 +49,20 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
       type="module"
       src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
     ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-toc@1/toc.js"
-    ></script>
+    <style is:global>
+      /* Tablet and below: TOC moves from the sidebar to above the article */
+      @media screen and (max-width: 991px) {
+        .content_table:not(.mobile-version) {
+          display: none;
+        }
+        .content_table.mobile-version {
+          display: block;
+        }
+      }
+      .content_table[hidden] {
+        display: none !important;
+      }
+    </style>
     <style is:global>
       .faq-minus.vertical {
         transition: transform 0.3s ease;
@@ -275,19 +285,13 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                     </div>
                   </div>
                   <div class="margin-bottom margin-xsmall">
-                    <div class="fs-toc_link-content">
+                    <nav class="fs-toc_link-content" aria-label="Table of contents" data-toc-list>
                       <div class="fs-toc_link-wrapper is-h2">
                         <a class="fs-toc_link w-inline-block" href="#">
-                          <div
-                            class="fs-toc_text"
-                            fs-toc-element="link"
-                            fs-toc-offsettop="8rem"
-                          >
-                            H2 Tag
-                          </div>
+                          <div class="fs-toc_text">H2 Tag</div>
                         </a>
                       </div>
-                    </div>
+                    </nav>
                   </div>
                 </div>
                 <div class="content_cta-left">
@@ -426,26 +430,21 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                     </div>
                   </div>
                   <div class="margin-bottom margin-xsmall">
-                    <div class="fs-toc_link-content">
+                    <nav class="fs-toc_link-content" aria-label="Table of contents" data-toc-list>
                       <div class="fs-toc_link-wrapper is-h2">
                         <a class="fs-toc_link w-inline-block" href="#">
-                          <div
-                            class="fs-toc_text text-color-shade-black-50 black-opacity-100"
-                            fs-toc-element="link"
-                            fs-toc-offsettop="8rem"
-                          >
+                          <div class="fs-toc_text text-color-shade-black-50 black-opacity-100">
                             H2 Tag
                           </div>
                         </a>
                       </div>
-                    </div>
+                    </nav>
                   </div>
                 </div>
                 <div class="blog_post-rich-text-wrapper">
                   <div
                     class="blog-rich-text w-richtext"
-                    fs-toc-element="contents"
-                    fs-toc-hideurlhash="true"
+                    data-toc-contents
                     id="content"
                     rel="no-follow"
                     set:html={f["rich-text-field"]}
@@ -671,6 +670,93 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
       })}
     />
     <script is:inline>
+      // Table of contents: builds the sidebar and mobile TOC from the article's H2s
+      document.addEventListener("DOMContentLoaded", function () {
+        const content = document.querySelector("[data-toc-contents]");
+        const lists = document.querySelectorAll("[data-toc-list]");
+        if (!content || !lists.length) return;
+
+        const headings = Array.from(content.querySelectorAll("h2")).filter(
+          (h) => h.textContent.trim(),
+        );
+        if (!headings.length) {
+          lists.forEach((l) => l.closest(".content_table").setAttribute("hidden", ""));
+          return;
+        }
+
+        const used = new Set();
+        headings.forEach((h) => {
+          if (!h.id) {
+            let base =
+              h.textContent
+                .trim()
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-|-$/g, "") || "section";
+            let id = base;
+            for (let i = 2; used.has(id) || document.getElementById(id); i++) {
+              id = base + "-" + i;
+            }
+            h.id = id;
+          }
+          used.add(h.id);
+        });
+
+        const offset = () =>
+          8 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const allLinks = [];
+
+        lists.forEach((list) => {
+          const template = list.querySelector(".fs-toc_link-wrapper");
+          list.innerHTML = "";
+          headings.forEach((h) => {
+            const item = template.cloneNode(true);
+            const link = item.querySelector("a");
+            link.href = "#" + h.id;
+            link.dataset.target = h.id;
+            item.querySelector(".fs-toc_text").textContent = h.textContent.trim();
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const top = h.getBoundingClientRect().top + window.scrollY - offset();
+              window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
+            });
+            list.appendChild(item);
+            allLinks.push(link);
+          });
+        });
+
+        // Highlight the section currently being read
+        let ticking = false;
+        const setActive = () => {
+          ticking = false;
+          const line = offset() + 1;
+          let current = null;
+          headings.forEach((h) => {
+            if (h.getBoundingClientRect().top <= line) current = h.id;
+          });
+          allLinks.forEach((a) => {
+            const on = a.dataset.target === current;
+            a.classList.toggle("w--current", on);
+            if (on) a.setAttribute("aria-current", "true");
+            else a.removeAttribute("aria-current");
+          });
+        };
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              ticking = true;
+              requestAnimationFrame(setActive);
+            }
+          },
+          { passive: true },
+        );
+        setActive();
+      });
+
       // Full-screen image preview for the hero image and article body images
       document.addEventListener("DOMContentLoaded", function () {
         const lightbox = document.querySelector(".image-lightbox");

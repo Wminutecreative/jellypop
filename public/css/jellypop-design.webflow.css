@@ -3953,7 +3953,7 @@ figcaption {
 }
 
 .content32_content-left {
-    max-width: 20rem;
+    max-width: 100%;
     position: sticky;
     top: 4rem;
 }
@@ -4134,6 +4134,7 @@ figcaption {
     border: 1px solid #0007141a;
     border-radius: 4px;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 2rem 1.5rem;
     display: block;
     position: static;
@@ -5126,6 +5127,10 @@ figcaption {
     }
     .content_cta-left {
         position: static;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .blog-categories-collection_list {
         grid-row-gap: 4rem;
