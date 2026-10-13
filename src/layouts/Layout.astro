@@ -19,6 +19,8 @@ const {
 const siteUrl = "https://www.jellypop.design";
 const canonical = `${siteUrl}${canonicalPath}`;
 const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || ""; // Google Apps Script /exec URL for forms
+console.log("=================", formEndpoint);
+
 const ogImageUrl = ogImage
   ? `${siteUrl}${ogImage}`
   : `${siteUrl}/images/og-image.jpg`;
