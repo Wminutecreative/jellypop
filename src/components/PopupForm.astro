@@ -168,10 +168,32 @@ const { pageId } = Astro.props;
           value="Submit"
         />
       </form>
-      <div class="w-form-done">
-        <div class="heading-style-h5">
-          Thank you! Your submission has been received!
+      <div
+        class="form-success w-form-done"
+        role="status"
+        aria-live="polite"
+        tabindex="-1"
+      >
+        <div class="form-success_icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M5 12.5l4.5 4.5L19 7.5"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
         </div>
+        <div class="heading-style-h5 text-weight-semibold">
+          We’ve received your details
+        </div>
+        <p class="form-success_text">
+          Thanks for reaching out. Our team will get back to you within one
+          working day.
+        </p>
+        <button type="button" class="button form-success_button" data-popup-close>
+          Done
+        </button>
       </div>
       <div class="w-form-fail">
         <div>Oops! Something went wrong while submitting the form.</div>
@@ -251,6 +273,13 @@ const { pageId } = Astro.props;
         document.body.classList.remove("popup-open");
         setTimeout(function () {
           popup.style.display = "none";
+          // After a successful submit, show the form again for the next open
+          var block = popup.querySelector(".w-form.is-submitted");
+          if (block) {
+            block.classList.remove("is-submitted");
+            block.querySelector("form").style.display = "";
+            block.querySelector(".w-form-done").style.display = "none";
+          }
         }, 250);
         if (lastTrigger) lastTrigger.focus();
       }

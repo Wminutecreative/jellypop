@@ -236,7 +236,11 @@ const ogImageUrl = ogImage
               .then(function () {
                 form.reset();
                 form.style.display = "none";
-                if (done) done.style.display = "block";
+                block.classList.add("is-submitted");
+                if (done) {
+                  done.style.display = "block";
+                  done.focus();
+                }
               })
               .catch(function (err) {
                 console.error(err);
