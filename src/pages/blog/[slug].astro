@@ -6,35 +6,42 @@ import GlobalEmbeds from "../../components/GlobalEmbeds.astro";
 import PopupForm from "../../components/PopupForm.astro";
 import {
   getBlogPosts,
-  getCategories,
-  getAuthors,
-  getFaqs,
-  resolveRefs,
+  getAuthorBySlug,
+  getCategoryBySlug,
 } from "../../lib/content.js";
 
 // One page is generated for every published post: /blog/<slug>
 export function getStaticPaths() {
   return getBlogPosts().map((post) => ({
-    params: { slug: post.fieldData.slug },
+    params: { slug: post.slug },
     props: { post },
   }));
 }
 
 const posts = getBlogPosts().map((post) => ({
   ...post,
-  categories: resolveRefs(post.fieldData["blog-categories"], getCategories()),
+  categories: [getCategoryBySlug(post.category)].filter(Boolean),
 }));
 
 const { post } = Astro.props;
-const f = post.fieldData;
+const f = post;
 
-const category = resolveRefs(f["blog-categories"], getCategories())[0];
-const author = resolveRefs(f["blog-authors"], getAuthors())[0];
-const faqs = resolveRefs(f.faq, getFaqs());
+const category = getCategoryBySlug(f.category);
+const author = getAuthorBySlug(f.author);
+const faqs = f.faqs ?? [];
 
-const title = f["meta-title-seo"] || f.name;
-const description = f["meta-description-seo"] || f["blog-summary-2"];
-const image = f["blog-thumbnail"]?.url;
+// "Other similar blogs": the post's related-blogs first, then the latest posts
+const otherPosts = posts.filter((p) => p.slug !== f.slug);
+const relatedPosts = [
+  ...(f["related-blogs"] ?? [])
+    .map((slug) => otherPosts.find((p) => p.slug === slug))
+    .filter(Boolean),
+  ...otherPosts.filter((p) => !(f["related-blogs"] ?? []).includes(p.slug)),
+].slice(0, 3);
+
+const title = f["meta-title"] || f.name;
+const description = f["meta-description"] || f.summary;
+const image = f.thumbnail;
 const url = `https://www.jellypop.design/blog/${f.slug}`;
 ---
 
@@ -189,14 +196,14 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                     <h1 class="heading-style-h1 text-size-xxlarge">{f.name}</h1>
                   </div>
                   <div class="margin-bottom margin-medium">
-                    <p class="text-size-medium-2">{f["blog-summary-2"]}</p>
+                    <p class="text-size-medium-2">{f.summary}</p>
                   </div>
                   <div class="margin-bottom margin-small">
                     <div class="blogs-category_component">
                       <div class="blogs-category_wrapper">
                         <div class="blog-description_tag">
                           <div class="blog-description_text">
-                            {category?.fieldData.name}
+                            {category?.name}
                           </div>
                         </div>
                       </div>
@@ -206,7 +213,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                 </div>
                 <div class="header1_image-wrapper">
                   <img
-                    alt={f["alt-text-blog-cover"] || f.name}
+                    alt={f["thumbnail-alt"] || f.name}
                     class="header1_image"
                     data-lightbox
                     loading="eager"
@@ -229,19 +236,19 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                       <div class="content32_author-wrapper">
                         <div class="star-image-wrapper">
                           <img
-                            alt={author?.fieldData.name ?? ""}
+                            alt={author?.name ?? ""}
                             class="content32_author-image"
                             loading="lazy"
-                            src={author?.fieldData["profile-picture"]?.url}
+                            src={author?.photo}
                           />
                         </div>
                         <div class="content32_author-details">
                           <div class="text-weight-semibold">
-                            {author?.fieldData.name}
+                            {author?.name}
                           </div>
                           <div class="author-position_wrapper">
                             <div class="text-size-small">
-                              {author?.fieldData.position}
+                              {author?.position}
                             </div>
                             <div class="text-size-small">, Jellypop</div>
                           </div>
@@ -346,7 +353,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                       <div class="button-group-4 summary_logo-wrapper">
                         <a
                           class="summary_icon_link-block w-inline-block"
-                          href={f["chatgpt-link-2"]}
+                          href={f["chatgpt-link"]}
                           target="_blank"
                           rel="noopener"
                           ><img
@@ -359,7 +366,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                         </a>
                         <a
                           class="summary_icon_link-block w-inline-block"
-                          href={f["perplexity-link-2"]}
+                          href={f["perplexity-link"]}
                           target="_blank"
                           rel="noopener"
                           ><img
@@ -373,7 +380,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                         </a>
                         <a
                           class="summary_icon_link-block w-inline-block"
-                          href={f["claude-link-2"]}
+                          href={f["claude-link"]}
                           target="_blank"
                           rel="noopener"
                           ><img
@@ -386,7 +393,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                         </a>
                         <a
                           class="summary_icon_link-block w-inline-block"
-                          href={f["gemini-link-2"]}
+                          href={f["gemini-link"]}
                           target="_blank"
                           rel="noopener"
                           ><img
@@ -434,7 +441,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                     fs-toc-hideurlhash="true"
                     id="content"
                     rel="no-follow"
-                    set:html={f["rich-text-field"]}
+                    set:html={f.content}
                   />
                   {
                     faqs.length > 0 && (
@@ -456,7 +463,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                                   <div class="faq_toggle w-dropdown-toggle">
                                     <div class="faq-question_wrapper">
                                       <div class="faq-question text-color-shade-black">
-                                        {faq.fieldData.name}
+                                        {faq.question}
                                       </div>
                                       <div class="faq-toogler">
                                         <div class="faq-minus" />
@@ -468,7 +475,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                                     <div class="faq-tab_content">
                                       <div
                                         class="faq_paragraph text-color-shade-black-70 w-richtext"
-                                        set:html={faq.fieldData["answer-2"]}
+                                        set:html={faq.answer}
                                       />
                                     </div>
                                   </nav>
@@ -565,38 +572,35 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
                 role="list"
               >
                 {
-                  posts
-                    .filter((post) => post.fieldData.slug !== f.slug)
-                    .slice(0, 3)
-                    .map((post) => (
+                  relatedPosts.map((post) => (
                       <div
                         class="blog-categories-collection_item w-dyn-item"
                         role="listitem"
                       >
                         <a
                           class="blog-categories-item_wrapper w-inline-block"
-                          href={`/blog/${post.fieldData.slug}`}
+                          href={`/blog/${post.slug}`}
                         >
                           <div class="blog-post-image_wrapper">
                             <img
                               alt={
-                                post.fieldData["alt-text-blog-cover"] ||
-                                post.fieldData.name
+                                post["thumbnail-alt"] ||
+                                post.name
                               }
                               class="blogs_image"
                               loading="lazy"
-                              src={post.fieldData["blog-thumbnail"]?.url}
+                              src={post.thumbnail}
                               style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
                             />
                           </div>
                           <div class="blogs-description_wrapper">
                             <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent">
-                              {post.fieldData.name}
+                              {post.name}
                             </h2>
                             <div class="blog-category_wrapper">
                               {post.categories.map((cat) => (
                                 <div class="blogs-category_wrapper">
-                                  {cat.fieldData.name}
+                                  {cat.name}
                                 </div>
                               ))}
                             </div>
@@ -614,7 +618,7 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
     </div>
     <div>
       <GlobalEmbeds />
-      <PopupForm pageId={post.fieldData.slug} />
+      <PopupForm pageId={post.slug} />
     </div>
     <dialog class="image-lightbox" aria-label="Image preview">
       <button
@@ -647,11 +651,11 @@ const url = `https://www.jellypop.design/blog/${f.slug}`;
         headline: f.name,
         description: description,
         image: image,
-        datePublished: f["published-date"] || post.createdOn,
-        dateModified: post.lastUpdated,
+        datePublished: f["published-date"],
+        dateModified: f["updated-date"] || f["published-date"],
         mainEntityOfPage: url,
         author: author
-          ? { "@type": "Person", name: author.fieldData.name }
+          ? { "@type": "Person", name: author.name }
           : undefined,
         publisher: { "@type": "Organization", name: "Jellypop Studio" },
       })}
