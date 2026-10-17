@@ -18,6 +18,9 @@ const {
 } = Astro.props;
 const siteUrl = "https://www.jellypop.design";
 const canonical = `${siteUrl}${canonicalPath}`;
+const formEndpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || ""; // Google Apps Script /exec URL for forms
+console.log("=================", formEndpoint);
+
 const ogImageUrl = ogImage
   ? `${siteUrl}${ogImage}`
   : `${siteUrl}/images/og-image.jpg`;
@@ -185,6 +188,75 @@ const ogImageUrl = ogImage
       src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67fcb445aacc24d0d7bdcb28"
     ></script>
     <script is:inline src="/js/webflow.js"></script>
+
+    <!-- Form submissions (any form with data-mail-form) go to a Google Apps
+         Script that saves them to Google Sheets and emails them
+         (see scripts/google-sheet-apps-script.gs).
+         Runs in the capture phase so Webflow's own form handler never fires. -->
+    <script is:inline define:vars={{ FORM_ENDPOINT: formEndpoint }}>
+      (function () {
+        // FORM_ENDPOINT comes from PUBLIC_FORM_ENDPOINT in .env (Google Apps Script /exec URL)
+
+        document.addEventListener(
+          "submit",
+          function (e) {
+            var form = e.target;
+            if (!form.matches || !form.matches("form[data-mail-form]")) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            var block = form.closest(".w-form") || form.parentNode;
+            var done = block.querySelector(".w-form-done");
+            var fail = block.querySelector(".w-form-fail");
+            var button = form.querySelector('[type="submit"]');
+            var buttonText = button && button.value;
+            if (button) {
+              button.disabled = true;
+              button.value = button.getAttribute("data-wait") || "Please wait...";
+            }
+            if (fail) fail.style.display = "none";
+
+            var body = new URLSearchParams();
+            body.append("Form", form.getAttribute("data-name") || "Submissions");
+            new FormData(form).forEach(function (value, key) {
+              body.append(key, value);
+            });
+            body.append("Page URL", window.location.href);
+
+            // Plain form-encoded POST (no custom headers) so the Apps Script
+            // response is readable cross-origin.
+            fetch(FORM_ENDPOINT, { method: "POST", body: body })
+              .then(function (res) {
+                return res.json().then(function (json) {
+                  if (!res.ok || !json.success) {
+                    throw new Error(json.error || "Submission failed");
+                  }
+                });
+              })
+              .then(function () {
+                form.reset();
+                form.style.display = "none";
+                block.classList.add("is-submitted");
+                if (done) {
+                  done.style.display = "block";
+                  done.focus();
+                }
+              })
+              .catch(function (err) {
+                console.error(err);
+                if (fail) fail.style.display = "block";
+              })
+              .finally(function () {
+                if (button) {
+                  button.disabled = false;
+                  button.value = buttonText;
+                }
+              });
+          },
+          true
+        );
+      })();
+    </script>
     <script
       is:inline
       src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"

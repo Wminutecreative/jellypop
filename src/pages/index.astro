@@ -2057,7 +2057,7 @@ import PopupForm from "../components/PopupForm.astro";
         </div>
       </section>
 
-      <section class="home_before-after" id="cta-section">
+      <!-- <section class="home_before-after" id="cta-section">
         <div class="padding-section-medium">
           <div class="padding-global">
             <div class="home_together_wrapper">
@@ -2077,8 +2077,8 @@ import PopupForm from "../components/PopupForm.astro";
             </div>
           </div>
         </div>
-      </section>
-      <!-- <section class="home_cta" id="cta-section">
+      </section> -->
+      <section class="home_cta" id="cta-section">
         <div class="padding-section-medium">
           <div class="padding-global">
             <div class="container-large">
@@ -2111,6 +2111,7 @@ import PopupForm from "../components/PopupForm.astro";
                     data-wf-element-id="61e3fbf4-f14c-67a3-fb6d-a53cb716e02a"
                     data-wf-page-id="67fcb446aacc24d0d7bdcb9d"
                     id="wf-form-CTA-Form"
+                    data-mail-form
                     method="get"
                     name="wf-form-CTA-Form"
                   >
@@ -2314,14 +2315,29 @@ import PopupForm from "../components/PopupForm.astro";
                       </div>
                     </div>
                   </form>
-                  <div class="success-message w-form-done">
+                  <div
+                    class="form-success is-dark w-form-done"
+                    role="status"
+                    aria-live="polite"
+                    tabindex="-1"
+                  >
+                    <div class="form-success_icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M5 12.5l4.5 4.5L19 7.5"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
                     <div class="heading-style-h5 text-weight-semibold">
-                      We Have Received Your Details
+                      We’ve received your details
                     </div>
-                    <div class="padding-bottom padding-small"></div>
-                    <div class="text-size-medium">
-                      We will contact you soon..
-                    </div>
+                    <p class="form-success_text">
+                      Thanks for reaching out. Our team will get back to you
+                      within one working day.
+                    </p>
                   </div>
                   <div class="w-form-fail">
                     <div>
@@ -2333,7 +2349,7 @@ import PopupForm from "../components/PopupForm.astro";
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <div class="section_concern">
         <div class="padding-section-medium">
           <div class="padding-global">

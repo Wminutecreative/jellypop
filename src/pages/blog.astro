@@ -4,11 +4,11 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import GlobalEmbeds from "../components/GlobalEmbeds.astro";
 import PopupForm from "../components/PopupForm.astro";
-import { getBlogPosts, getCategories, resolveRefs } from "../lib/content.js";
+import { getBlogPosts, getCategoryBySlug } from "../lib/content.js";
 
 const posts = getBlogPosts().map((post) => ({
   ...post,
-  categories: resolveRefs(post.fieldData["blog-categories"], getCategories()),
+  categories: [getCategoryBySlug(post.category)].filter(Boolean),
 }));
 ---
 
@@ -63,28 +63,25 @@ const posts = getBlogPosts().map((post) => ({
                     >
                       <a
                         class="blog-categories-item_wrapper w-inline-block"
-                        href={`/blog/${post.fieldData.slug}`}
+                        href={`/blog/${post.slug}`}
                       >
                         <div class="blog-post-image_wrapper">
                           <img
-                            alt={
-                              post.fieldData["alt-text-blog-cover"] ||
-                              post.fieldData.name
-                            }
+                            alt={post["thumbnail-alt"] || post.name}
                             class="blogs_image"
                             loading="lazy"
-                            src={post.fieldData["blog-thumbnail"]?.url}
+                            src={post.thumbnail}
                             style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
                           />
                         </div>
                         <div class="blogs-description_wrapper">
                           <h2 class="blog-featured-post_heading text-size-1-25rem line-height-130percent">
-                            {post.fieldData.name}
+                            {post.name}
                           </h2>
                           <div class="blog-category_wrapper">
                             {post.categories.map((cat) => (
                               <div class="blogs-category_wrapper">
-                                {cat.fieldData.name}
+                                {cat.name}
                               </div>
                             ))}
                           </div>

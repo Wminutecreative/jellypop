@@ -5,6 +5,11 @@
 // Pulls every item from your Webflow CMS collections and writes them to
 // src/data/*.json. Re-run this any time your Webflow content
 // changes — it's a one-way export, not a live sync.
+//
+// WARNING: src/data/*.json now uses a simplified, hand-edited format (no ids,
+// no fieldData, FAQs inside each post). This script writes the raw Webflow
+// format, which the site no longer reads, and would overwrite manual edits.
+// Don't run it unless you convert its output to the new format.
 
 import { writeFile, mkdir } from "node:fs/promises";
 
