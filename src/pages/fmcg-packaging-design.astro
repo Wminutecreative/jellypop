@@ -1,0 +1,1396 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import GlobalEmbeds from "../components/GlobalEmbeds.astro";
+import PopupForm from "../components/PopupForm.astro";
+
+const stats = [
+  { value: "50+", label: "FMCG and D2C brands have trusted Jellypop with their packaging." },
+  { value: "8+ Years", label: "Designing packaging that has to earn its shelf space, not just look good on a screen." },
+  { value: "92%", label: "Of clients come back to us for their next SKU line extension." },
+];
+
+const brands = ["NutriVeda", "Pure Botanics", "Craft Brew", "Aura Home", "Vitality Science", "Artisan Olive"];
+
+const rules = [
+  {
+    icon: "target",
+    title: "Attention Here Is Borrowed, Not Owned",
+    text: "Your competitor is one shelf-facing away from stealing the exact three seconds you needed.",
+  },
+  {
+    icon: "search",
+    title: "Small Is the Real Test",
+    text: "A design that looks premium at full size can collapse into noise at 400×400 pixels on a Blinkit or Amazon listing. If it doesn't hold at thumbnail size, it doesn't work.",
+  },
+  {
+    icon: "meeting",
+    title: "One Meeting Decides Retail",
+    text: "A modern trade buyer at a chain like D-Mart or Reliance Smart forms a verdict on your brand in a single sit-down, largely from what your packaging tells them before you've said a word.",
+  },
+  {
+    icon: "shield",
+    title: "Compliance Isn't a Constraint You Fight",
+    text: "Compliance is one you design inside of. FSSAI requirements are non-negotiable. The brands that win make them invisible to the shopper instead of letting them dominate the label.",
+  },
+];
+
+const approach = [
+  {
+    title: "Scientific Packaging Performance™",
+    text: "Before any design decision gets made, we map your category: what's actually winning shelf space right now, how your competitors perform at thumbnail scale, what a retail buyer expects walking into a meeting about your category.",
+  },
+  {
+    title: "Packaging Resonance Sprint™",
+    text: "A compressed sprint built to match how fast D2C actually moves, not how slow a traditional agency retainer moves. You see real, tested design directions early, validated against actual market conditions before printing.",
+  },
+];
+
+const process = [
+  { title: "Map the Category", text: "Competitor shelf and thumbnail audit, retail buyer expectations for your space." },
+  { title: "Design Against the Map", text: "Directions built from what's proven to work in your category, not from taste alone." },
+  { title: "Pressure-Test Before Print", text: "Validated at shelf scale, thumbnail scale, and buyer-meeting scale." },
+  { title: "Hand Off Clean", text: "Dieline-ready, FSSAI-compliant, print-ready, with no late revisions discovered after printing." },
+];
+
+const deliverables = [
+  {
+    title: "Packaging Design",
+    text: "Primary and secondary packaging, SKU systems, multilingual labels, FSSAI-compliant, dieline-ready, built to survive contact with an actual shelf.",
+  },
+  {
+    title: "Packaging Redesign",
+    text: "A redesign that keeps the equity your loyal buyers recognise while fixing what's costing you on shelf and in the thumbnail.",
+  },
+  {
+    title: "Structural & Bespoke Packaging",
+    text: "Custom boxes, closures, and unboxing structures engineered for your product, your print vendor, and your margin.",
+  },
+  {
+    title: "Quick-Commerce & Retail-Ready Packaging",
+    text: "Packs and listing assets designed to win the tap on Blinkit, Zepto, and Amazon, and the facing on a modern trade shelf.",
+  },
+  {
+    title: "NPD & Line Extension Support",
+    text: "A packaging system that absorbs new SKUs, flavours, and variants without a rebuild every time a new product ships.",
+  },
+];
+
+const categories = [
+  { img: "cat-food", title: "Food & Snacks", text: "Pouches, snack boxes, artisanal dry food wraps." },
+  { img: "cat-beverages", title: "Beverages", text: "Ready-to-drink cans, glass bottles, functional juices." },
+  { img: "cat-personal-care", title: "Personal Care & Beauty", text: "Skincare jars, cosmetic cartons, hair care bottles." },
+  { img: "cat-oils", title: "Oils & Condiments", text: "Glass oil bottles, sauce jars, specialty condiment labels." },
+  { img: "cat-health", title: "Health & Wellness", text: "Nutraceutical jars, supplement tubs, daily wellness packs." },
+  { img: "cat-baby", title: "Baby & Household", text: "Eco-friendly home care, non-toxic baby essentials packaging." },
+];
+
+const work = [
+  { img: "work-nutriveda", tag: "Packaging Redesign", title: "NutriVeda Organics", text: "Primary & Secondary Packaging System" },
+  { img: "work-craftbrew", tag: "Quick-Commerce Ready", title: "Craft Brew Co.", text: "Beverage Label & Structure" },
+  { img: "work-purebotanics", tag: "NPD & Line Extension", title: "Pure Botanics", text: "Beauty & Personal Care Range" },
+  { img: null, tag: "Structural Packaging", title: "Aura Home & Fragrance", text: "Custom Unboxing Box & Closure" },
+  { img: null, tag: "FSSAI Dieline System", title: "Vitality Science", text: "Wellness Supplement Jar Line" },
+  { img: null, tag: "Full Redesign", title: "Artisan Olive & Co.", text: "Gourmet Condiment Jar System" },
+];
+
+const caseStudies = [
+  {
+    title: "NutriVeda Organics",
+    badge: "+42% CTR in 30 Days",
+    stuck: "Blending into competitor clutter on quick-commerce apps like Blinkit and Zepto.",
+    changed: "Redesigned color hierarchy and high-contrast thumbnail typography.",
+    result: "+42% increase in thumbnail click-through rate within 30 days of release.",
+  },
+  {
+    title: "Pure Botanics",
+    badge: "120+ Retail Doors",
+    stuck: "Struggling to secure shelf placement with modern trade retail buyers.",
+    changed: "Re-architected structural packaging and standardized back-of-pack compliance.",
+    result: "Approved for nationwide distribution across 120+ retail supermarket doors.",
+  },
+];
+
+const reasons = [
+  {
+    title: "We Test Before You Print, Not After",
+    text: "Most packaging fails quietly, after the run is already paid for. Ours gets pressure-tested against shelf, thumbnail, and buyer scenarios first.",
+  },
+  {
+    title: "We Only Work in One Category: Indian D2C",
+    text: "Not a generalist studio picking up FMCG work between other briefs. Every process decision here comes from D2C growth economics specifically.",
+  },
+  {
+    title: "We Design for Two Buyers, Not One",
+    text: "The retail buyer deciding in a single meeting, and the shopper deciding in three seconds on a screen.",
+  },
+  {
+    title: "Your System Holds as You Grow",
+    text: "Launch with 3 SKUs. Scale to 30. The packaging system doesn't need a complete rebuild every time a new product ships.",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Jellypop completely reshaped how our packaging looks on Blinkit. Our click-through rate jumped noticeably within three weeks of launching the new pouches.",
+    name: "Rohan Sharma",
+    role: "Founder & CEO, NutriVeda",
+    avatar: "avatar-rohan",
+    badge: "Verified LinkedIn Review",
+  },
+  {
+    quote: "Walking into our Reliance Smart retail meeting with Jellypop's design deck made all the difference. The buyer approved our shelf facing in one sit-down.",
+    name: "Ananya Kapoor",
+    role: "Co-Founder, Craft Brew Co.",
+    avatar: "avatar-ananya",
+    badge: "Verified Google Review",
+  },
+  {
+    quote: "They didn't just design a pretty label; they solved our complex FSSAI compliance requirements seamlessly without compromising on aesthetics.",
+    name: "Vikram Mehta",
+    role: "Head of Product, Pure Botanics",
+    avatar: "avatar-vikram",
+    badge: "Direct Client Quote",
+  },
+];
+
+const faqs = [
+  {
+    q: "What does an FMCG packaging design agency actually do?",
+    a: "It designs the packaging that decides whether a shopper picks up your product or scrolls past it, on a shelf, in a retail buyer's hands, or in a thumbnail online. At Jellypop, that starts with mapping your category before a single design decision gets made.",
+  },
+  {
+    q: "What does FMCG packaging design cost?",
+    a: "It depends on the number of SKUs, whether you need structural work, and how many formats the design has to hold up in. We scope every project on a call so you get a fixed quote for exactly what you need, with no open-ended retainers.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "Most single-SKU projects move from category mapping to print-ready files in a few weeks. Multi-SKU systems and structural packaging take longer. You'll get a clear timeline before we start, built around your print and launch dates.",
+  },
+  {
+    q: "Will this work for an early-stage brand, or only established ones?",
+    a: "Both. Early-stage brands get a packaging system that scales from their first few SKUs without a rebuild. Established brands get a redesign that keeps the equity their buyers recognise while fixing what's costing them sales.",
+  },
+  {
+    q: "What categories does Jellypop specialize in?",
+    a: "Food & snacks, beverages, personal care & beauty, oils & condiments, health & wellness, and baby & household — the categories where Indian D2C is actually growing.",
+  },
+  {
+    q: "Do you design for quick commerce specifically, or just retail shelf?",
+    a: "Both, and on purpose. Every design is pressure-tested at thumbnail scale for Blinkit, Zepto, and Amazon listings, and at shelf scale for modern trade, so it works wherever your shopper meets it.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="FMCG Packaging Design Agency for Indian D2C Brands | Jellypop"
+  description="Jellypop designs FMCG packaging for Indian D2C brands built to convert on shelf, in a quick-commerce thumbnail, and across the table from a retail buyer."
+  canonicalPath="/fmcg-packaging-design"
+>
+  <Fragment slot="head-extra">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="page-wrapper">
+    <GlobalEmbeds />
+    <main class="main-wrapper">
+      <Navbar current="page" />
+
+      <div class="fp">
+        <!-- Hero -->
+        <section class="fp-section fp-bg-cream fp-hero">
+          <div class="fp-container fp-hero_grid">
+            <div class="fp-hero_content">
+              <div class="fp-pill">
+                The FMCG packaging design agency Indian D2C brands call before their next print run
+              </div>
+              <h1 class="fp-h1">
+                Bad Packaging Is <span class="fp-accent">Quietly Costing You More</span> Than a Redesign Ever Will
+              </h1>
+              <p class="fp-lead">
+                Jellypop designs FMCG packaging for Indian D2C brands built to convert on shelf, in a thumbnail, and
+                across the table from a retail buyer, not just in a design deck.
+              </p>
+              <a class="fp-btn" href="#" data-popup-open>Book a Call</a>
+              <div class="fp-rating">
+                <span class="fp-stars" aria-hidden="true">★★★★★</span>
+                <span>4.9/5 from 50+ D2C founders we've worked with</span>
+              </div>
+              <p class="fp-note">
+                No proposal. No pressure. Just a working session on what your packaging is actually doing for you right now.
+              </p>
+            </div>
+            <div class="fp-hero_media">
+              <img src="/images/fmcg/hero.jpg" alt="Jellypop designers reviewing FMCG packaging samples" width="872" height="488" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats + trust -->
+        <section class="fp-stats">
+          <div class="fp-container fp-stats_grid">
+            {stats.map((s) => (
+              <div class="fp-stat">
+                <div class="fp-stat_value">{s.value}</div>
+                <p>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section class="fp-trust">
+          <div class="fp-container">
+            <div class="fp-eyebrow fp-eyebrow-muted">Trusted by Indian D2C brands across FMCG</div>
+            <ul class="fp-trust_list">
+              {brands.map((b) => <li>{b}</li>)}
+            </ul>
+          </div>
+        </section>
+
+        <!-- Problem -->
+        <section class="fp-section fp-problem" id="the-problem">
+          <div class="fp-container">
+            <div class="fp-eyebrow">The Problem</div>
+            <div class="fp-problem_grid">
+              <h2 class="fp-problem_quote">
+                You didn't raise capital, or reinvest your own margin, to spend it explaining your product twice.
+              </h2>
+              <div class="fp-problem_body">
+                <p>
+                  But that's what weak packaging does. It forces you to buy back attention you should have earned for
+                  free. Every rupee spent on ads to compensate for a product shoppers scroll past is a rupee your
+                  packaging should have saved you.
+                </p>
+                <div class="fp-callout">
+                  <div class="fp-callout_value">~30%</div>
+                  <div class="fp-callout_title">CAC across Indian D2C is up nearly year on year.</div>
+                  <p>
+                    Some of that is the market. Some of it is packaging quietly failing at the one job it has: making a
+                    stranger stop, trust, and buy, without an ad budget doing the convincing for it.
+                  </p>
+                </div>
+                <p>
+                  A retail buyer who passes on your brand isn't rejecting your product. They're rejecting how it looks
+                  next to everyone else's on the same shelf. A shopper who scrolls past your Blinkit listing isn't
+                  judging your formula. They're judging a thumbnail that had a fraction of a second to earn a tap.
+                </p>
+              </div>
+            </div>
+            <p class="fp-statement">
+              This is fixable. It just has to be fixed at the packaging, not with a bigger ad budget papering over it.
+            </p>
+          </div>
+        </section>
+
+        <!-- FMCG rules -->
+        <section class="fp-section fp-bg-cream" id="fmcg-rules">
+          <div class="fp-container">
+            <div class="fp-head">
+              <div class="fp-eyebrow">FMCG Rules</div>
+              <h2 class="fp-h2">Why FMCG Packaging Is Different</h2>
+              <p class="fp-sub">
+                Packaging for FMCG plays by different rules than almost any other design category, and most agencies
+                design for the wrong ones.
+              </p>
+            </div>
+            <div class="fp-grid-4">
+              {rules.map((r) => (
+                <div class="fp-card fp-rule">
+                  <div class="fp-icon" aria-hidden="true">
+                    {r.icon === "target" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3.5" fill="currentColor" /></svg>
+                    )}
+                    {r.icon === "search" && (
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+                    )}
+                    {r.icon === "meeting" && (
+                      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8.5" cy="12" r="6" opacity=".75" /><circle cx="15.5" cy="12" r="6" opacity=".75" /></svg>
+                    )}
+                    {r.icon === "shield" && (
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" /></svg>
+                    )}
+                  </div>
+                  <h3 class="fp-rule_title">{r.title}</h3>
+                  <p>{r.text}</p>
+                </div>
+              ))}
+            </div>
+            <p class="fp-statement">
+              Every one of these is a design problem before it's a marketing problem. That's the category Jellypop works
+              in daily.
+            </p>
+          </div>
+        </section>
+
+        <!-- Methodology -->
+        <section class="fp-section fp-bg-blush" id="our-approach">
+          <div class="fp-container">
+            <div class="fp-head">
+              <div class="fp-eyebrow">Methodology</div>
+              <h2 class="fp-h2 fp-method_title">
+                We don't open with a <span class="fp-accent">mood board</span>. We open with
+                <span class="fp-accent">your shelf, your buyer</span>, and your competitor's last five SKUs.
+              </h2>
+              <h3 class="fp-h4">Our Approach</h3>
+            </div>
+            <div class="fp-grid-2">
+              {approach.map((a) => (
+                <div class="fp-card fp-approach">
+                  <h3 class="fp-approach_title">{a.title}</h3>
+                  <p>{a.text}</p>
+                </div>
+              ))}
+            </div>
+            <h3 class="fp-h3 fp-process_title">Our Process</h3>
+            <ol class="fp-grid-4 fp-process">
+              {process.map((p, i) => (
+                <li class="fp-card fp-step">
+                  <span class="fp-step_num">{i + 1}</span>
+                  <h4 class="fp-step_title">{p.title}</h4>
+                  <p>{p.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <!-- What we deliver -->
+        <section class="fp-section" id="what-we-deliver">
+          <div class="fp-container fp-split">
+            <div class="fp-split_intro">
+              <div class="fp-eyebrow">What We Deliver</div>
+              <h2 class="fp-h2">What We Deliver</h2>
+              <p class="fp-sub fp-sub-left">
+                Five ways Jellypop packaging work shows up, from a single label to a full multi-SKU system.
+              </p>
+            </div>
+            <div class="fp-accordion">
+              {deliverables.map((d, i) => (
+                <details class="fp-acc" open={i === 0}>
+                  <summary>
+                    <span>{d.title}</span>
+                    <span class="fp-acc_icon" aria-hidden="true"></span>
+                  </summary>
+                  <p>{d.text}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Category expertise -->
+        <section class="fp-section fp-bg-cream" id="categories">
+          <div class="fp-container">
+            <div class="fp-head">
+              <h2 class="fp-h2">Category Expertise</h2>
+              <p class="fp-sub">Jellypop packages for the categories where Indian D2C is actually growing:</p>
+            </div>
+            <div class="fp-grid-3">
+              {categories.map((c) => (
+                <div class="fp-card fp-media-card">
+                  <img src={`/images/fmcg/${c.img}.jpg`} alt={`${c.title} packaging`} loading="lazy" width="768" height="392" />
+                  <div class="fp-media-card_body">
+                    <h3 class="fp-media-card_title">{c.title}</h3>
+                    <p>{c.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured work -->
+        <section class="fp-section" id="featured-work">
+          <div class="fp-container">
+            <div class="fp-head">
+              <h2 class="fp-h2">Featured Work</h2>
+              <p class="fp-sub">Packaging that had to earn its shelf space before it earned a place in this portfolio.</p>
+            </div>
+            <div class="fp-grid-3">
+              {work.map((w) => (
+                <div class="fp-card fp-media-card fp-work">
+                  <div class="fp-work_media">
+                    <span class="fp-tag">{w.tag}</span>
+                    {w.img ? (
+                      <img src={`/images/fmcg/${w.img}.jpg`} alt={`${w.title} packaging`} loading="lazy" width="768" height="332" />
+                    ) : (
+                      <div class="fp-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-5-5L5 21" /></svg>
+                        <span>{w.title} packaging shot</span>
+                      </div>
+                    )}
+                  </div>
+                  <div class="fp-media-card_body">
+                    <h3 class="fp-media-card_title">{w.title}</h3>
+                    <p>{w.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Case studies -->
+        <section class="fp-section fp-bg-cream" id="case-studies">
+          <div class="fp-container">
+            <div class="fp-head">
+              <h2 class="fp-h2">Case Studies</h2>
+            </div>
+            <div class="fp-cases">
+              {caseStudies.map((c) => (
+                <article class="fp-card fp-case">
+                  <div class="fp-placeholder fp-case_media">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-5-5L5 21" /></svg>
+                    <span>{c.title} product photo</span>
+                  </div>
+                  <div class="fp-case_body">
+                    <div class="fp-eyebrow">Case Study</div>
+                    <div class="fp-case_head">
+                      <h3 class="fp-h3">{c.title}</h3>
+                      <span class="fp-badge">{c.badge}</span>
+                    </div>
+                    <p><strong>Where they were stuck:</strong> {c.stuck}</p>
+                    <p><strong>What changed:</strong> {c.changed}</p>
+                    <p><strong>What it did for them:</strong> {c.result}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Jellypop -->
+        <section class="fp-section" id="why-jellypop">
+          <div class="fp-container fp-split">
+            <div class="fp-split_intro">
+              <div class="fp-eyebrow">Why Jellypop</div>
+              <h2 class="fp-h2">Why Choose Jellypop</h2>
+              <p class="fp-sub fp-sub-left">
+                Four things a generalist studio can't offer an FMCG brand, because they're not built around this category.
+              </p>
+            </div>
+            <ol class="fp-reasons">
+              {reasons.map((r, i) => (
+                <li class="fp-reason">
+                  <span class="fp-reason_num">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 class="fp-reason_title">{r.title}</h3>
+                    <p>{r.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="fp-section fp-bg-cream" id="testimonials">
+          <div class="fp-container">
+            <div class="fp-head">
+              <h2 class="fp-h2">Testimonials</h2>
+              <p class="fp-sub">Real feedback from founders whose packaging we've put to work.</p>
+            </div>
+            <div class="fp-grid-3">
+              {testimonials.map((t) => (
+                <figure class="fp-card fp-testimonial">
+                  <div class="fp-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <blockquote>“{t.quote}”</blockquote>
+                  <figcaption>
+                    <img src={`/images/fmcg/${t.avatar}.jpg`} alt="" loading="lazy" width="56" height="56" />
+                    <div>
+                      <div class="fp-testimonial_name">{t.name}</div>
+                      <div class="fp-testimonial_role">{t.role}</div>
+                    </div>
+                  </figcaption>
+                  <span class="fp-verified">✓ {t.badge}</span>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ + newsletter -->
+        <section class="fp-section" id="faq">
+          <div class="fp-container fp-faq_grid">
+            <div>
+              <h2 class="fp-h2">Frequently Asked Questions</h2>
+              <div class="fp-faq_list">
+                {faqs.map((f, i) => (
+                  <details class="fp-faq" open={i === 0}>
+                    <summary>
+                      <span>{f.q}</span>
+                      <span class="fp-acc_icon" aria-hidden="true"></span>
+                    </summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+            <aside class="fp-newsletter">
+              <div class="fp-eyebrow">Newsletter</div>
+              <h3 class="fp-newsletter_title">Packaging notes worth reading</h3>
+              <p>
+                One email a month on shelf tests, thumbnail data, and what's actually working for Indian D2C brands right now.
+              </p>
+              <form class="fp-newsletter_form" onsubmit="return false;">
+                <label class="fp-visually-hidden" for="fp-newsletter-email">Email address</label>
+                <input id="fp-newsletter-email" type="email" name="email" placeholder="you@brand.com" required />
+                <button type="submit">Subscribe</button>
+              </form>
+              <small>No spam. Unsubscribe anytime.</small>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="fp-section fp-bg-dark fp-cta" id="cta-section">
+          <div class="fp-container">
+            <h2 class="fp-h2">Stop Paying Ad Budget to Cover for Packaging That Should Be Selling on Its Own</h2>
+            <p class="fp-sub">
+              Every brand losing sales to weaker competitors with better-looking packaging is spending money it doesn't
+              have to. Book a call and find out whether your packaging is helping you or quietly costing you.
+            </p>
+            <a class="fp-btn" href="#" data-popup-open>Book a Call</a>
+            <div class="fp-rating fp-rating-center">
+              <span class="fp-stars" aria-hidden="true">★★★★★</span>
+              <span>Trusted by 50+ Indian D2C brands</span>
+            </div>
+            <p class="fp-note">No proposal. No pressure. Just a straight conversation about what's working and what isn't.</p>
+          </div>
+        </section>
+      </div>
+
+      <Footer current="page" />
+    </main>
+    <PopupForm pageId="fmcg-packaging-design" />
+  </div>
+</Layout>
+
+<style>
+  .fp {
+    --fp-coral: #ff6c68;
+    --fp-ink: #1a1c1f;
+    --fp-text: #5c5f66;
+    --fp-cream: #faf5ef;
+    --fp-blush: #fdf1ed;
+    --fp-pink: #fde6e1;
+    --fp-line: #ece6df;
+    --fp-dark: #181b1f;
+    color: var(--fp-ink);
+    font-family: var(--_typography---font-styles--body);
+  }
+  .fp p {
+    margin: 0;
+  }
+  .fp h1,
+  .fp h2,
+  .fp h3,
+  .fp h4 {
+    font-family: var(--_typography---font-styles--body);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Layout */
+  .fp-container {
+    width: 100%;
+    max-width: 82rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .fp-section {
+    padding: 6rem 0;
+  }
+  .fp-bg-cream {
+    background: var(--fp-cream);
+  }
+  .fp-bg-blush {
+    background: var(--fp-blush);
+    border-top: 1px solid var(--fp-pink);
+    border-bottom: 1px solid var(--fp-pink);
+  }
+  .fp-bg-dark {
+    background: var(--fp-dark);
+    color: #fff;
+  }
+  .fp-grid-2,
+  .fp-grid-3,
+  .fp-grid-4 {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .fp-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .fp-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .fp-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .fp-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* Type */
+  .fp-h1 {
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    line-height: 1.08;
+    font-weight: 800;
+  }
+  .fp-h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    font-weight: 800;
+  }
+  .fp-h3 {
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .fp-h4 {
+    font-size: 1.375rem;
+    font-weight: 600;
+  }
+  .fp-accent {
+    color: var(--fp-coral);
+  }
+  .fp-eyebrow {
+    color: var(--fp-coral);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .fp-eyebrow-muted {
+    color: #8a8d93;
+    text-align: center;
+  }
+  .fp-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--fp-text);
+  }
+  .fp-sub {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--fp-text);
+    max-width: 44rem;
+    margin: 1rem auto 0 !important;
+  }
+  .fp-sub-left {
+    margin: 1rem 0 0 !important;
+  }
+  .fp-head {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .fp-statement {
+    margin-top: 3rem !important;
+    text-align: center;
+    font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .fp-note {
+    font-style: italic;
+    color: #8a8d93;
+    font-size: 0.95rem;
+  }
+
+  /* Buttons, pills, stars */
+  .fp-btn {
+    display: inline-block;
+    background: var(--fp-coral);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.125rem;
+    padding: 1rem 2.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .fp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 108, 104, 0.35);
+  }
+  .fp-pill {
+    display: inline-block;
+    background: var(--fp-pink);
+    color: var(--fp-coral);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+  }
+  .fp-stars {
+    color: #f2a33a;
+    letter-spacing: 0.1em;
+  }
+  .fp-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .fp-rating-center {
+    justify-content: center;
+  }
+
+  /* Cards */
+  .fp-card {
+    background: #fff;
+    border: 1px solid var(--fp-line);
+    border-radius: 1.5rem;
+  }
+  .fp-card p {
+    color: var(--fp-text);
+    line-height: 1.6;
+  }
+
+  /* Hero */
+  .fp-hero {
+    padding: 5rem 0 6rem;
+  }
+  .fp-hero_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 4rem;
+    align-items: center;
+  }
+  .fp-hero_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+  .fp-hero_content .fp-note {
+    margin-top: -1rem;
+  }
+  .fp-hero_media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 2rem;
+    display: block;
+  }
+
+  /* Stats & trust */
+  .fp-stats {
+    border-top: 1px solid var(--fp-line);
+    border-bottom: 1px solid var(--fp-line);
+    padding: 3rem 0;
+  }
+  .fp-stats_grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .fp-stat {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+  .fp-stat + .fp-stat {
+    border-left: 1px solid var(--fp-line);
+  }
+  .fp-stat_value {
+    color: var(--fp-coral);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .fp-stat p {
+    color: var(--fp-text);
+    max-width: 22rem;
+    margin: 0 auto;
+  }
+  .fp-trust {
+    padding: 3.5rem 0 0;
+  }
+  .fp-trust_list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 3.5rem;
+  }
+  .fp-trust_list li {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #6f7277;
+    letter-spacing: 0.02em;
+  }
+
+  /* Problem */
+  .fp-problem_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 4rem;
+    align-items: start;
+  }
+  .fp-problem_quote {
+    border-left: 4px solid var(--fp-coral);
+    padding-left: 2rem;
+    font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .fp-problem_body {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .fp-problem_body > p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--fp-text);
+  }
+  .fp-callout {
+    background: var(--fp-pink);
+    border-radius: 1.5rem;
+    padding: 2rem 2.25rem;
+  }
+  .fp-callout_value {
+    color: var(--fp-coral);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .fp-callout_title {
+    font-weight: 700;
+    margin: 0.75rem 0 0.5rem;
+  }
+  .fp-callout p {
+    color: var(--fp-text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Rules */
+  .fp-rule {
+    padding: 2rem 1.75rem;
+  }
+  .fp-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    background: var(--fp-pink);
+    color: var(--fp-coral);
+    display: grid;
+    place-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .fp-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .fp-rule_title {
+    color: var(--fp-coral);
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Methodology */
+  .fp-method_title {
+    max-width: 58rem;
+    margin: 0 auto 2.5rem !important;
+  }
+  .fp-approach {
+    padding: 2.5rem;
+  }
+  .fp-approach_title {
+    color: var(--fp-coral);
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 1rem !important;
+  }
+  .fp-process_title {
+    margin: 5rem 0 2rem !important;
+  }
+  .fp-process {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .fp-step {
+    padding: 2rem 1.75rem;
+    border-left: 4px solid var(--fp-coral);
+  }
+  .fp-step_num {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--fp-coral);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .fp-step_title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Accordions (deliverables + FAQ) */
+  .fp-acc,
+  .fp-faq {
+    border-bottom: 1px solid var(--fp-line);
+  }
+  .fp-acc summary,
+  .fp-faq summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 600;
+  }
+  .fp-acc summary::-webkit-details-marker,
+  .fp-faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .fp-acc summary {
+    padding: 1.75rem 0.5rem;
+    font-size: 1.375rem;
+  }
+  .fp-acc p {
+    padding: 0 0.5rem 2rem;
+    max-width: 52rem;
+    color: var(--fp-text);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+  .fp-acc_icon {
+    flex: none;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--fp-pink);
+  }
+  .fp-acc_icon::before,
+  .fp-acc_icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    height: 2px;
+    background: var(--fp-coral);
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+  }
+  .fp-acc_icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  details[open] > summary .fp-acc_icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  /* Media cards */
+  .fp-media-card {
+    overflow: hidden;
+  }
+  .fp-media-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+  }
+  .fp-media-card_body {
+    padding: 1.75rem 2rem 2rem;
+  }
+  .fp-media-card_title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 0.375rem !important;
+  }
+  .fp-work {
+    background: var(--fp-cream);
+  }
+  .fp-work_media {
+    position: relative;
+  }
+  .fp-work_media img,
+  .fp-work_media .fp-placeholder {
+    aspect-ratio: 16 / 10;
+  }
+  .fp-work_media .fp-placeholder {
+    border-radius: 0;
+    border-width: 0 0 1px;
+  }
+  .fp-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    background: var(--fp-dark);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+  }
+  .fp-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1rem;
+    background: #f1ede7;
+    border: 1px dashed #b9b4ad;
+    border-radius: 1rem;
+    color: #55585e;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .fp-placeholder svg {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  /* Case studies */
+  .fp-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .fp-case {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 3rem;
+    padding: 2rem;
+    align-items: start;
+  }
+  .fp-case_media {
+    aspect-ratio: 1;
+    background: #f4f4f4;
+  }
+  .fp-case_body {
+    padding-top: 0.5rem;
+  }
+  .fp-case_head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .fp-case_body p {
+    font-size: 1.0625rem;
+    margin-top: 0.75rem !important;
+  }
+  .fp-case_body strong {
+    color: var(--fp-ink);
+  }
+  .fp-badge {
+    background: var(--fp-pink);
+    color: var(--fp-coral);
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+  }
+
+  /* Why Jellypop */
+  .fp-reasons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .fp-reason {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1.5rem;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--fp-line);
+  }
+  .fp-reason:first-child {
+    padding-top: 0;
+  }
+  .fp-reason_num {
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--fp-pink);
+  }
+  .fp-reason_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem !important;
+  }
+  .fp-reason p {
+    color: var(--fp-text);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  /* Testimonials */
+  .fp-testimonial {
+    margin: 0;
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .fp-testimonial blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #3a3d42;
+  }
+  .fp-testimonial figcaption {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+  }
+  .fp-testimonial figcaption img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .fp-testimonial_name {
+    font-weight: 700;
+    font-size: 1.0625rem;
+  }
+  .fp-testimonial_role {
+    color: var(--fp-text);
+    font-size: 0.95rem;
+  }
+  .fp-verified {
+    background: #eef2fd;
+    color: #4a6ee0;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 999px;
+  }
+
+  /* FAQ + newsletter */
+  .fp-faq_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 5rem;
+    align-items: start;
+  }
+  .fp-faq_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  .fp-faq {
+    background: var(--fp-cream);
+    border: 1px solid var(--fp-line);
+    border-radius: 1.25rem;
+  }
+  .fp-faq summary {
+    padding: 1.75rem 2rem;
+    font-size: 1.125rem;
+  }
+  .fp-faq .fp-acc_icon {
+    background: transparent;
+  }
+  .fp-faq p {
+    padding: 0 2rem 1.75rem;
+    color: var(--fp-text);
+    line-height: 1.7;
+  }
+  .fp-newsletter {
+    position: sticky;
+    top: 7rem;
+    background: var(--fp-dark);
+    color: #fff;
+    border-radius: 2rem;
+    padding: 3rem;
+  }
+  .fp-newsletter_title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem !important;
+  }
+  .fp-newsletter p {
+    color: #c9ccd1;
+    line-height: 1.6;
+  }
+  .fp-newsletter_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0 1.25rem;
+  }
+  .fp-newsletter_form input {
+    background: #22262b;
+    border: 1px solid #383c42;
+    color: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font: inherit;
+  }
+  .fp-newsletter_form input::placeholder {
+    color: #80848a;
+  }
+  .fp-newsletter_form button {
+    background: var(--fp-coral);
+    color: #fff;
+    border: 0;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .fp-newsletter small {
+    color: #80848a;
+  }
+  .fp-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* Final CTA */
+  .fp-cta {
+    text-align: center;
+  }
+  .fp-cta .fp-h2 {
+    max-width: 62rem;
+    margin: 0 auto !important;
+  }
+  .fp-cta .fp-sub {
+    color: #b9bcc2;
+    max-width: 52rem;
+    margin-bottom: 2.5rem !important;
+  }
+  .fp-cta .fp-rating {
+    margin: 2rem 0 0.75rem;
+    color: #d8dade;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .fp-section {
+      padding: 4.5rem 0;
+    }
+    .fp-hero_grid,
+    .fp-problem_grid,
+    .fp-split,
+    .fp-faq_grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+    .fp-grid-4,
+    .fp-grid-3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .fp-newsletter {
+      position: static;
+    }
+  }
+  @media (max-width: 767px) {
+    .fp-container {
+      padding: 0 1rem;
+    }
+    .fp-section {
+      padding: 3.5rem 0;
+    }
+    .fp-hero {
+      padding: 3rem 0 3.5rem;
+    }
+    .fp-grid-2,
+    .fp-grid-3,
+    .fp-grid-4,
+    .fp-stats_grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .fp-stat + .fp-stat {
+      border-left: 0;
+      border-top: 1px solid var(--fp-line);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .fp-trust_list {
+      gap: 0.75rem 2rem;
+    }
+    .fp-trust_list li {
+      font-size: 1rem;
+    }
+    .fp-problem_quote {
+      padding-left: 1.25rem;
+    }
+    .fp-case {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+      padding: 1.25rem;
+    }
+    .fp-case_media {
+      aspect-ratio: 16 / 9;
+    }
+    .fp-reason {
+      grid-template-columns: 3.5rem 1fr;
+      gap: 1rem;
+    }
+    .fp-reason_num {
+      font-size: 2.5rem;
+    }
+    .fp-acc summary {
+      font-size: 1.125rem;
+      padding: 1.25rem 0;
+    }
+    .fp-acc p {
+      padding: 0 0 1.5rem;
+    }
+    .fp-faq summary {
+      padding: 1.25rem;
+      font-size: 1rem;
+    }
+    .fp-faq p {
+      padding: 0 1.25rem 1.25rem;
+    }
+    .fp-newsletter {
+      padding: 2rem 1.5rem;
+    }
+    .fp-approach,
+    .fp-testimonial {
+      padding: 1.75rem;
+    }
+  }
+</style>
