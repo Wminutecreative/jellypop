@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jellypop.design/sitemap-index.xml
